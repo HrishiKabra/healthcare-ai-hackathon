@@ -33,7 +33,7 @@ function sourceText(cv: ChartValue<unknown>, answers: Map<string, Answer>, freef
   return `${SOURCE_LABEL[a.source]}, answering "${q}"`;
 }
 
-export function LiveChart({ chart, answers, freeform }: { chart: ClinicalChart; answers: Answer[]; freeform: FreeformQuestion[] }) {
+export function LiveChart({ chart, answers, freeform, modeChosen = true }: { chart: ClinicalChart; answers: Answer[]; freeform: FreeformQuestion[]; modeChosen?: boolean }) {
   const byId = new Map(answers.map((a) => [a.id, a]));
   const rows = chartRows(chart);
   const filled = rows.filter((r) => r.values.length);
@@ -53,32 +53,34 @@ export function LiveChart({ chart, answers, freeform }: { chart: ClinicalChart; 
         </div>
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto pe-1">
-        {!filled.length ? <p className="rounded-xl border border-dashed border-line bg-surface p-4 text-sm text-ink-soft">The chart fills in as the patient answers. Pick a mode, then send the first question.</p> : null}
-        <dl className="flex flex-col gap-2">
+        {!filled.length ? <p className="rounded-xl border border-dashed border-line bg-surface p-4 text-sm text-ink-soft">The chart fills in as the patient answers. {modeChosen ? "Press Next question to send the first one." : "Pick how the patient communicates, then send the first question."}</p> : null}
+        <dl className="flex flex-col gap-1.5">
           {filled.map((r) => (
-            <div key={r.field} className={`rounded-xl border bg-surface px-3 py-2 ${r.conflict ? "border-warning" : "border-line"}`}>
-              <dt className="flex items-center gap-2 text-xs font-semibold text-ink-soft">
+            <div key={r.field} className={`grid grid-cols-[8.5rem_1fr] gap-x-3 rounded-xl border bg-surface px-3 py-2 ${r.conflict ? "border-warning" : "border-line"}`}>
+              <dt className="pt-0.5 text-xs font-semibold leading-snug text-ink-soft">
                 {r.label}
                 {r.conflict ? (
-                  <span className="flex items-center gap-1 rounded bg-warning-soft px-1.5 py-0.5 text-warning">
-                    <TriangleAlert size={12} aria-hidden /> Conflicting answers
+                  <span className="mt-1 flex w-fit items-center gap-1 rounded bg-warning-soft px-1.5 py-0.5 text-warning">
+                    <TriangleAlert size={12} aria-hidden /> Conflicting
                   </span>
                 ) : null}
               </dt>
-              {r.values.map((cv) => (
-                <dd
-                  key={`${cv.sourceAnswerId}-${JSON.stringify(cv.value)}`}
-                  className={`mt-1 rounded-lg px-2 py-1 ${cv.confirmed ? "" : "border border-dashed border-unconfirmed bg-unconfirmed-soft"}`}
-                >
-                  <div className="flex flex-wrap items-center gap-2">
-                    {cv.confirmed ? <CircleCheck size={16} className="text-ok" aria-label="Confirmed" /> : <CircleDashed size={16} className="text-unconfirmed" aria-label="Unconfirmed" />}
-                    <span className="font-semibold">{englishValue(r.field, cv.value)}</span>
-                    <span className={`rounded px-1.5 text-[11px] font-semibold ${CONF[cv.confidence]}`}>{cv.confidence} confidence</span>
-                    {!cv.confirmed ? <span className="text-[11px] font-semibold text-unconfirmed">Not confirmed</span> : null}
-                  </div>
-                  <p className="mt-0.5 text-xs text-muted">Source: {sourceText(cv, byId, freeform)}</p>
-                </dd>
-              ))}
+              <div className="flex min-w-0 flex-col gap-1">
+                {r.values.map((cv) => (
+                  <dd
+                    key={`${cv.sourceAnswerId}-${JSON.stringify(cv.value)}`}
+                    className={`rounded-lg ${cv.confirmed ? "" : "border border-dashed border-unconfirmed bg-unconfirmed-soft px-2 py-1"}`}
+                  >
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      {cv.confirmed ? <CircleCheck size={16} className="shrink-0 text-ok" aria-label="Confirmed" /> : <CircleDashed size={16} className="shrink-0 text-unconfirmed" aria-label="Unconfirmed" />}
+                      <span className="font-semibold">{englishValue(r.field, cv.value)}</span>
+                      <span className={`rounded px-1.5 text-[11px] font-semibold ${CONF[cv.confidence]}`}>{cv.confidence} confidence</span>
+                      {!cv.confirmed ? <span className="text-[11px] font-semibold text-unconfirmed">Not confirmed</span> : null}
+                    </div>
+                    <p className="mt-0.5 text-xs leading-snug text-muted">Source: {sourceText(cv, byId, freeform)}</p>
+                  </dd>
+                ))}
+              </div>
             </div>
           ))}
         </dl>

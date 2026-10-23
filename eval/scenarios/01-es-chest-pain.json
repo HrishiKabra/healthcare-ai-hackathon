@@ -1,0 +1,24 @@
+{
+  "id": "es-chest-pain",
+  "scenario": "es-chest-pain",
+  "title": "Spanish, chest pain (demo)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "chest_pain",
+      "quality": "pressure",
+      "severity": 7,
+      "radiation": [
+        "left_arm"
+      ]
+    },
+    "medicationClasses": [
+      "antidiabetic"
+    ],
+    "allergyCategories": [
+      "aspirin"
+    ],
+    "flags": [
+      "chest_pain_aspirin_allergy"
+    ]
+  }
+}

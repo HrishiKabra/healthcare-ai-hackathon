@@ -1,10 +1,9 @@
 import { baselineExtract } from "../baseline";
-import { getQuestion } from "../questions";
-import type { Question, RedFlag } from "../schemas";
+import type { RedFlag } from "../schemas";
 import { mockProvider, templateNarrative } from "../mock";
 import { anthropicProvider } from "./anthropic";
 import { readAiConfig, selectProvider, type AiConfig } from "./config";
-import { extractionToPatch } from "./extraction";
+import { extractionToPatch, questionForExtract } from "./extraction";
 import { ollamaProvider } from "./ollama";
 import { ProviderError, type AiProvider } from "./provider";
 import type { AiMeta, ExplainResponse, ExtractOutput, ExtractRequest, ExtractResponse, NarrativeResponse, TranslateRequest, TranslateResponse } from "./schemas";
@@ -31,25 +30,6 @@ async function timed<T>(fn: () => Promise<T>): Promise<{ value: T; ms: number }>
   const t0 = performance.now();
   const value = await fn();
   return { value, ms: Math.round(performance.now() - t0) };
-}
-
-/** Bank question, or a stand-in for a free-form EMT question (answers go to notes). */
-export function questionForExtract(r: ExtractRequest): Question {
-  const q = getQuestion(r.questionId);
-  if (q) return q;
-  return {
-    id: r.questionId,
-    phase: "closing",
-    english: r.questionEnglish,
-    answerType: "free",
-    choices: [],
-    chartField: "notes",
-    showIf: null,
-    icon: "chat",
-    translations: { es: r.questionEnglish, vi: r.questionEnglish, zh: r.questionEnglish, ar: r.questionEnglish, hi: r.questionEnglish },
-    translationsVerified: { es: false, vi: false, zh: false, ar: false, hi: false },
-    aslVideo: "",
-  };
 }
 
 export async function runTranslate(provider: AiProvider, r: TranslateRequest): Promise<TranslateResponse> {

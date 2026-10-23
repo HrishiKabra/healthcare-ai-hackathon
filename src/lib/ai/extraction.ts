@@ -1,7 +1,8 @@
 import { allergyFromQuickPick, structuredPatch, toDuration } from "../interpret";
 import { lookupMed, findMeds, normalizeMedication } from "../meds";
+import { getQuestion } from "../questions";
 import type { Allergy, AllergyCategory, PatchEntry, Question } from "../schemas";
-import type { ExtractOutput } from "./schemas";
+import type { ExtractOutput, ExtractRequest } from "./schemas";
 
 /** Allergy category from the med table when the substance is a known drug; the table wins. */
 export function normalizeAllergy(a: { raw: string; substance: string | null; category: AllergyCategory }): Allergy {
@@ -71,3 +72,23 @@ function dedupe(patch: PatchEntry[]): PatchEntry[] {
 export function hasStructured(patch: PatchEntry[]): boolean {
   return patch.some((e) => e.field !== "notes");
 }
+
+/** Bank question, or a stand-in for a free-form EMT question (answers go to notes). */
+export function questionForExtract(r: ExtractRequest): Question {
+  const q = getQuestion(r.questionId);
+  if (q) return q;
+  return {
+    id: r.questionId,
+    phase: "closing",
+    english: r.questionEnglish,
+    answerType: "free",
+    choices: [],
+    chartField: "notes",
+    showIf: null,
+    icon: "chat",
+    translations: { es: r.questionEnglish, vi: r.questionEnglish, zh: r.questionEnglish, ar: r.questionEnglish, hi: r.questionEnglish },
+    translationsVerified: { es: false, vi: false, zh: false, ar: false, hi: false },
+    aslVideo: "",
+  };
+}
+

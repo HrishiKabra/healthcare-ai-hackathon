@@ -1,0 +1,21 @@
+{
+  "id": "picture-stroke",
+  "scenario": "picture-stroke",
+  "title": "Picture board, stroke (demo)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "weakness_numbness",
+      "facialDroop": true,
+      "armDrift": true
+    },
+    "medicationClasses": [
+      "cardiac"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "stroke_alert"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "ar-chest-tearing",
+  "title": "Arabic, tearing chest pain to the back",
+  "language": "ar",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "عندي ألم شديد في صدري، كأنه يتمزق."
+    },
+    {
+      "questionId": "radiation",
+      "say": "ينتقل إلى ظهري."
+    },
+    {
+      "questionId": "severity",
+      "answer": {
+        "kind": "scale",
+        "value": 9
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "لا آخذ أي دواء."
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "chest_pain",
+      "quality": "tearing",
+      "severity": 9,
+      "radiation": [
+        "back"
+      ]
+    },
+    "medicationClasses": [
+      "none"
+    ],
+    "allergyCategories": [],
+    "flags": [
+      "aortic_dissection"
+    ]
+  }
+}

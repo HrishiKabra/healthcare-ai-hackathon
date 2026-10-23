@@ -1,0 +1,35 @@
+{
+  "id": "zh-aspirin-conflict",
+  "title": "Mandarin, chest tightness, denies then reports an aspirin allergy",
+  "language": "zh",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "胸口很闷，像有东西压着。"
+    },
+    {
+      "questionId": "allergy_any",
+      "say": "没有。"
+    },
+    {
+      "questionId": "anything_else",
+      "say": "其实我对阿司匹林过敏，吃了会起疹子。"
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "chest_pain",
+      "quality": "pressure"
+    },
+    "medicationClasses": [],
+    "allergyCategories": [
+      "aspirin",
+      "none"
+    ],
+    "flags": [
+      "chest_pain_aspirin_allergy",
+      "conflicting_meds_allergies"
+    ]
+  }
+}

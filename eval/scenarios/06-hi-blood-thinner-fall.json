@@ -1,0 +1,41 @@
+{
+  "id": "hi-blood-thinner-fall",
+  "title": "Hindi, fall on the stairs, blood thinner without a name",
+  "language": "hi",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "मैं सीढ़ियों से गिर गया और सिर में चोट लगी।"
+    },
+    {
+      "questionId": "severity",
+      "answer": {
+        "kind": "scale",
+        "value": 6
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "मैं खून पतला करने की दवा लेता हूँ।"
+    },
+    {
+      "questionId": "head_strike",
+      "say": "हाँ"
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "fall_injury",
+      "headStrike": true,
+      "severity": 6
+    },
+    "medicationClasses": [
+      "anticoagulant"
+    ],
+    "allergyCategories": [],
+    "flags": [
+      "anticoag_head"
+    ]
+  }
+}

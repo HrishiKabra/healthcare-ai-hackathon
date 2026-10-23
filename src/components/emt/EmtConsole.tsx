@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AutopilotBar } from "@/components/demo/AutopilotBar";
 import { ProviderBadge } from "@/components/shared/ProviderBadge";
-import { useAutopilot } from "@/hooks/useAutopilot";
+import { useConsoleControls, type ConsoleControls } from "@/hooks/useConsoleControls";
 import { explainFlag } from "@/lib/ai/client";
 import { questionStatus } from "@/lib/flow";
 import { FreeformComposer } from "./FreeformComposer";
@@ -30,18 +30,19 @@ export function EmtConsole({
   embedded = false,
   onEnded,
   belowChart,
-  autopilotExtras,
+  controls,
 }: {
   session: EmtSession;
   embedded?: boolean;
   onEnded?: () => void;
   belowChart?: React.ReactNode;
-  /** Extra controls in the autopilot bar (the /demo scenario picker). */
-  autopilotExtras?: React.ReactNode;
+  /** When given (the /demo page), the autopilot bar is rendered by the caller. */
+  controls?: ConsoleControls;
 }) {
-  const { state, dispatch, endCall, post, sendHandoff } = session;
-  const [autoAdvance, setAutoAdvance] = useState(false);
-  const ap = useAutopilot({ state, dispatch, post });
+  const { state, dispatch, endCall, sendHandoff } = session;
+  const own = useConsoleControls(session);
+  const { ap, autoAdvance, setAutoAdvance } = controls ?? own;
+  const showBar = !controls && !!state.scenarioId;
   const now = useNow(15_000);
   const chart = useMemo(() => sessionChart(state), [state]);
   const flags = useMemo(() => evaluateRules(chart, now), [chart, now]);
@@ -94,15 +95,12 @@ export function EmtConsole({
         onInterpreter={() => setInterpreterOpen(true)}
         onEnd={() => setEndOpen(true)}
       />
-      {state.scenarioId || autopilotExtras ? (
-        <AutopilotBar ap={ap} autoAdvance={autoAdvance} onAutoAdvance={setAutoAdvance}>
-          {autopilotExtras}
-        </AutopilotBar>
-      ) : null}
+      {showBar ? <AutopilotBar ap={ap} autoAdvance={autoAdvance} onAutoAdvance={setAutoAdvance} /> : null}
       <RedFlagBanner flags={flags} acknowledged={state.acknowledgedFlags} onAck={(ruleId) => dispatch({ type: "ackFlag", ruleId })} explanations={explanations} />
 
-      <div className="grid min-h-0 flex-1 gap-4 p-4 @3xl:grid-cols-[minmax(240px,280px)_1fr] @5xl:grid-cols-[260px_1fr_290px]">
-        <div className="flex min-h-0 flex-col gap-3 @3xl:row-span-2 @5xl:row-span-1">
+      {/* Wide: three columns that scroll on their own. Narrower: the console scrolls as one page so the chart keeps its height. */}
+      <div className="grid gap-4 p-4 @3xl:grid-cols-[minmax(240px,280px)_1fr] @5xl:min-h-0 @5xl:flex-1 @5xl:grid-cols-[260px_1fr_290px]">
+        <div className="flex flex-col gap-3 @3xl:row-span-2 @5xl:row-span-1 @5xl:min-h-0">
           <QuestionQueue
             state={state}
             onAsk={ask}
@@ -116,7 +114,7 @@ export function EmtConsole({
               onAsk={(question) => dispatch({ type: "askFreeform", question, at: Date.now() })}
             />
           ) : null}
-          {!state.scenarioId && !autopilotExtras ? (
+          {!state.scenarioId && !controls ? (
             <label className="flex items-center gap-2 px-1 text-xs text-ink-soft">
               <input type="checkbox" className="size-4 accent-[var(--color-brand)]" checked={autoAdvance} onChange={(e) => setAutoAdvance(e.target.checked)} />
               Auto-advance after each confirmed answer
@@ -124,18 +122,18 @@ export function EmtConsole({
           ) : null}
         </div>
 
-        <div className="flex min-h-0 flex-col gap-3">
+        <div className="flex flex-col gap-3 @5xl:min-h-0">
           {!state.mode ? (
             <section className="rounded-2xl border border-signal bg-surface p-4">
               <h2 className="mb-3 text-base font-semibold">How will this patient communicate?</h2>
               <ModePicker onPick={(mode, language) => dispatch({ type: "setMode", mode, language })} />
             </section>
           ) : null}
-          <LiveChart chart={chart} answers={state.answers} freeform={state.freeform} />
+          <LiveChart chart={chart} answers={state.answers} freeform={state.freeform} modeChosen={!!state.mode} />
           {belowChart}
         </div>
 
-        <div className="flex min-h-0 flex-col gap-3 overflow-y-auto">
+        <div className="flex flex-col gap-3 @5xl:min-h-0 @5xl:overflow-y-auto">
           <HandoffButton state={state} send={sendHandoff} />
           <PatientInputs
             emt={state.emt}

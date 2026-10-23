@@ -1,0 +1,39 @@
+{
+  "id": "vi-penicillin-breathing",
+  "title": "Vietnamese, trouble breathing with a penicillin-class allergy",
+  "language": "vi",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "Tôi thở không nổi, ngực nặng lắm."
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "allergy_detail",
+      "say": "Tôi bị dị ứng với amoxicillin."
+    },
+    {
+      "questionId": "anything_else",
+      "say": "Môi tôi đang sưng lên."
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "trouble_breathing"
+    },
+    "medicationClasses": [],
+    "allergyCategories": [
+      "penicillin"
+    ],
+    "flags": [
+      "allergic_reaction"
+    ]
+  }
+}

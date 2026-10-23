@@ -1,0 +1,21 @@
+{
+  "id": "asl-fall",
+  "scenario": "asl-fall",
+  "title": "ASL, fall on blood thinner (demo)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "fall_injury",
+      "headStrike": true,
+      "severity": 5
+    },
+    "medicationClasses": [
+      "anticoagulant"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "anticoag_head"
+    ]
+  }
+}

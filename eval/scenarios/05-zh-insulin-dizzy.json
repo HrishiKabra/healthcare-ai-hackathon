@@ -1,0 +1,44 @@
+{
+  "id": "zh-insulin-dizzy",
+  "title": "Mandarin, dizziness on insulin",
+  "language": "zh",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "我头很晕，站都站不稳。"
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "我每天打胰岛素。"
+    },
+    {
+      "questionId": "conditions",
+      "say": "我有糖尿病。"
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "dizziness",
+      "conditions": [
+        "diabetes"
+      ]
+    },
+    "medicationClasses": [
+      "insulin"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "check_glucose"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "es-pregnant-belly",
+  "title": "Spanish, belly pain in pregnancy",
+  "language": "es",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "Me duele mucho la panza, aquí abajo."
+    },
+    {
+      "questionId": "severity",
+      "answer": {
+        "kind": "scale",
+        "value": 8
+      }
+    },
+    {
+      "questionId": "pregnancy",
+      "say": "Sí, tengo como tres meses."
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "belly_pain",
+      "pregnancy": true,
+      "severity": 8
+    },
+    "medicationClasses": [],
+    "allergyCategories": [],
+    "flags": [
+      "pregnancy_belly"
+    ]
+  }
+}

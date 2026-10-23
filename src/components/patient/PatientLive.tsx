@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { ScenarioStep } from "@/lib/scenarios";
+import { loadSettings } from "@/lib/settings";
+import { GestureAnswer } from "./GestureAnswer";
 import { LanguageGrid } from "@/components/shared/LanguageGrid";
 import { usePatientAnswering, type AnswerSink } from "@/hooks/usePatientAnswering";
 import { useSessionFollower } from "@/hooks/usePatientSession";
@@ -37,6 +39,15 @@ export function PatientLive({ sessionId, extras }: { sessionId: string; extras?:
   const ans = usePatientAnswering({ q, promptKey: promptKey(state?.current ?? null), lang, sink, interpretFree: interpretFreeAnswer });
   useAutopilotExecutor(q, ans, subscribe);
 
+  // Gesture answers are opt-in from the settings panel (they use the camera and a downloaded model).
+  const [gestures, setGestures] = useState(false);
+  useEffect(() => {
+    // localStorage is only readable after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setGestures(loadSettings().gestureAnswers);
+  }, []);
+  const gestureSlot = gestures && q?.answerType === "yesno" ? <GestureAnswer key={promptKey(state?.current ?? null)} lang={lang} onAnswer={ans.onAnswer} /> : null;
+
   if (state && !state.mode && !ended) {
     return (
       <div className="flex flex-1 flex-col justify-center gap-6 bg-canvas p-8">
@@ -56,7 +67,12 @@ export function PatientLive({ sessionId, extras }: { sessionId: string; extras?:
       onAnswer={ans.onAnswer}
       onFreeText={ans.onFreeText}
       onConfirm={ans.onConfirm}
-      extras={extras}
+      extras={
+        <>
+          {gestureSlot}
+          {extras}
+        </>
+      }
     />
   );
 }

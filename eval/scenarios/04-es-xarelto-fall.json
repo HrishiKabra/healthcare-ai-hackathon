@@ -1,0 +1,42 @@
+{
+  "id": "es-xarelto-fall",
+  "title": "Spanish, fall in the bathroom, Xarelto described colloquially",
+  "language": "es",
+  "mode": "spoken",
+  "steps": [
+    {
+      "questionId": "chief_complaint",
+      "say": "Me caí en el baño y me pegué en la cabeza."
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "Tomo una pastilla para adelgazar la sangre, creo que se llama Xarelto."
+    },
+    {
+      "questionId": "head_strike",
+      "say": "Sí, con el lavamanos."
+    }
+  ],
+  "gold": {
+    "fields": {
+      "chiefComplaint": "fall_injury",
+      "headStrike": true
+    },
+    "medicationClasses": [
+      "anticoagulant"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "anticoag_head"
+    ]
+  }
+}

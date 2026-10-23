@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Calm, high-contrast palette. Light only: the patient screen must read in daylight. */
+@theme {
+  --color-ink: #0f1b2d;
+  --color-ink-soft: #3d4b5f;
+  --color-muted: #6b7789;
+  --color-line: #d5dbe3;
+  --color-surface: #ffffff;
+  --color-canvas: #f2f5f8;
+  --color-brand: #0b5d7a;
+  --color-brand-strong: #07435a;
+  --color-brand-soft: #e3f1f6;
+  --color-critical: #b4232c;
+  --color-critical-soft: #fdecec;
+  --color-warning: #9a5b00;
+  --color-warning-soft: #fff4dc;
+  --color-ok: #1d7a3e;
+  --color-ok-soft: #e6f5ea;
+  --color-unconfirmed: #7a4fb5;
+  --color-unconfirmed-soft: #f2ecfb;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans",
+    "Noto Sans Devanagari", "Noto Sans Arabic", "Noto Sans SC", "PingFang SC",
+    "Hiragino Sans", "Geeza Pro", "Kohinoor Devanagari", Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible focus for keyboard users everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

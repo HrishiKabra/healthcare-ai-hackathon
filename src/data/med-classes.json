@@ -1,0 +1,789 @@
+{
+  "classes": {
+    "anticoagulant": "Anticoagulant (blood thinner)",
+    "antiplatelet": "Antiplatelet",
+    "insulin": "Insulin",
+    "antidiabetic": "Diabetes medicine",
+    "beta_blocker": "Beta blocker",
+    "ace_inhibitor": "ACE inhibitor",
+    "arb": "Angiotensin receptor blocker",
+    "calcium_channel_blocker": "Calcium channel blocker",
+    "diuretic": "Diuretic",
+    "statin": "Statin",
+    "nitrate": "Nitrate",
+    "antiarrhythmic": "Antiarrhythmic",
+    "opioid": "Opioid",
+    "nsaid": "NSAID",
+    "analgesic": "Analgesic",
+    "bronchodilator": "Bronchodilator",
+    "inhaled_steroid": "Inhaled steroid",
+    "anticonvulsant": "Anticonvulsant",
+    "antidepressant": "Antidepressant",
+    "benzodiazepine": "Benzodiazepine",
+    "thyroid": "Thyroid hormone",
+    "ppi": "Proton pump inhibitor",
+    "steroid": "Steroid",
+    "penicillin": "Penicillin antibiotic",
+    "sulfa": "Sulfa antibiotic",
+    "cardiac": "Heart medicine (unspecified)",
+    "unknown": "Unknown class"
+  },
+  "medications": [
+    {
+      "generic": "apixaban",
+      "drugClass": "anticoagulant",
+      "names": [
+        "apixaban",
+        "eliquis",
+        "إليكويس",
+        "اليكويس",
+        "एलिक्विस",
+        "艾乐妥",
+        "阿哌沙班"
+      ]
+    },
+    {
+      "generic": "rivaroxaban",
+      "drugClass": "anticoagulant",
+      "names": [
+        "rivaroxaban",
+        "xarelto",
+        "zarelto",
+        "拜瑞妥",
+        "利伐沙班",
+        "زاريلتو",
+        "ज़ेरेल्टो",
+        "जेरेल्टो"
+      ]
+    },
+    {
+      "generic": "warfarin",
+      "drugClass": "anticoagulant",
+      "names": [
+        "warfarin",
+        "coumadin",
+        "jantoven",
+        "warfarina",
+        "华法林",
+        "وارفارين",
+        "वारफ़रिन",
+        "वारफरिन"
+      ]
+    },
+    {
+      "generic": "dabigatran",
+      "drugClass": "anticoagulant",
+      "names": [
+        "dabigatran",
+        "pradaxa",
+        "泰毕全",
+        "达比加群",
+        "برادكسا"
+      ]
+    },
+    {
+      "generic": "edoxaban",
+      "drugClass": "anticoagulant",
+      "names": [
+        "edoxaban",
+        "savaysa",
+        "lixiana"
+      ]
+    },
+    {
+      "generic": "enoxaparin",
+      "drugClass": "anticoagulant",
+      "names": [
+        "enoxaparin",
+        "lovenox",
+        "enoxaparina",
+        "依诺肝素",
+        "克赛"
+      ]
+    },
+    {
+      "generic": "heparin",
+      "drugClass": "anticoagulant",
+      "names": [
+        "heparin",
+        "heparina",
+        "肝素",
+        "هيبارين",
+        "हेपरिन"
+      ]
+    },
+    {
+      "generic": "aspirin",
+      "drugClass": "antiplatelet",
+      "names": [
+        "aspirin",
+        "aspirina",
+        "bayer",
+        "ecotrin",
+        "阿司匹林",
+        "أسبرين",
+        "اسبرين",
+        "الأسبرين",
+        "एस्पिरिन"
+      ],
+      "allergyCategory": "aspirin"
+    },
+    {
+      "generic": "clopidogrel",
+      "drugClass": "antiplatelet",
+      "names": [
+        "clopidogrel",
+        "plavix",
+        "波立维",
+        "氯吡格雷",
+        "بلافيكس",
+        "क्लोपिडोग्रेल"
+      ]
+    },
+    {
+      "generic": "ticagrelor",
+      "drugClass": "antiplatelet",
+      "names": [
+        "ticagrelor",
+        "brilinta",
+        "替格瑞洛"
+      ]
+    },
+    {
+      "generic": "prasugrel",
+      "drugClass": "antiplatelet",
+      "names": [
+        "prasugrel",
+        "effient"
+      ]
+    },
+    {
+      "generic": "insulin",
+      "drugClass": "insulin",
+      "names": [
+        "insulin",
+        "insulina",
+        "胰岛素",
+        "إنسولين",
+        "انسولين",
+        "الأنسولين",
+        "इंसुलिन",
+        "इन्सुलिन"
+      ]
+    },
+    {
+      "generic": "insulin glargine",
+      "drugClass": "insulin",
+      "names": [
+        "insulin glargine",
+        "lantus",
+        "basaglar",
+        "toujeo",
+        "来得时"
+      ]
+    },
+    {
+      "generic": "insulin lispro",
+      "drugClass": "insulin",
+      "names": [
+        "insulin lispro",
+        "humalog",
+        "优泌乐"
+      ]
+    },
+    {
+      "generic": "insulin aspart",
+      "drugClass": "insulin",
+      "names": [
+        "insulin aspart",
+        "novolog",
+        "novorapid",
+        "诺和锐"
+      ]
+    },
+    {
+      "generic": "metformin",
+      "drugClass": "antidiabetic",
+      "names": [
+        "metformin",
+        "glucophage",
+        "metformina",
+        "二甲双胍",
+        "ميتفورمين",
+        "مِتفورمين",
+        "मेटफॉर्मिन",
+        "मेटफोर्मिन"
+      ]
+    },
+    {
+      "generic": "glipizide",
+      "drugClass": "antidiabetic",
+      "names": [
+        "glipizide",
+        "glucotrol",
+        "格列吡嗪"
+      ]
+    },
+    {
+      "generic": "glyburide",
+      "drugClass": "antidiabetic",
+      "names": [
+        "glyburide",
+        "glibenclamide",
+        "glibenclamida",
+        "格列本脲"
+      ]
+    },
+    {
+      "generic": "glimepiride",
+      "drugClass": "antidiabetic",
+      "names": [
+        "glimepiride",
+        "amaryl",
+        "格列美脲"
+      ]
+    },
+    {
+      "generic": "sitagliptin",
+      "drugClass": "antidiabetic",
+      "names": [
+        "sitagliptin",
+        "januvia",
+        "西格列汀"
+      ]
+    },
+    {
+      "generic": "empagliflozin",
+      "drugClass": "antidiabetic",
+      "names": [
+        "empagliflozin",
+        "jardiance"
+      ]
+    },
+    {
+      "generic": "semaglutide",
+      "drugClass": "antidiabetic",
+      "names": [
+        "semaglutide",
+        "ozempic",
+        "wegovy",
+        "rybelsus",
+        "司美格鲁肽"
+      ]
+    },
+    {
+      "generic": "metoprolol",
+      "drugClass": "beta_blocker",
+      "names": [
+        "metoprolol",
+        "lopressor",
+        "toprol",
+        "美托洛尔",
+        "倍他乐克",
+        "ميتوبرولول",
+        "मेटोप्रोलोल"
+      ]
+    },
+    {
+      "generic": "atenolol",
+      "drugClass": "beta_blocker",
+      "names": [
+        "atenolol",
+        "tenormin",
+        "阿替洛尔"
+      ]
+    },
+    {
+      "generic": "carvedilol",
+      "drugClass": "beta_blocker",
+      "names": [
+        "carvedilol",
+        "coreg",
+        "卡维地洛"
+      ]
+    },
+    {
+      "generic": "propranolol",
+      "drugClass": "beta_blocker",
+      "names": [
+        "propranolol",
+        "inderal",
+        "普萘洛尔"
+      ]
+    },
+    {
+      "generic": "lisinopril",
+      "drugClass": "ace_inhibitor",
+      "names": [
+        "lisinopril",
+        "zestril",
+        "prinivil",
+        "赖诺普利",
+        "ليسينوبريل",
+        "लिसिनोप्रिल"
+      ]
+    },
+    {
+      "generic": "enalapril",
+      "drugClass": "ace_inhibitor",
+      "names": [
+        "enalapril",
+        "vasotec",
+        "依那普利"
+      ]
+    },
+    {
+      "generic": "ramipril",
+      "drugClass": "ace_inhibitor",
+      "names": [
+        "ramipril",
+        "altace",
+        "雷米普利"
+      ]
+    },
+    {
+      "generic": "losartan",
+      "drugClass": "arb",
+      "names": [
+        "losartan",
+        "cozaar",
+        "losartán",
+        "氯沙坦",
+        "لوسارتان",
+        "लोसार्टन"
+      ]
+    },
+    {
+      "generic": "valsartan",
+      "drugClass": "arb",
+      "names": [
+        "valsartan",
+        "diovan",
+        "缬沙坦"
+      ]
+    },
+    {
+      "generic": "amlodipine",
+      "drugClass": "calcium_channel_blocker",
+      "names": [
+        "amlodipine",
+        "norvasc",
+        "amlodipino",
+        "氨氯地平",
+        "络活喜",
+        "أملوديبين",
+        "एम्लोडिपिन"
+      ]
+    },
+    {
+      "generic": "diltiazem",
+      "drugClass": "calcium_channel_blocker",
+      "names": [
+        "diltiazem",
+        "cardizem",
+        "地尔硫卓"
+      ]
+    },
+    {
+      "generic": "furosemide",
+      "drugClass": "diuretic",
+      "names": [
+        "furosemide",
+        "lasix",
+        "furosemida",
+        "呋塞米",
+        "速尿",
+        "فوروسيميد",
+        "फ्यूरोसेमाइड"
+      ]
+    },
+    {
+      "generic": "hydrochlorothiazide",
+      "drugClass": "diuretic",
+      "names": [
+        "hydrochlorothiazide",
+        "hctz",
+        "hidroclorotiazida",
+        "氢氯噻嗪"
+      ]
+    },
+    {
+      "generic": "atorvastatin",
+      "drugClass": "statin",
+      "names": [
+        "atorvastatin",
+        "lipitor",
+        "atorvastatina",
+        "阿托伐他汀",
+        "立普妥",
+        "أتورفاستاتين",
+        "एटोरवास्टेटिन"
+      ]
+    },
+    {
+      "generic": "simvastatin",
+      "drugClass": "statin",
+      "names": [
+        "simvastatin",
+        "zocor",
+        "simvastatina",
+        "辛伐他汀"
+      ]
+    },
+    {
+      "generic": "rosuvastatin",
+      "drugClass": "statin",
+      "names": [
+        "rosuvastatin",
+        "crestor",
+        "rosuvastatina",
+        "瑞舒伐他汀"
+      ]
+    },
+    {
+      "generic": "nitroglycerin",
+      "drugClass": "nitrate",
+      "names": [
+        "nitroglycerin",
+        "nitrostat",
+        "nitroglicerina",
+        "硝酸甘油",
+        "نيتروغليسرين",
+        "नाइट्रोग्लिसरीन"
+      ]
+    },
+    {
+      "generic": "isosorbide mononitrate",
+      "drugClass": "nitrate",
+      "names": [
+        "isosorbide mononitrate",
+        "imdur",
+        "isosorbide",
+        "单硝酸异山梨酯"
+      ]
+    },
+    {
+      "generic": "amiodarone",
+      "drugClass": "antiarrhythmic",
+      "names": [
+        "amiodarone",
+        "cordarone",
+        "amiodarona",
+        "胺碘酮"
+      ]
+    },
+    {
+      "generic": "digoxin",
+      "drugClass": "antiarrhythmic",
+      "names": [
+        "digoxin",
+        "lanoxin",
+        "digoxina",
+        "地高辛"
+      ]
+    },
+    {
+      "generic": "oxycodone",
+      "drugClass": "opioid",
+      "names": [
+        "oxycodone",
+        "oxycontin",
+        "percocet",
+        "oxicodona",
+        "羟考酮"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "hydrocodone",
+      "drugClass": "opioid",
+      "names": [
+        "hydrocodone",
+        "vicodin",
+        "norco",
+        "hidrocodona"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "morphine",
+      "drugClass": "opioid",
+      "names": [
+        "morphine",
+        "morfina",
+        "吗啡",
+        "مورفين",
+        "मॉर्फ़ीन",
+        "मॉर्फिन"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "tramadol",
+      "drugClass": "opioid",
+      "names": [
+        "tramadol",
+        "ultram",
+        "曲马多",
+        "ترامادول",
+        "ट्रामाडोल"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "fentanyl",
+      "drugClass": "opioid",
+      "names": [
+        "fentanyl",
+        "fentanilo",
+        "芬太尼"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "codeine",
+      "drugClass": "opioid",
+      "names": [
+        "codeine",
+        "codeína",
+        "codeina",
+        "可待因",
+        "كودايين"
+      ],
+      "allergyCategory": "opioid"
+    },
+    {
+      "generic": "ibuprofen",
+      "drugClass": "nsaid",
+      "names": [
+        "ibuprofen",
+        "advil",
+        "motrin",
+        "ibuprofeno",
+        "布洛芬",
+        "芬必得",
+        "إيبوبروفين",
+        "ايبوبروفين",
+        "आइबुप्रोफ़ेन",
+        "आइबुप्रोफेन"
+      ],
+      "allergyCategory": "nsaid"
+    },
+    {
+      "generic": "naproxen",
+      "drugClass": "nsaid",
+      "names": [
+        "naproxen",
+        "aleve",
+        "naproxeno",
+        "萘普生"
+      ],
+      "allergyCategory": "nsaid"
+    },
+    {
+      "generic": "diclofenac",
+      "drugClass": "nsaid",
+      "names": [
+        "diclofenac",
+        "voltaren",
+        "diclofenaco",
+        "双氯芬酸",
+        "ديكلوفيناك",
+        "डाइक्लोफेनाक"
+      ],
+      "allergyCategory": "nsaid"
+    },
+    {
+      "generic": "acetaminophen",
+      "drugClass": "analgesic",
+      "names": [
+        "acetaminophen",
+        "tylenol",
+        "paracetamol",
+        "panadol",
+        "对乙酰氨基酚",
+        "扑热息痛",
+        "باراسيتامول",
+        "بنادول",
+        "पैरासिटामोल"
+      ]
+    },
+    {
+      "generic": "albuterol",
+      "drugClass": "bronchodilator",
+      "names": [
+        "albuterol",
+        "ventolin",
+        "proair",
+        "salbutamol",
+        "沙丁胺醇",
+        "万托林",
+        "فنتولين",
+        "سالبوتامول",
+        "सालबुटामोल"
+      ]
+    },
+    {
+      "generic": "fluticasone",
+      "drugClass": "inhaled_steroid",
+      "names": [
+        "fluticasone",
+        "flovent",
+        "advair",
+        "fluticasona",
+        "氟替卡松"
+      ]
+    },
+    {
+      "generic": "levetiracetam",
+      "drugClass": "anticonvulsant",
+      "names": [
+        "levetiracetam",
+        "keppra",
+        "左乙拉西坦"
+      ]
+    },
+    {
+      "generic": "phenytoin",
+      "drugClass": "anticonvulsant",
+      "names": [
+        "phenytoin",
+        "dilantin",
+        "fenitoína",
+        "苯妥英"
+      ]
+    },
+    {
+      "generic": "carbamazepine",
+      "drugClass": "anticonvulsant",
+      "names": [
+        "carbamazepine",
+        "tegretol",
+        "carbamazepina",
+        "卡马西平"
+      ]
+    },
+    {
+      "generic": "valproate",
+      "drugClass": "anticonvulsant",
+      "names": [
+        "valproate",
+        "depakote",
+        "valproato",
+        "丙戊酸"
+      ]
+    },
+    {
+      "generic": "sertraline",
+      "drugClass": "antidepressant",
+      "names": [
+        "sertraline",
+        "zoloft",
+        "sertralina",
+        "舍曲林"
+      ]
+    },
+    {
+      "generic": "fluoxetine",
+      "drugClass": "antidepressant",
+      "names": [
+        "fluoxetine",
+        "prozac",
+        "fluoxetina",
+        "氟西汀"
+      ]
+    },
+    {
+      "generic": "alprazolam",
+      "drugClass": "benzodiazepine",
+      "names": [
+        "alprazolam",
+        "xanax",
+        "阿普唑仑"
+      ]
+    },
+    {
+      "generic": "lorazepam",
+      "drugClass": "benzodiazepine",
+      "names": [
+        "lorazepam",
+        "ativan",
+        "劳拉西泮"
+      ]
+    },
+    {
+      "generic": "levothyroxine",
+      "drugClass": "thyroid",
+      "names": [
+        "levothyroxine",
+        "synthroid",
+        "levotiroxina",
+        "左甲状腺素",
+        "优甲乐",
+        "ليفوثيروكسين",
+        "थायरोक्सिन"
+      ]
+    },
+    {
+      "generic": "omeprazole",
+      "drugClass": "ppi",
+      "names": [
+        "omeprazole",
+        "prilosec",
+        "omeprazol",
+        "奥美拉唑",
+        "أوميبرازول",
+        "ओमेप्राज़ोल"
+      ]
+    },
+    {
+      "generic": "prednisone",
+      "drugClass": "steroid",
+      "names": [
+        "prednisone",
+        "prednisona",
+        "泼尼松",
+        "بريدنيزون",
+        "प्रेडनिसोन"
+      ]
+    },
+    {
+      "generic": "amoxicillin",
+      "drugClass": "penicillin",
+      "names": [
+        "amoxicillin",
+        "amoxil",
+        "amoxicilina",
+        "阿莫西林",
+        "أموكسيسيلين",
+        "एमोक्सिसिलिन"
+      ],
+      "allergyCategory": "penicillin"
+    },
+    {
+      "generic": "penicillin",
+      "drugClass": "penicillin",
+      "names": [
+        "penicillin",
+        "penicilina",
+        "青霉素",
+        "البنسلين",
+        "بنسلين",
+        "पेनिसिलिन"
+      ],
+      "allergyCategory": "penicillin"
+    },
+    {
+      "generic": "sulfamethoxazole",
+      "drugClass": "sulfa",
+      "names": [
+        "sulfamethoxazole",
+        "bactrim",
+        "septra",
+        "sulfametoxazol",
+        "磺胺甲恶唑"
+      ],
+      "allergyCategory": "sulfa"
+    }
+  ]
+}

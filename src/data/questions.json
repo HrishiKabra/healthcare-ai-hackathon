@@ -1,0 +1,1451 @@
+{
+  "version": 1,
+  "languages": [
+    "es",
+    "vi",
+    "zh",
+    "ar",
+    "hi"
+  ],
+  "questions": [
+    {
+      "id": "understand",
+      "phase": "opening",
+      "english": "Can you hear and understand me?",
+      "answerType": "yesno",
+      "choices": [],
+      "chartField": "notes",
+      "showIf": null,
+      "icon": "ear",
+      "translations": {
+        "es": "¿Puede oírme y entenderme?",
+        "vi": "Bạn có nghe và hiểu tôi nói không?",
+        "zh": "您能听到并听懂我说的话吗？",
+        "ar": "هل تسمعني وتفهمني؟",
+        "hi": "क्या आप मुझे सुन और समझ पा रहे हैं?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/understand.mp4"
+    },
+    {
+      "id": "chief_complaint",
+      "phase": "opening",
+      "english": "What is bothering you most right now?",
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "chest_pain",
+          "english": "Chest pain",
+          "icon": "chest",
+          "translations": {
+            "es": "Dolor de pecho",
+            "vi": "Đau ngực",
+            "zh": "胸痛",
+            "ar": "ألم في الصدر",
+            "hi": "सीने में दर्द"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "trouble_breathing",
+          "english": "Trouble breathing",
+          "icon": "lungs",
+          "translations": {
+            "es": "Dificultad para respirar",
+            "vi": "Khó thở",
+            "zh": "呼吸困难",
+            "ar": "صعوبة في التنفس",
+            "hi": "साँस लेने में तकलीफ़"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "fall_injury",
+          "english": "A fall or injury",
+          "icon": "fall",
+          "translations": {
+            "es": "Una caída o lesión",
+            "vi": "Bị ngã hoặc bị thương",
+            "zh": "摔倒或受伤",
+            "ar": "سقوط أو إصابة",
+            "hi": "गिरना या चोट"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "belly_pain",
+          "english": "Belly pain",
+          "icon": "belly",
+          "translations": {
+            "es": "Dolor de barriga",
+            "vi": "Đau bụng",
+            "zh": "肚子痛",
+            "ar": "ألم في البطن",
+            "hi": "पेट में दर्द"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "weakness_numbness",
+          "english": "Weakness or numbness",
+          "icon": "arm",
+          "translations": {
+            "es": "Debilidad o entumecimiento",
+            "vi": "Yếu hoặc tê",
+            "zh": "无力或麻木",
+            "ar": "ضعف أو خدر",
+            "hi": "कमज़ोरी या सुन्नपन"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "dizziness",
+          "english": "Dizziness",
+          "icon": "dizzy",
+          "translations": {
+            "es": "Mareo",
+            "vi": "Chóng mặt",
+            "zh": "头晕",
+            "ar": "دوخة",
+            "hi": "चक्कर आना"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "bleeding",
+          "english": "Bleeding",
+          "icon": "blood",
+          "translations": {
+            "es": "Sangrado",
+            "vi": "Chảy máu",
+            "zh": "出血",
+            "ar": "نزيف",
+            "hi": "खून बहना"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "other",
+          "english": "Something else",
+          "icon": "help",
+          "translations": {
+            "es": "Otra cosa",
+            "vi": "Điều khác",
+            "zh": "其他",
+            "ar": "شيء آخر",
+            "hi": "कुछ और"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        }
+      ],
+      "chartField": "chiefComplaint",
+      "showIf": null,
+      "icon": "help",
+      "translations": {
+        "es": "¿Qué es lo que más le molesta ahora mismo?",
+        "vi": "Điều gì làm bạn khó chịu nhất lúc này?",
+        "zh": "您现在最不舒服的是什么？",
+        "ar": "ما الذي يزعجك أكثر الآن؟",
+        "hi": "अभी आपको सबसे ज़्यादा क्या परेशान कर रहा है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/chief_complaint.mp4"
+    },
+    {
+      "id": "onset",
+      "phase": "opqrst",
+      "english": "When did it start?",
+      "answerType": "duration",
+      "choices": [],
+      "chartField": "onset",
+      "showIf": null,
+      "icon": "clock",
+      "translations": {
+        "es": "¿Cuándo empezó?",
+        "vi": "Nó bắt đầu khi nào?",
+        "zh": "什么时候开始的？",
+        "ar": "متى بدأ ذلك؟",
+        "hi": "यह कब शुरू हुआ?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/onset.mp4"
+    },
+    {
+      "id": "activity",
+      "phase": "opqrst",
+      "english": "What were you doing when it started?",
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "resting",
+          "english": "Resting or sitting",
+          "icon": "chair",
+          "translations": {
+            "es": "Descansando o sentado",
+            "vi": "Đang nghỉ hoặc ngồi",
+            "zh": "休息或坐着",
+            "ar": "أستريح أو أجلس",
+            "hi": "आराम कर रहे थे या बैठे थे"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "sleeping",
+          "english": "Sleeping",
+          "icon": "bed",
+          "translations": {
+            "es": "Durmiendo",
+            "vi": "Đang ngủ",
+            "zh": "睡觉",
+            "ar": "نائم",
+            "hi": "सो रहे थे"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "walking",
+          "english": "Walking",
+          "icon": "walk",
+          "translations": {
+            "es": "Caminando",
+            "vi": "Đang đi bộ",
+            "zh": "走路",
+            "ar": "أمشي",
+            "hi": "चल रहे थे"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "stairs",
+          "english": "On the stairs",
+          "icon": "stairs",
+          "translations": {
+            "es": "En las escaleras",
+            "vi": "Đang đi cầu thang",
+            "zh": "在楼梯上",
+            "ar": "على الدرج",
+            "hi": "सीढ़ियों पर"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "exercise_work",
+          "english": "Exercise or hard work",
+          "icon": "exercise",
+          "translations": {
+            "es": "Ejercicio o trabajo pesado",
+            "vi": "Tập thể dục hoặc làm việc nặng",
+            "zh": "运动或干重活",
+            "ar": "رياضة أو عمل شاق",
+            "hi": "व्यायाम या भारी काम"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "eating",
+          "english": "Eating",
+          "icon": "food",
+          "translations": {
+            "es": "Comiendo",
+            "vi": "Đang ăn",
+            "zh": "吃饭",
+            "ar": "آكل",
+            "hi": "खाना खा रहे थे"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "driving",
+          "english": "Driving",
+          "icon": "car",
+          "translations": {
+            "es": "Manejando",
+            "vi": "Đang lái xe",
+            "zh": "开车",
+            "ar": "أقود السيارة",
+            "hi": "गाड़ी चला रहे थे"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "other",
+          "english": "Something else",
+          "icon": "help",
+          "translations": {
+            "es": "Otra cosa",
+            "vi": "Điều khác",
+            "zh": "其他",
+            "ar": "شيء آخر",
+            "hi": "कुछ और"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        }
+      ],
+      "chartField": "activity",
+      "showIf": null,
+      "icon": "walk",
+      "translations": {
+        "es": "¿Qué estaba haciendo cuando empezó?",
+        "vi": "Bạn đang làm gì khi nó bắt đầu?",
+        "zh": "开始的时候您在做什么？",
+        "ar": "ماذا كنت تفعل عندما بدأ ذلك؟",
+        "hi": "जब यह शुरू हुआ तब आप क्या कर रहे थे?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/activity.mp4"
+    },
+    {
+      "id": "provocation",
+      "phase": "opqrst",
+      "english": "Does anything make it better or worse?",
+      "answerType": "choice",
+      "multi": true,
+      "choices": [
+        {
+          "id": "worse_moving",
+          "english": "Moving makes it worse",
+          "icon": "move",
+          "translations": {
+            "es": "Moverme lo empeora",
+            "vi": "Cử động làm nó tệ hơn",
+            "zh": "活动时更严重",
+            "ar": "الحركة تجعله أسوأ",
+            "hi": "हिलने से बढ़ता है"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "worse_breathing",
+          "english": "Deep breaths make it worse",
+          "icon": "lungs",
+          "translations": {
+            "es": "Respirar hondo lo empeora",
+            "vi": "Hít thở sâu làm nó tệ hơn",
+            "zh": "深呼吸时更严重",
+            "ar": "التنفس العميق يجعله أسوأ",
+            "hi": "गहरी साँस लेने से बढ़ता है"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "worse_touch",
+          "english": "Pressing on it makes it worse",
+          "icon": "hand",
+          "translations": {
+            "es": "Tocarlo lo empeora",
+            "vi": "Ấn vào làm nó tệ hơn",
+            "zh": "按压时更严重",
+            "ar": "الضغط عليه يجعله أسوأ",
+            "hi": "दबाने से बढ़ता है"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "better_rest",
+          "english": "Resting makes it better",
+          "icon": "bed",
+          "translations": {
+            "es": "Descansar lo mejora",
+            "vi": "Nghỉ ngơi làm nó đỡ hơn",
+            "zh": "休息后好一些",
+            "ar": "الراحة تجعله أفضل",
+            "hi": "आराम करने से कम होता है"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "better_medicine",
+          "english": "Medicine made it better",
+          "icon": "pill",
+          "translations": {
+            "es": "La medicina lo mejoró",
+            "vi": "Thuốc làm nó đỡ hơn",
+            "zh": "吃药后好一些",
+            "ar": "الدواء جعله أفضل",
+            "hi": "दवा से कम हुआ"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "nothing",
+          "english": "Nothing changes it",
+          "icon": "none",
+          "translations": {
+            "es": "Nada lo cambia",
+            "vi": "Không có gì thay đổi",
+            "zh": "没有变化",
+            "ar": "لا شيء يغيره",
+            "hi": "किसी चीज़ से फ़र्क नहीं पड़ता"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          },
+          "exclusive": true
+        }
+      ],
+      "chartField": "provocation",
+      "showIf": null,
+      "icon": "scale",
+      "translations": {
+        "es": "¿Hay algo que lo mejore o lo empeore?",
+        "vi": "Có điều gì làm nó đỡ hơn hoặc tệ hơn không?",
+        "zh": "有什么会让它好一些或更严重吗？",
+        "ar": "هل هناك شيء يجعله أفضل أو أسوأ؟",
+        "hi": "क्या किसी चीज़ से यह बेहतर या बदतर होता है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/provocation.mp4"
+    },
+    {
+      "id": "quality",
+      "phase": "opqrst",
+      "english": "What does it feel like?",
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "pressure",
+          "english": "Pressure or squeezing",
+          "icon": "pressure",
+          "translations": {
+            "es": "Presión u opresión",
+            "vi": "Đè nặng hoặc bóp chặt",
+            "zh": "压迫感或紧缩感",
+            "ar": "ضغط أو عصر",
+            "hi": "दबाव या जकड़न"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "sharp",
+          "english": "Sharp or stabbing",
+          "icon": "sharp",
+          "translations": {
+            "es": "Agudo o punzante",
+            "vi": "Nhói hoặc như dao đâm",
+            "zh": "尖锐或刺痛",
+            "ar": "حاد أو طاعن",
+            "hi": "तेज़ या चुभने वाला"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "burning",
+          "english": "Burning",
+          "icon": "burning",
+          "translations": {
+            "es": "Ardor",
+            "vi": "Nóng rát",
+            "zh": "烧灼感",
+            "ar": "حرقان",
+            "hi": "जलन"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "tearing",
+          "english": "Tearing or ripping",
+          "icon": "tearing",
+          "translations": {
+            "es": "Como si se desgarrara",
+            "vi": "Như bị xé",
+            "zh": "撕裂感",
+            "ar": "تمزق",
+            "hi": "फटने जैसा"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "aching",
+          "english": "Dull ache",
+          "icon": "aching",
+          "translations": {
+            "es": "Dolor sordo",
+            "vi": "Đau âm ỉ",
+            "zh": "隐隐作痛",
+            "ar": "ألم خفيف مستمر",
+            "hi": "हल्का लगातार दर्द"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        }
+      ],
+      "chartField": "quality",
+      "showIf": {
+        "type": "predicate",
+        "name": "painComplaint"
+      },
+      "icon": "pain",
+      "translations": {
+        "es": "¿Cómo se siente?",
+        "vi": "Bạn cảm thấy nó như thế nào?",
+        "zh": "是什么样的感觉？",
+        "ar": "كيف تشعر به؟",
+        "hi": "यह कैसा महसूस होता है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/quality.mp4"
+    },
+    {
+      "id": "region",
+      "phase": "opqrst",
+      "english": "Where on your body is it?",
+      "answerType": "bodymap",
+      "choices": [],
+      "chartField": "region",
+      "showIf": null,
+      "icon": "body",
+      "translations": {
+        "es": "¿En qué parte del cuerpo es?",
+        "vi": "Ở chỗ nào trên cơ thể bạn?",
+        "zh": "在身体的哪个部位？",
+        "ar": "في أي جزء من جسمك؟",
+        "hi": "यह आपके शरीर में कहाँ है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/region.mp4"
+    },
+    {
+      "id": "radiation",
+      "phase": "opqrst",
+      "english": "Does it spread anywhere?",
+      "answerType": "bodymap",
+      "choices": [],
+      "chartField": "radiation",
+      "showIf": {
+        "type": "predicate",
+        "name": "painComplaint"
+      },
+      "icon": "spread",
+      "translations": {
+        "es": "¿Se extiende a otra parte?",
+        "vi": "Nó có lan ra chỗ nào khác không?",
+        "zh": "会扩散到其他地方吗？",
+        "ar": "هل ينتشر إلى مكان آخر؟",
+        "hi": "क्या यह कहीं और फैलता है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/radiation.mp4"
+    },
+    {
+      "id": "severity",
+      "phase": "opqrst",
+      "english": "How bad is it, from 0 to 10?",
+      "answerType": "scale",
+      "choices": [],
+      "chartField": "severity",
+      "showIf": {
+        "type": "predicate",
+        "name": "painComplaint"
+      },
+      "icon": "gauge",
+      "translations": {
+        "es": "¿Qué tan fuerte es, del 0 al 10?",
+        "vi": "Nó nặng mức nào, từ 0 đến 10?",
+        "zh": "从0到10，有多严重？",
+        "ar": "ما مدى شدته من 0 إلى 10؟",
+        "hi": "0 से 10 तक, यह कितना बुरा है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/severity.mp4"
+    },
+    {
+      "id": "allergy_any",
+      "phase": "sample",
+      "english": "Are you allergic to any medicines?",
+      "answerType": "yesno",
+      "choices": [],
+      "chartField": "allergies",
+      "showIf": null,
+      "icon": "allergy",
+      "translations": {
+        "es": "¿Tiene alergia a algún medicamento?",
+        "vi": "Bạn có bị dị ứng với thuốc nào không?",
+        "zh": "您对什么药物过敏吗？",
+        "ar": "هل لديك حساسية من أي دواء؟",
+        "hi": "क्या आपको किसी दवा से एलर्जी है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/allergy_any.mp4"
+    },
+    {
+      "id": "allergy_detail",
+      "phase": "sample",
+      "english": "Which medicine are you allergic to?",
+      "answerType": "free",
+      "multi": true,
+      "choices": [
+        {
+          "id": "aspirin",
+          "english": "Aspirin",
+          "icon": "pill",
+          "translations": {
+            "es": "Aspirina",
+            "vi": "Aspirin",
+            "zh": "阿司匹林",
+            "ar": "الأسبرين",
+            "hi": "एस्पिरिन"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "nsaid",
+          "english": "Ibuprofen or similar pain pills",
+          "icon": "pill",
+          "translations": {
+            "es": "Ibuprofeno u otros analgésicos parecidos",
+            "vi": "Ibuprofen hoặc thuốc giảm đau tương tự",
+            "zh": "布洛芬或类似止痛药",
+            "ar": "إيبوبروفين أو مسكنات مشابهة",
+            "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "penicillin",
+          "english": "Penicillin",
+          "icon": "pill",
+          "translations": {
+            "es": "Penicilina",
+            "vi": "Penicillin",
+            "zh": "青霉素",
+            "ar": "البنسلين",
+            "hi": "पेनिसिलिन"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "sulfa",
+          "english": "Sulfa drugs",
+          "icon": "pill",
+          "translations": {
+            "es": "Sulfas",
+            "vi": "Thuốc nhóm sulfa",
+            "zh": "磺胺类药物",
+            "ar": "أدوية السلفا",
+            "hi": "सल्फ़ा दवाएँ"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "opioid",
+          "english": "Morphine or other opioids",
+          "icon": "syringe",
+          "translations": {
+            "es": "Morfina u otros opioides",
+            "vi": "Morphin hoặc thuốc opioid khác",
+            "zh": "吗啡或其他阿片类药物",
+            "ar": "المورفين أو مسكنات أفيونية أخرى",
+            "hi": "मॉर्फ़ीन या अन्य ओपिओइड"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        }
+      ],
+      "chartField": "allergies",
+      "showIf": {
+        "type": "predicate",
+        "name": "allergyNeedsDetail"
+      },
+      "icon": "allergy",
+      "translations": {
+        "es": "¿A qué medicamento tiene alergia?",
+        "vi": "Bạn dị ứng với thuốc nào?",
+        "zh": "您对哪种药物过敏？",
+        "ar": "ما الدواء الذي لديك حساسية منه؟",
+        "hi": "आपको किस दवा से एलर्जी है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/allergy_detail.mp4"
+    },
+    {
+      "id": "medications",
+      "phase": "sample",
+      "english": "What medicines do you take?",
+      "answerType": "free",
+      "multi": true,
+      "choices": [
+        {
+          "id": "blood_thinner",
+          "english": "Blood thinner",
+          "icon": "blood",
+          "translations": {
+            "es": "Anticoagulante",
+            "vi": "Thuốc chống đông máu",
+            "zh": "抗凝血药",
+            "ar": "مميع للدم",
+            "hi": "रक्त पतला करने वाली दवा"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "insulin",
+          "english": "Insulin",
+          "icon": "syringe",
+          "translations": {
+            "es": "Insulina",
+            "vi": "Insulin",
+            "zh": "胰岛素",
+            "ar": "الأنسولين",
+            "hi": "इंसुलिन"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "heart_medicine",
+          "english": "Heart medicine",
+          "icon": "heart",
+          "translations": {
+            "es": "Medicina para el corazón",
+            "vi": "Thuốc tim",
+            "zh": "心脏药",
+            "ar": "دواء للقلب",
+            "hi": "दिल की दवा"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "inhaler",
+          "english": "Inhaler",
+          "icon": "inhaler",
+          "translations": {
+            "es": "Inhalador",
+            "vi": "Bình xịt hen",
+            "zh": "吸入器",
+            "ar": "بخاخ",
+            "hi": "इनहेलर"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "none",
+          "english": "No medicines",
+          "icon": "none",
+          "translations": {
+            "es": "Ningún medicamento",
+            "vi": "Không dùng thuốc",
+            "zh": "不吃药",
+            "ar": "لا أتناول أدوية",
+            "hi": "कोई दवा नहीं"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          },
+          "exclusive": true
+        }
+      ],
+      "chartField": "medications",
+      "showIf": null,
+      "icon": "pill",
+      "translations": {
+        "es": "¿Qué medicamentos toma?",
+        "vi": "Bạn đang dùng những thuốc gì?",
+        "zh": "您平时吃什么药？",
+        "ar": "ما الأدوية التي تتناولها؟",
+        "hi": "आप कौन सी दवाएँ लेते हैं?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/medications.mp4"
+    },
+    {
+      "id": "conditions",
+      "phase": "sample",
+      "english": "Do you have any medical conditions?",
+      "answerType": "choice",
+      "multi": true,
+      "choices": [
+        {
+          "id": "heart_problems",
+          "english": "Heart problems",
+          "icon": "heart",
+          "translations": {
+            "es": "Problemas del corazón",
+            "vi": "Bệnh tim",
+            "zh": "心脏病",
+            "ar": "مشاكل في القلب",
+            "hi": "दिल की बीमारी"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "diabetes",
+          "english": "Diabetes",
+          "icon": "syringe",
+          "translations": {
+            "es": "Diabetes",
+            "vi": "Tiểu đường",
+            "zh": "糖尿病",
+            "ar": "السكري",
+            "hi": "मधुमेह (शुगर)"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "high_blood_pressure",
+          "english": "High blood pressure",
+          "icon": "gauge",
+          "translations": {
+            "es": "Presión alta",
+            "vi": "Huyết áp cao",
+            "zh": "高血压",
+            "ar": "ضغط الدم المرتفع",
+            "hi": "हाई ब्लड प्रेशर"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "asthma",
+          "english": "Asthma",
+          "icon": "lungs",
+          "translations": {
+            "es": "Asma",
+            "vi": "Hen suyễn",
+            "zh": "哮喘",
+            "ar": "الربو",
+            "hi": "दमा"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "seizures",
+          "english": "Seizures",
+          "icon": "brain",
+          "translations": {
+            "es": "Convulsiones",
+            "vi": "Động kinh",
+            "zh": "癫痫",
+            "ar": "نوبات صرع",
+            "hi": "दौरे (मिर्गी)"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "prior_stroke",
+          "english": "Stroke before",
+          "icon": "brain",
+          "translations": {
+            "es": "Derrame cerebral antes",
+            "vi": "Từng bị đột quỵ",
+            "zh": "以前中风过",
+            "ar": "جلطة دماغية سابقة",
+            "hi": "पहले स्ट्रोक हुआ था"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "pregnancy",
+          "english": "Pregnancy",
+          "icon": "baby",
+          "translations": {
+            "es": "Embarazo",
+            "vi": "Đang mang thai",
+            "zh": "怀孕",
+            "ar": "حمل",
+            "hi": "गर्भावस्था"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          }
+        },
+        {
+          "id": "none",
+          "english": "None",
+          "icon": "none",
+          "translations": {
+            "es": "Ninguna",
+            "vi": "Không có",
+            "zh": "没有",
+            "ar": "لا شيء",
+            "hi": "कोई नहीं"
+          },
+          "translationsVerified": {
+            "es": false,
+            "vi": false,
+            "zh": false,
+            "ar": false,
+            "hi": false
+          },
+          "exclusive": true
+        }
+      ],
+      "chartField": "conditions",
+      "showIf": null,
+      "icon": "clipboard",
+      "translations": {
+        "es": "¿Tiene alguna enfermedad o problema de salud?",
+        "vi": "Bạn có bệnh gì không?",
+        "zh": "您有什么疾病吗？",
+        "ar": "هل لديك أي أمراض؟",
+        "hi": "क्या आपको कोई बीमारी है?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/conditions.mp4"
+    },
+    {
+      "id": "last_oral_intake",
+      "phase": "sample",
+      "english": "When did you last eat or drink?",
+      "answerType": "duration",
+      "choices": [],
+      "chartField": "lastOralIntake",
+      "showIf": null,
+      "icon": "food",
+      "translations": {
+        "es": "¿Cuándo comió o bebió por última vez?",
+        "vi": "Lần cuối bạn ăn hoặc uống là khi nào?",
+        "zh": "您最后一次吃东西或喝水是什么时候？",
+        "ar": "متى أكلت أو شربت آخر مرة؟",
+        "hi": "आपने आखिरी बार कब खाया या पिया?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/last_oral_intake.mp4"
+    },
+    {
+      "id": "head_strike",
+      "phase": "followup",
+      "english": "Did you hit your head?",
+      "answerType": "yesno",
+      "choices": [],
+      "chartField": "headStrike",
+      "showIf": {
+        "type": "chartIn",
+        "field": "chiefComplaint",
+        "values": [
+          "fall_injury"
+        ]
+      },
+      "icon": "head",
+      "translations": {
+        "es": "¿Se golpeó la cabeza?",
+        "vi": "Bạn có bị đập đầu không?",
+        "zh": "您撞到头了吗？",
+        "ar": "هل ضربت رأسك؟",
+        "hi": "क्या आपके सिर पर चोट लगी?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/head_strike.mp4"
+    },
+    {
+      "id": "pregnancy",
+      "phase": "followup",
+      "english": "Are you pregnant, or could you be?",
+      "answerType": "yesno",
+      "choices": [],
+      "chartField": "pregnancy",
+      "showIf": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "chartIn",
+            "field": "chiefComplaint",
+            "values": [
+              "belly_pain"
+            ]
+          },
+          {
+            "type": "predicate",
+            "name": "possiblyPregnant"
+          }
+        ]
+      },
+      "icon": "baby",
+      "translations": {
+        "es": "¿Está embarazada o podría estarlo?",
+        "vi": "Bạn có đang mang thai hoặc có thể đang mang thai không?",
+        "zh": "您怀孕了吗，或者有可能怀孕吗？",
+        "ar": "هل أنتِ حامل أو يمكن أن تكوني حاملاً؟",
+        "hi": "क्या आप गर्भवती हैं, या हो सकती हैं?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/pregnancy.mp4"
+    },
+    {
+      "id": "stroke_smile",
+      "phase": "stroke",
+      "english": "Please smile for me.",
+      "answerType": "instruction",
+      "choices": [],
+      "chartField": "facialDroop",
+      "showIf": {
+        "type": "predicate",
+        "name": "strokeSuspected"
+      },
+      "icon": "smile",
+      "translations": {
+        "es": "Por favor, sonría.",
+        "vi": "Bạn hãy cười cho tôi xem.",
+        "zh": "请对我笑一下。",
+        "ar": "من فضلك ابتسم.",
+        "hi": "कृपया मुस्कुराइए।"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/stroke_smile.mp4"
+    },
+    {
+      "id": "stroke_arms",
+      "phase": "stroke",
+      "english": "Please raise both arms and hold them up.",
+      "answerType": "instruction",
+      "choices": [],
+      "chartField": "armDrift",
+      "showIf": {
+        "type": "predicate",
+        "name": "strokeSuspected"
+      },
+      "icon": "arms",
+      "translations": {
+        "es": "Por favor, levante los dos brazos y manténgalos arriba.",
+        "vi": "Bạn hãy giơ cả hai tay lên và giữ nguyên.",
+        "zh": "请举起双臂并保持住。",
+        "ar": "من فضلك ارفع ذراعيك الاثنتين وأبقهما مرفوعتين.",
+        "hi": "कृपया दोनों हाथ ऊपर उठाइए और उन्हें ऊपर रखिए।"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/stroke_arms.mp4"
+    },
+    {
+      "id": "stroke_speech",
+      "phase": "stroke",
+      "english": "Please say: The sky is blue.",
+      "answerType": "instruction",
+      "choices": [],
+      "chartField": "speechAbnormal",
+      "showIf": {
+        "type": "predicate",
+        "name": "strokeSuspected"
+      },
+      "icon": "speech",
+      "translations": {
+        "es": "Por favor, diga: El cielo es azul.",
+        "vi": "Bạn hãy nói: Bầu trời màu xanh.",
+        "zh": "请说：天空是蓝色的。",
+        "ar": "من فضلك قل: السماء زرقاء.",
+        "hi": "कृपया बोलिए: आसमान नीला है।"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/stroke_speech.mp4"
+    },
+    {
+      "id": "last_known_well",
+      "phase": "stroke",
+      "english": "When did you last feel normal?",
+      "answerType": "duration",
+      "choices": [],
+      "chartField": "lastKnownWell",
+      "showIf": {
+        "type": "predicate",
+        "name": "strokeSuspected"
+      },
+      "icon": "clock",
+      "translations": {
+        "es": "¿Cuándo fue la última vez que se sintió normal?",
+        "vi": "Lần cuối bạn thấy bình thường là khi nào?",
+        "zh": "您最后一次感觉正常是什么时候？",
+        "ar": "متى كانت آخر مرة شعرت فيها بأنك طبيعي؟",
+        "hi": "आपने आखिरी बार कब सामान्य महसूस किया था?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/last_known_well.mp4"
+    },
+    {
+      "id": "anything_else",
+      "phase": "closing",
+      "english": "Is there anything else we should know?",
+      "answerType": "free",
+      "choices": [],
+      "chartField": "notes",
+      "showIf": null,
+      "icon": "chat",
+      "translations": {
+        "es": "¿Hay algo más que debamos saber?",
+        "vi": "Còn điều gì khác chúng tôi nên biết không?",
+        "zh": "还有什么我们应该知道的吗？",
+        "ar": "هل هناك أي شيء آخر يجب أن نعرفه؟",
+        "hi": "क्या कुछ और है जो हमें जानना चाहिए?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false
+      },
+      "aslVideo": "asl/anything_else.mp4"
+    }
+  ]
+}

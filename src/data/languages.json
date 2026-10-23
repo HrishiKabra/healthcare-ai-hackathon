@@ -1,0 +1,8 @@
+[
+  { "code": "en", "englishName": "English", "nativeName": "English", "dir": "ltr", "speechTag": "en-US", "verified": true },
+  { "code": "es", "englishName": "Spanish", "nativeName": "Español", "dir": "ltr", "speechTag": "es-US", "verified": false },
+  { "code": "vi", "englishName": "Vietnamese", "nativeName": "Tiếng Việt", "dir": "ltr", "speechTag": "vi-VN", "verified": false },
+  { "code": "zh", "englishName": "Mandarin Chinese", "nativeName": "中文", "dir": "ltr", "speechTag": "zh-CN", "verified": false },
+  { "code": "ar", "englishName": "Arabic", "nativeName": "العربية", "dir": "rtl", "speechTag": "ar-SA", "verified": false },
+  { "code": "hi", "englishName": "Hindi", "nativeName": "हिन्दी", "dir": "ltr", "speechTag": "hi-IN", "verified": false }
+]

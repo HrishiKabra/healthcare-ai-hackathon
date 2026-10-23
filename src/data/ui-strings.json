@@ -1,0 +1,778 @@
+{
+  "readAloud": {
+    "en": "Read aloud",
+    "es": "Leer en voz alta",
+    "vi": "Đọc to",
+    "zh": "朗读",
+    "ar": "اقرأ بصوت عالٍ",
+    "hi": "ज़ोर से पढ़ें"
+  },
+  "waiting": {
+    "en": "Please wait. The crew will ask you a question soon.",
+    "es": "Por favor, espere. El equipo le hará una pregunta pronto.",
+    "vi": "Vui lòng chờ. Nhân viên cấp cứu sẽ hỏi bạn ngay.",
+    "zh": "请稍等。急救人员马上会问您问题。",
+    "ar": "يرجى الانتظار. سيطرح عليك المسعف سؤالاً قريباً.",
+    "hi": "कृपया रुकिए। टीम जल्द ही आपसे एक सवाल पूछेगी।"
+  },
+  "yes": {
+    "en": "Yes",
+    "es": "Sí",
+    "vi": "Có",
+    "zh": "是",
+    "ar": "نعم",
+    "hi": "हाँ"
+  },
+  "no": {
+    "en": "No",
+    "es": "No",
+    "vi": "Không",
+    "zh": "不是",
+    "ar": "لا",
+    "hi": "नहीं"
+  },
+  "youSaid": {
+    "en": "You said:",
+    "es": "Usted dijo:",
+    "vi": "Bạn đã nói:",
+    "zh": "您说的是：",
+    "ar": "لقد قلت:",
+    "hi": "आपने कहा:"
+  },
+  "isThisRight": {
+    "en": "Is this right?",
+    "es": "¿Es correcto?",
+    "vi": "Có đúng không?",
+    "zh": "对吗？",
+    "ar": "هل هذا صحيح؟",
+    "hi": "क्या यह सही है?"
+  },
+  "confirmYes": {
+    "en": "Yes, that is right",
+    "es": "Sí, es correcto",
+    "vi": "Đúng rồi",
+    "zh": "对",
+    "ar": "نعم، هذا صحيح",
+    "hi": "हाँ, यह सही है"
+  },
+  "confirmNo": {
+    "en": "No, ask again",
+    "es": "No, pregunte otra vez",
+    "vi": "Không, hỏi lại",
+    "zh": "不对，再问一次",
+    "ar": "لا، اسأل مرة أخرى",
+    "hi": "नहीं, फिर से पूछिए"
+  },
+  "done": {
+    "en": "Done",
+    "es": "Listo",
+    "vi": "Xong",
+    "zh": "完成",
+    "ar": "تم",
+    "hi": "हो गया"
+  },
+  "continue": {
+    "en": "Continue",
+    "es": "Continuar",
+    "vi": "Tiếp tục",
+    "zh": "继续",
+    "ar": "متابعة",
+    "hi": "आगे बढ़ें"
+  },
+  "chooseAll": {
+    "en": "Choose all that apply",
+    "es": "Elija todas las que correspondan",
+    "vi": "Chọn tất cả những gì đúng",
+    "zh": "可多选",
+    "ar": "اختر كل ما ينطبق",
+    "hi": "जो भी लागू हों, सब चुनें"
+  },
+  "orSayIt": {
+    "en": "Or say it / type it",
+    "es": "O dígalo / escríbalo",
+    "vi": "Hoặc nói / gõ ra",
+    "zh": "或者说出来 / 打字",
+    "ar": "أو قلها / اكتبها",
+    "hi": "या बोलिए / लिखिए"
+  },
+  "typeHere": {
+    "en": "Type your answer here",
+    "es": "Escriba su respuesta aquí",
+    "vi": "Gõ câu trả lời ở đây",
+    "zh": "在这里输入您的回答",
+    "ar": "اكتب إجابتك هنا",
+    "hi": "अपना जवाब यहाँ लिखिए"
+  },
+  "send": {
+    "en": "Send",
+    "es": "Enviar",
+    "vi": "Gửi",
+    "zh": "发送",
+    "ar": "إرسال",
+    "hi": "भेजें"
+  },
+  "speak": {
+    "en": "Tap and speak",
+    "es": "Toque y hable",
+    "vi": "Chạm và nói",
+    "zh": "点击后说话",
+    "ar": "اضغط وتكلم",
+    "hi": "दबाइए और बोलिए"
+  },
+  "listening": {
+    "en": "Listening...",
+    "es": "Escuchando...",
+    "vi": "Đang nghe...",
+    "zh": "正在听...",
+    "ar": "جارٍ الاستماع...",
+    "hi": "सुन रहे हैं..."
+  },
+  "stop": {
+    "en": "Stop",
+    "es": "Detener",
+    "vi": "Dừng",
+    "zh": "停止",
+    "ar": "إيقاف",
+    "hi": "रोकें"
+  },
+  "back": {
+    "en": "Back",
+    "es": "Atrás",
+    "vi": "Quay lại",
+    "zh": "返回",
+    "ar": "رجوع",
+    "hi": "वापस"
+  },
+  "thinking": {
+    "en": "One moment, we are reading your answer.",
+    "es": "Un momento, estamos leyendo su respuesta.",
+    "vi": "Xin chờ một chút, chúng tôi đang đọc câu trả lời của bạn.",
+    "zh": "请稍等，我们正在理解您的回答。",
+    "ar": "لحظة من فضلك، نحن نقرأ إجابتك.",
+    "hi": "एक पल रुकिए, हम आपका जवाब पढ़ रहे हैं।"
+  },
+  "micUnavailable": {
+    "en": "Speaking is not available here. Please type.",
+    "es": "No se puede hablar aquí. Por favor, escriba.",
+    "vi": "Không dùng được giọng nói ở đây. Vui lòng gõ.",
+    "zh": "这里无法使用语音，请打字。",
+    "ar": "التحدث غير متاح هنا. يرجى الكتابة.",
+    "hi": "यहाँ बोलना उपलब्ध नहीं है। कृपया लिखिए।"
+  },
+  "instructionWatching": {
+    "en": "The crew member is watching. Do your best.",
+    "es": "El paramédico le está observando. Hágalo lo mejor que pueda.",
+    "vi": "Nhân viên cấp cứu đang quan sát. Bạn cố gắng hết sức nhé.",
+    "zh": "急救人员正在观察，请尽力去做。",
+    "ar": "المسعف يراقبك. افعل ما تستطيع.",
+    "hi": "टीम का सदस्य देख रहा है। जितना हो सके, कोशिश कीजिए।"
+  },
+  "thankYou": {
+    "en": "Thank you.",
+    "es": "Gracias.",
+    "vi": "Cảm ơn bạn.",
+    "zh": "谢谢。",
+    "ar": "شكراً لك.",
+    "hi": "धन्यवाद।"
+  },
+  "callEnded": {
+    "en": "The call has ended. Thank you.",
+    "es": "La llamada terminó. Gracias.",
+    "vi": "Cuộc gọi đã kết thúc. Cảm ơn bạn.",
+    "zh": "通话已结束。谢谢。",
+    "ar": "انتهت المكالمة. شكراً لك.",
+    "hi": "कॉल खत्म हो गई है। धन्यवाद।"
+  },
+  "freeFormLabel": {
+    "en": "Question from the crew",
+    "es": "Pregunta del equipo",
+    "vi": "Câu hỏi từ nhân viên cấp cứu",
+    "zh": "急救人员的提问",
+    "ar": "سؤال من المسعف",
+    "hi": "टीम का सवाल"
+  },
+  "pointToLanguage": {
+    "en": "Point to your language",
+    "es": "Señale su idioma",
+    "vi": "Chỉ vào ngôn ngữ của bạn",
+    "zh": "请指出您的语言",
+    "ar": "أشر إلى لغتك",
+    "hi": "अपनी भाषा पर उंगली रखिए"
+  },
+  "aslComingSoon": {
+    "en": "ASL video coming soon",
+    "es": "Video en ASL próximamente",
+    "vi": "Video ASL sắp có",
+    "zh": "ASL视频即将推出",
+    "ar": "فيديو لغة الإشارة الأمريكية قريباً",
+    "hi": "ASL वीडियो जल्द आएगा"
+  },
+  "gestureHint": {
+    "en": "Gesture answer: thumbs up for yes, thumbs down for no",
+    "es": "Respuesta con gesto: pulgar arriba para sí, pulgar abajo para no",
+    "vi": "Trả lời bằng cử chỉ: giơ ngón cái lên là có, chỉ xuống là không",
+    "zh": "手势回答：竖起大拇指表示是，大拇指向下表示不是",
+    "ar": "إجابة بالإيماءة: الإبهام لأعلى تعني نعم، والإبهام لأسفل تعني لا",
+    "hi": "इशारे से जवाब: हाँ के लिए अंगूठा ऊपर, नहीं के लिए अंगूठा नीचे"
+  },
+  "gestureSeen": {
+    "en": "We saw:",
+    "es": "Vimos:",
+    "vi": "Chúng tôi thấy:",
+    "zh": "我们看到：",
+    "ar": "رأينا:",
+    "hi": "हमने देखा:"
+  },
+  "couldNotUnderstand": {
+    "en": "We could not understand that. Please try again or tap an answer.",
+    "es": "No pudimos entender. Intente otra vez o toque una respuesta.",
+    "vi": "Chúng tôi chưa hiểu. Vui lòng thử lại hoặc chạm vào một câu trả lời.",
+    "zh": "我们没能理解。请再试一次，或点击一个答案。",
+    "ar": "لم نتمكن من الفهم. حاول مرة أخرى أو اضغط على إجابة.",
+    "hi": "हम समझ नहीं पाए। कृपया फिर से कोशिश कीजिए या कोई जवाब चुनिए।"
+  },
+  "front": {
+    "en": "Front",
+    "es": "Frente",
+    "vi": "Mặt trước",
+    "zh": "正面",
+    "ar": "الأمام",
+    "hi": "आगे"
+  },
+  "backSide": {
+    "en": "Back",
+    "es": "Detrás",
+    "vi": "Mặt sau",
+    "zh": "背面",
+    "ar": "الخلف",
+    "hi": "पीछे"
+  },
+  "noSpread": {
+    "en": "It does not spread",
+    "es": "No se extiende",
+    "vi": "Không lan ra",
+    "zh": "不扩散",
+    "ar": "لا ينتشر",
+    "hi": "नहीं फैलता"
+  },
+  "tapBody": {
+    "en": "Tap where it is. You can choose more than one.",
+    "es": "Toque donde está. Puede elegir más de uno.",
+    "vi": "Chạm vào chỗ bị. Bạn có thể chọn nhiều chỗ.",
+    "zh": "点击相应部位，可以选择多个。",
+    "ar": "اضغط على المكان. يمكنك اختيار أكثر من مكان.",
+    "hi": "जहाँ है वहाँ दबाइए। आप एक से ज़्यादा चुन सकते हैं।"
+  },
+  "region.head": {
+    "en": "Head",
+    "es": "Cabeza",
+    "vi": "Đầu",
+    "zh": "头",
+    "ar": "الرأس",
+    "hi": "सिर"
+  },
+  "region.face": {
+    "en": "Face",
+    "es": "Cara",
+    "vi": "Mặt",
+    "zh": "脸",
+    "ar": "الوجه",
+    "hi": "चेहरा"
+  },
+  "region.neck": {
+    "en": "Neck",
+    "es": "Cuello",
+    "vi": "Cổ",
+    "zh": "脖子",
+    "ar": "الرقبة",
+    "hi": "गर्दन"
+  },
+  "region.chest": {
+    "en": "Chest",
+    "es": "Pecho",
+    "vi": "Ngực",
+    "zh": "胸部",
+    "ar": "الصدر",
+    "hi": "सीना"
+  },
+  "region.upper_abdomen": {
+    "en": "Upper belly",
+    "es": "Parte de arriba de la barriga",
+    "vi": "Bụng trên",
+    "zh": "上腹部",
+    "ar": "أعلى البطن",
+    "hi": "पेट का ऊपरी हिस्सा"
+  },
+  "region.lower_abdomen": {
+    "en": "Lower belly",
+    "es": "Parte de abajo de la barriga",
+    "vi": "Bụng dưới",
+    "zh": "下腹部",
+    "ar": "أسفل البطن",
+    "hi": "पेट का निचला हिस्सा"
+  },
+  "region.pelvis": {
+    "en": "Hips and pelvis",
+    "es": "Cadera y pelvis",
+    "vi": "Hông và xương chậu",
+    "zh": "骨盆和髋部",
+    "ar": "الحوض والورك",
+    "hi": "कूल्हे और श्रोणि"
+  },
+  "region.back": {
+    "en": "Back",
+    "es": "Espalda",
+    "vi": "Lưng",
+    "zh": "背部",
+    "ar": "الظهر",
+    "hi": "पीठ"
+  },
+  "region.left_arm": {
+    "en": "Left arm",
+    "es": "Brazo izquierdo",
+    "vi": "Tay trái",
+    "zh": "左臂",
+    "ar": "الذراع اليسرى",
+    "hi": "बायाँ हाथ"
+  },
+  "region.right_arm": {
+    "en": "Right arm",
+    "es": "Brazo derecho",
+    "vi": "Tay phải",
+    "zh": "右臂",
+    "ar": "الذراع اليمنى",
+    "hi": "दायाँ हाथ"
+  },
+  "region.left_leg": {
+    "en": "Left leg",
+    "es": "Pierna izquierda",
+    "vi": "Chân trái",
+    "zh": "左腿",
+    "ar": "الساق اليسرى",
+    "hi": "बायाँ पैर"
+  },
+  "region.right_leg": {
+    "en": "Right leg",
+    "es": "Pierna derecha",
+    "vi": "Chân phải",
+    "zh": "右腿",
+    "ar": "الساق اليمنى",
+    "hi": "दायाँ पैर"
+  },
+  "painNone": {
+    "en": "No pain",
+    "es": "Sin dolor",
+    "vi": "Không đau",
+    "zh": "不痛",
+    "ar": "لا ألم",
+    "hi": "कोई दर्द नहीं"
+  },
+  "painMild": {
+    "en": "A little",
+    "es": "Un poco",
+    "vi": "Hơi đau",
+    "zh": "有点痛",
+    "ar": "قليلاً",
+    "hi": "थोड़ा"
+  },
+  "painModerate": {
+    "en": "Medium",
+    "es": "Regular",
+    "vi": "Đau vừa",
+    "zh": "中等",
+    "ar": "متوسط",
+    "hi": "मध्यम"
+  },
+  "painSevere": {
+    "en": "Very bad",
+    "es": "Muy fuerte",
+    "vi": "Rất đau",
+    "zh": "很痛",
+    "ar": "شديد جداً",
+    "hi": "बहुत ज़्यादा"
+  },
+  "painWorst": {
+    "en": "Worst pain",
+    "es": "El peor dolor",
+    "vi": "Đau nhất",
+    "zh": "最痛",
+    "ar": "أسوأ ألم",
+    "hi": "सबसे बुरा दर्द"
+  },
+  "painOutOf": {
+    "en": "{n} out of 10",
+    "es": "{n} de 10",
+    "vi": "{n} trên 10",
+    "zh": "10分中的{n}分",
+    "ar": "{n} من 10",
+    "hi": "10 में से {n}"
+  },
+  "howLongAgo": {
+    "en": "How long ago?",
+    "es": "¿Hace cuánto?",
+    "vi": "Cách đây bao lâu?",
+    "zh": "多久以前？",
+    "ar": "منذ متى؟",
+    "hi": "कितनी देर पहले?"
+  },
+  "duration.minutes": {
+    "en": "A few minutes",
+    "es": "Unos minutos",
+    "vi": "Vài phút",
+    "zh": "几分钟",
+    "ar": "بضع دقائق",
+    "hi": "कुछ मिनट"
+  },
+  "duration.about_1_hour": {
+    "en": "About 1 hour",
+    "es": "Como 1 hora",
+    "vi": "Khoảng 1 tiếng",
+    "zh": "大约1小时",
+    "ar": "حوالي ساعة",
+    "hi": "लगभग 1 घंटा"
+  },
+  "duration.few_hours": {
+    "en": "A few hours",
+    "es": "Unas horas",
+    "vi": "Vài tiếng",
+    "zh": "几个小时",
+    "ar": "بضع ساعات",
+    "hi": "कुछ घंटे"
+  },
+  "duration.today": {
+    "en": "Earlier today",
+    "es": "Hoy, más temprano",
+    "vi": "Sớm hơn trong hôm nay",
+    "zh": "今天早些时候",
+    "ar": "في وقت سابق اليوم",
+    "hi": "आज पहले"
+  },
+  "duration.yesterday": {
+    "en": "Yesterday",
+    "es": "Ayer",
+    "vi": "Hôm qua",
+    "zh": "昨天",
+    "ar": "أمس",
+    "hi": "कल"
+  },
+  "duration.days": {
+    "en": "Days ago",
+    "es": "Hace días",
+    "vi": "Vài ngày trước",
+    "zh": "几天前",
+    "ar": "منذ أيام",
+    "hi": "कुछ दिन पहले"
+  },
+  "duration.unknown": {
+    "en": "I do not know",
+    "es": "No sé",
+    "vi": "Tôi không biết",
+    "zh": "我不知道",
+    "ar": "لا أعرف",
+    "hi": "मुझे नहीं पता"
+  },
+  "exactNumber": {
+    "en": "Exact number (optional)",
+    "es": "Número exacto (opcional)",
+    "vi": "Con số cụ thể (không bắt buộc)",
+    "zh": "具体数字（可选）",
+    "ar": "رقم محدد (اختياري)",
+    "hi": "सही संख्या (वैकल्पिक)"
+  },
+  "unit.minutes": {
+    "en": "minutes",
+    "es": "minutos",
+    "vi": "phút",
+    "zh": "分钟",
+    "ar": "دقائق",
+    "hi": "मिनट"
+  },
+  "unit.hours": {
+    "en": "hours",
+    "es": "horas",
+    "vi": "giờ",
+    "zh": "小时",
+    "ar": "ساعات",
+    "hi": "घंटे"
+  },
+  "unit.days": {
+    "en": "days",
+    "es": "días",
+    "vi": "ngày",
+    "zh": "天",
+    "ar": "أيام",
+    "hi": "दिन"
+  },
+  "agoFormat": {
+    "en": "{n} {unit} ago",
+    "es": "hace {n} {unit}",
+    "vi": "{n} {unit} trước",
+    "zh": "{n}{unit}前",
+    "ar": "منذ {n} {unit}",
+    "hi": "{n} {unit} पहले"
+  },
+  "field.chiefComplaint": {
+    "en": "Main problem",
+    "es": "Problema principal",
+    "vi": "Vấn đề chính",
+    "zh": "主要问题",
+    "ar": "المشكلة الرئيسية",
+    "hi": "मुख्य समस्या"
+  },
+  "field.onset": {
+    "en": "Started",
+    "es": "Empezó",
+    "vi": "Bắt đầu",
+    "zh": "开始时间",
+    "ar": "بدأ",
+    "hi": "शुरू हुआ"
+  },
+  "field.activity": {
+    "en": "Doing",
+    "es": "Estaba haciendo",
+    "vi": "Đang làm",
+    "zh": "当时在做",
+    "ar": "كنت تفعل",
+    "hi": "कर रहे थे"
+  },
+  "field.provocation": {
+    "en": "Better or worse",
+    "es": "Mejor o peor",
+    "vi": "Đỡ hơn hoặc tệ hơn",
+    "zh": "好转或加重",
+    "ar": "أفضل أو أسوأ",
+    "hi": "बेहतर या बदतर"
+  },
+  "field.quality": {
+    "en": "Feels like",
+    "es": "Se siente",
+    "vi": "Cảm giác",
+    "zh": "感觉",
+    "ar": "الإحساس",
+    "hi": "महसूस होता है"
+  },
+  "field.region": {
+    "en": "Where",
+    "es": "Dónde",
+    "vi": "Ở đâu",
+    "zh": "部位",
+    "ar": "المكان",
+    "hi": "कहाँ"
+  },
+  "field.radiation": {
+    "en": "Spreads to",
+    "es": "Se extiende a",
+    "vi": "Lan ra",
+    "zh": "扩散到",
+    "ar": "ينتشر إلى",
+    "hi": "फैलता है"
+  },
+  "field.severity": {
+    "en": "Pain level",
+    "es": "Nivel de dolor",
+    "vi": "Mức đau",
+    "zh": "疼痛程度",
+    "ar": "مستوى الألم",
+    "hi": "दर्द का स्तर"
+  },
+  "field.allergies": {
+    "en": "Allergies",
+    "es": "Alergias",
+    "vi": "Dị ứng",
+    "zh": "过敏",
+    "ar": "الحساسية",
+    "hi": "एलर्जी"
+  },
+  "field.medications": {
+    "en": "Medicines",
+    "es": "Medicamentos",
+    "vi": "Thuốc",
+    "zh": "药物",
+    "ar": "الأدوية",
+    "hi": "दवाएँ"
+  },
+  "field.conditions": {
+    "en": "Conditions",
+    "es": "Enfermedades",
+    "vi": "Bệnh",
+    "zh": "疾病",
+    "ar": "الأمراض",
+    "hi": "बीमारियाँ"
+  },
+  "field.lastOralIntake": {
+    "en": "Last ate or drank",
+    "es": "Última vez que comió o bebió",
+    "vi": "Lần cuối ăn uống",
+    "zh": "最后进食或喝水",
+    "ar": "آخر أكل أو شرب",
+    "hi": "आखिरी बार खाया या पिया"
+  },
+  "field.headStrike": {
+    "en": "Hit head",
+    "es": "Se golpeó la cabeza",
+    "vi": "Bị đập đầu",
+    "zh": "撞到头",
+    "ar": "ضرب الرأس",
+    "hi": "सिर पर चोट"
+  },
+  "field.pregnancy": {
+    "en": "Pregnant",
+    "es": "Embarazada",
+    "vi": "Mang thai",
+    "zh": "怀孕",
+    "ar": "حامل",
+    "hi": "गर्भवती"
+  },
+  "field.lastKnownWell": {
+    "en": "Last felt normal",
+    "es": "Última vez que se sintió normal",
+    "vi": "Lần cuối thấy bình thường",
+    "zh": "最后感觉正常",
+    "ar": "آخر مرة شعرت بأنك طبيعي",
+    "hi": "आखिरी बार सामान्य महसूस किया"
+  },
+  "field.notes": {
+    "en": "Note",
+    "es": "Nota",
+    "vi": "Ghi chú",
+    "zh": "备注",
+    "ar": "ملاحظة",
+    "hi": "नोट"
+  },
+  "field.facialDroop": {
+    "en": "Face droop",
+    "es": "Cara caída",
+    "vi": "Méo mặt",
+    "zh": "面部下垂",
+    "ar": "تدلي الوجه",
+    "hi": "चेहरा लटकना"
+  },
+  "field.armDrift": {
+    "en": "Arm drift",
+    "es": "Brazo que cae",
+    "vi": "Tay bị rơi xuống",
+    "zh": "手臂下垂",
+    "ar": "انحراف الذراع",
+    "hi": "हाथ नीचे गिरना"
+  },
+  "field.speechAbnormal": {
+    "en": "Speech problem",
+    "es": "Problema al hablar",
+    "vi": "Khó nói",
+    "zh": "说话困难",
+    "ar": "مشكلة في الكلام",
+    "hi": "बोलने में दिक्कत"
+  },
+  "allergy.aspirin": {
+    "en": "Aspirin",
+    "es": "Aspirina",
+    "vi": "Aspirin",
+    "zh": "阿司匹林",
+    "ar": "الأسبرين",
+    "hi": "एस्पिरिन"
+  },
+  "allergy.nsaid": {
+    "en": "Ibuprofen or similar pain pills",
+    "es": "Ibuprofeno u otros analgésicos parecidos",
+    "vi": "Ibuprofen hoặc thuốc giảm đau tương tự",
+    "zh": "布洛芬或类似止痛药",
+    "ar": "إيبوبروفين أو مسكنات مشابهة",
+    "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ"
+  },
+  "allergy.penicillin": {
+    "en": "Penicillin",
+    "es": "Penicilina",
+    "vi": "Penicillin",
+    "zh": "青霉素",
+    "ar": "البنسلين",
+    "hi": "पेनिसिलिन"
+  },
+  "allergy.sulfa": {
+    "en": "Sulfa drugs",
+    "es": "Sulfas",
+    "vi": "Thuốc nhóm sulfa",
+    "zh": "磺胺类药物",
+    "ar": "أدوية السلفا",
+    "hi": "सल्फ़ा दवाएँ"
+  },
+  "allergy.opioid": {
+    "en": "Morphine or other opioids",
+    "es": "Morfina u otros opioides",
+    "vi": "Morphin hoặc thuốc opioid khác",
+    "zh": "吗啡或其他阿片类药物",
+    "ar": "المورفين أو مسكنات أفيونية أخرى",
+    "hi": "मॉर्फ़ीन या अन्य ओपिओइड"
+  },
+  "allergy.latex": {
+    "en": "Latex",
+    "es": "Látex",
+    "vi": "Cao su latex",
+    "zh": "乳胶",
+    "ar": "اللاتكس",
+    "hi": "लेटेक्स"
+  },
+  "allergy.food": {
+    "en": "A food",
+    "es": "Un alimento",
+    "vi": "Thức ăn",
+    "zh": "食物",
+    "ar": "طعام",
+    "hi": "खाना"
+  },
+  "allergy.other": {
+    "en": "Another medicine",
+    "es": "Otro medicamento",
+    "vi": "Thuốc khác",
+    "zh": "其他药物",
+    "ar": "دواء آخر",
+    "hi": "कोई और दवा"
+  },
+  "allergy.none": {
+    "en": "No allergies",
+    "es": "Sin alergias",
+    "vi": "Không dị ứng",
+    "zh": "没有过敏",
+    "ar": "لا توجد حساسية",
+    "hi": "कोई एलर्जी नहीं"
+  },
+  "allergy.unspecified": {
+    "en": "Yes, I have an allergy",
+    "es": "Sí, tengo alergia",
+    "vi": "Có, tôi bị dị ứng",
+    "zh": "是，我有过敏",
+    "ar": "نعم، لدي حساسية",
+    "hi": "हाँ, मुझे एलर्जी है"
+  },
+  "understood.yes": {
+    "en": "I can understand",
+    "es": "Puedo entender",
+    "vi": "Tôi hiểu được",
+    "zh": "我能听懂",
+    "ar": "أستطيع أن أفهم",
+    "hi": "मुझे समझ आ रहा है"
+  },
+  "understood.no": {
+    "en": "I cannot understand well",
+    "es": "No entiendo bien",
+    "vi": "Tôi không hiểu rõ",
+    "zh": "我听不太懂",
+    "ar": "لا أفهم جيداً",
+    "hi": "मुझे ठीक से समझ नहीं आ रहा"
+  },
+  "noMedicines": {
+    "en": "No medicines",
+    "es": "Ningún medicamento",
+    "vi": "Không dùng thuốc",
+    "zh": "不吃药",
+    "ar": "لا أتناول أدوية",
+    "hi": "कोई दवा नहीं"
+  },
+  "listSeparator": {
+    "en": ", ",
+    "es": ", ",
+    "vi": ", ",
+    "zh": "、",
+    "ar": "، ",
+    "hi": ", "
+  }
+}

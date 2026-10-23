@@ -8,5 +8,7 @@ export default defineConfig({
   test: {
     include: ["src/**/*.test.ts", "eval/**/*.test.ts", "scripts/**/*.test.ts"],
     environment: "node",
+    // Handoff snapshots print clock times.
+    env: { TZ: "UTC" },
   },
 });

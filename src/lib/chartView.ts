@@ -63,6 +63,7 @@ export function englishValue(field: ChartField, v: unknown): string {
     if (m.generic === "none") return "No medications";
     return `${displayValue(field, m, "en")}, ${drugClassLabel(m.drugClass)}`;
   }
+  if ((field === "radiation" || field === "region") && v === "none") return "Does not spread";
   const base = displayValue(field, v, "en");
   if (field === "onset" || field === "lastOralIntake" || field === "lastKnownWell") {
     const at = (v as { absoluteTime?: number | null }).absoluteTime;

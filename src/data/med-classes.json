@@ -25,7 +25,7 @@
     "steroid": "Steroid",
     "penicillin": "Penicillin antibiotic",
     "sulfa": "Sulfa antibiotic",
-    "cardiac": "Heart medicine (unspecified)",
+    "cardiac": "Cardiac, specific drug unknown",
     "unknown": "Unknown class"
   },
   "medications": [

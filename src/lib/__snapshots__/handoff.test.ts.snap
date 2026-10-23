@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`handoff for each demo scenario > plain text matches snapshot: asl-fall 1`] = `
+"FirstWords EMS handoff
+Patient, about 74 years old, female
+Communication: ASL interpreter needed on arrival. Language: American Sign Language. Preferred mode: ASL. Until the interpreter arrives, use written English, pictures, and yes or no questions.
+M: Chief complaint: A fall or injury; Mechanism: Fall while: on the stairs; Onset: 20 minutes ago (about 13:40)
+I: Location: Head, Back; Head strike: Yes
+S: Quality: Dull ache; Pain: 5 out of 10; Radiates to: Does not spread; Better or worse with: Moving makes it worse; Vitals: HR 88, BP 146/82, SpO2 97%, RR 16
+T: Given: C-collar
+Allergies: No allergies
+Medications: apixaban (Eliquis), Anticoagulant (blood thinner)
+History: Conditions: Heart problems; Last oral intake: Earlier today (about 06:00); Notes: Patient says they can hear and understand the questions.
+Red flags: Blood thinner with fall or head strike [Rule 1: Anticoagulant medication AND (fall or injury OR hit head); Medication: apixaban (Eliquis), Anticoagulant (blood thinner); Chief complaint: A fall or injury; Hit head: Yes]
+Unconfirmed: None
+Prototype for demonstration. Not for clinical use."
+`;
+
+exports[`handoff for each demo scenario > plain text matches snapshot: es-chest-pain 1`] = `
+"FirstWords EMS handoff
+Patient, about 58 years old, male
+Communication: Spanish interpreter needed on arrival. Language: Spanish (Español). Preferred mode: Spoken Spanish. Answers by tapping or speaking on the tablet.
+M: Chief complaint: Chest pain; Activity at onset: Resting or sitting; Onset: 40 minutes ago (about 13:20)
+I: Location: Chest
+S: Quality: Pressure or squeezing; Pain: 7 out of 10; Radiates to: Left arm; Better or worse with: Nothing changes it; Vitals: HR 104, BP 158/94, SpO2 95%, RR 20, Glucose 142 mg/dL
+T: Given: Oxygen
+Allergies: Aspirin
+Medications: metformin (metformina), Diabetes medicine
+History: Conditions: Diabetes; Last oral intake: A few hours (about 11:00); Notes: Patient says they can hear and understand the questions. Reaction to aspirin: hives. Patient has nothing else to add.
+Red flags: Chest pain with aspirin or NSAID allergy [Rule 3: Chest pain AND allergy to aspirin or NSAIDs; Chief complaint: Chest pain; Allergy: Aspirin]
+Unconfirmed: None
+Prototype for demonstration. Not for clinical use."
+`;
+
+exports[`handoff for each demo scenario > plain text matches snapshot: picture-stroke 1`] = `
+"FirstWords EMS handoff
+Patient, about 67 years old, male
+Communication: No spoken-language interpreter needed. Language: English (reads). Preferred mode: Picture board: point at pictures, yes or no answers. Patient may not be able to speak.
+M: Chief complaint: Weakness or numbness; Activity at onset: Resting or sitting; Onset: 90 minutes ago (about 12:30)
+I: Location: Right arm; Facial droop (EMT): Yes; Arm drift (EMT): Yes; Speech abnormal (EMT): Yes
+S: Better or worse with: Nothing changes it; Last known well: 1.5 hours ago (about 12:30); Vitals: HR 92, BP 182/98, SpO2 96%, RR 18, Glucose 118 mg/dL
+T: Given: Glucose checked
+Allergies: No allergies
+Medications: Heart medicine, Cardiac, specific drug unknown
+History: Conditions: High blood pressure; Last oral intake: A few hours (about 11:00); Notes: Patient says they can hear and understand the questions.
+Red flags: Stroke alert [Rule 2: Facial droop OR arm drift OR abnormal speech; Facial droop: Yes; Arm drift: Yes; Abnormal speech: Yes; Last known well: 1.5 hours ago (about 12:30); Hours since last known well: 1.7]
+Unconfirmed: None
+Prototype for demonstration. Not for clinical use."
+`;

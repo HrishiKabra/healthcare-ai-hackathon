@@ -46,7 +46,7 @@ export function mockExtract(r: ExtractRequest, q: Question): ExtractOutput {
 
 export function templateNarrative(handoffText: string): string {
   const first = handoffText.split("\n").find((l) => l.startsWith("M:"))?.replace(/^M:\s*/, "") ?? "See handoff";
-  return `Demo summary: ${first}. Review the structured handoff below before acting.`;
+  return `Demo summary: ${first}. Check it against the structured handoff before acting.`;
 }
 
 /** Demo-mode provider: canned responses, keyword baseline for anything else. No network. */

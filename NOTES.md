@@ -70,6 +70,13 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - `npm run translate:questions` fills only missing translations via the API and skips cleanly with no key.
 - Checked: a unit test runs all 3 scenarios through the real pipeline with `fetch` stubbed to throw, and each fires exactly its expected rule. In headless Chrome, all 3 scenarios autoplay across two windows with every non-localhost request blocked: correct flags, zero external requests, and no console errors.
 
+### Phase 5: Handoff and ER screen
+- `src/lib/handoff.ts` builds the MIST handoff in code from the chart. Only values the patient confirmed, at medium or high confidence, and without conflicts go into MIST, allergies, medications (with drug class), and history. Everything else goes in a separate "Unconfirmed, low confidence, or conflicting" list with the reason.
+- The communication needs box gives the language (or ASL, or picture board), "interpreter needed on arrival", the preferred mode, and notes (for example "speech abnormal").
+- "Generate handoff" on the EMT console sends the structured handoff to the ER window immediately, then an update with the optional "AI summary, review before use" paragraph (a template sentence in demo mode).
+- `/er?s=<id>` waits for the handoff and shows it with a "Received HH:MM" stamp, plus Copy (plain text) and Print (print stylesheet). An ER window opened late still gets the last handoff. End call clears it.
+- Checked: snapshot tests of the handoff text for all 3 scenarios, plus tests for the unconfirmed and conflict lists. In headless Chrome, all 3 scenarios autoplay, generate a handoff, show the right flag and communication box on a late-opened ER window, and clear on End call.
+
 ## Needs a human
 
 - **Translations:** a fluent speaker of each language should review `src/data/questions.json` and `src/data/ui-strings.json`, then flip `translationsVerified` to `true` per question and choice.

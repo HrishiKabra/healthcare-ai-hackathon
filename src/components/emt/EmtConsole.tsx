@@ -7,6 +7,7 @@ import { useAutopilot } from "@/hooks/useAutopilot";
 import { explainFlag } from "@/lib/ai/client";
 import { questionStatus } from "@/lib/flow";
 import { FreeformComposer } from "./FreeformComposer";
+import { HandoffButton } from "./HandoffButton";
 import { Modal } from "@/components/shared/Modal";
 import type { useEmtSession } from "@/hooks/useEmtSession";
 import { useNow } from "@/hooks/useNow";
@@ -38,7 +39,7 @@ export function EmtConsole({
   /** Extra controls in the autopilot bar (the /demo scenario picker). */
   autopilotExtras?: React.ReactNode;
 }) {
-  const { state, dispatch, endCall, post } = session;
+  const { state, dispatch, endCall, post, sendHandoff } = session;
   const [autoAdvance, setAutoAdvance] = useState(false);
   const ap = useAutopilot({ state, dispatch, post });
   const now = useNow(15_000);
@@ -135,6 +136,7 @@ export function EmtConsole({
         </div>
 
         <div className="flex min-h-0 flex-col gap-3 overflow-y-auto">
+          <HandoffButton state={state} send={sendHandoff} />
           <PatientInputs
             emt={state.emt}
             onChange={(emt) => dispatch({ type: "setEmt", emt })}

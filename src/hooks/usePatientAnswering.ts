@@ -35,17 +35,20 @@ function answerId(): string {
  */
 export function usePatientAnswering(opts: {
   q: Question | null;
+  /** Changes whenever the question is (re)sent; defaults to the question id. */
+  promptKey?: string | null;
   lang: LangCode;
   sink: AnswerSink;
   interpretFree: (q: Question, text: string, lang: LangCode) => Promise<FreeInterpretation>;
 }) {
   const { q, lang, sink, interpretFree } = opts;
+  const key = opts.promptKey !== undefined ? opts.promptKey : (q?.id ?? null);
   const [step, setStep] = useState<PatientStep>({ kind: "answering" });
-  const [forQuestion, setForQuestion] = useState<string | null>(q?.id ?? null);
+  const [forKey, setForKey] = useState<string | null>(key);
 
   // Reset when a new question arrives (state derived from props, no effect needed).
-  if ((q?.id ?? null) !== forQuestion) {
-    setForQuestion(q?.id ?? null);
+  if (key !== forKey) {
+    setForKey(key);
     setStep({ kind: "answering" });
   }
 

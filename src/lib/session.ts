@@ -10,7 +10,7 @@ export type FreeformQuestion = {
   confidence: "high" | "medium" | "low";
 };
 
-export type CurrentPrompt = { kind: "bank"; questionId: string } | { kind: "freeform"; id: string };
+export type CurrentPrompt = { kind: "bank"; questionId: string; at: number } | { kind: "freeform"; id: string; at: number };
 
 export type SessionState = {
   id: string;
@@ -33,8 +33,8 @@ export type SessionState = {
 export type SessionEvent =
   | { type: "setMode"; mode: PatientMode; language: LangCode }
   | { type: "setEmt"; emt: Partial<EmtInputs> }
-  | { type: "ask"; questionId: string }
-  | { type: "askFreeform"; question: FreeformQuestion }
+  | { type: "ask"; questionId: string; at: number }
+  | { type: "askFreeform"; question: FreeformQuestion; at: number }
   | { type: "clearCurrent" }
   | { type: "answerProposed"; answer: Answer }
   | { type: "answerConfirmed"; answerId: string }
@@ -86,14 +86,14 @@ export function sessionReducer(s: SessionState, e: SessionEvent): SessionState {
     case "ask":
       return {
         ...s,
-        current: { kind: "bank", questionId: e.questionId },
+        current: { kind: "bank", questionId: e.questionId, at: e.at },
         asked: addOnce(s.asked, e.questionId),
         skipped: s.skipped.filter((q) => q !== e.questionId),
       };
     case "askFreeform":
       return {
         ...s,
-        current: { kind: "freeform", id: e.question.id },
+        current: { kind: "freeform", id: e.question.id, at: e.at },
         freeform: [...s.freeform.filter((f) => f.id !== e.question.id), e.question],
         asked: addOnce(s.asked, e.question.id),
       };
@@ -132,4 +132,10 @@ export function sessionChart(s: Pick<SessionState, "answers" | "startedAt">): Cl
 export function newId(prefix: string): string {
   const rand = Math.random().toString(36).slice(2, 8);
   return `${prefix}-${Date.now().toString(36)}-${rand}`;
+}
+
+/** Stable key for the prompt on screen; changes whenever the EMT (re)sends a question. */
+export function promptKey(c: CurrentPrompt | null): string | null {
+  if (!c) return null;
+  return `${c.kind === "bank" ? c.questionId : c.id}@${c.at}`;
 }

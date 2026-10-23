@@ -11,8 +11,8 @@ describe("sessionReducer", () => {
   });
 
   it("asking marks a question as asked and current", () => {
-    const s = run([{ type: "ask", questionId: "understand" }]);
-    expect(s.current).toEqual({ kind: "bank", questionId: "understand" });
+    const s = run([{ type: "ask", questionId: "understand", at: 5 }]);
+    expect(s.current).toEqual({ kind: "bank", questionId: "understand", at: 5 });
     expect(s.asked).toEqual(["understand"]);
   });
 
@@ -46,7 +46,7 @@ describe("sessionReducer", () => {
   });
 
   it("skipping the current question clears it", () => {
-    const s = run([{ type: "ask", questionId: "onset" }, { type: "skip", questionId: "onset" }]);
+    const s = run([{ type: "ask", questionId: "onset", at: 1 }, { type: "skip", questionId: "onset" }]);
     expect(s.current).toBeNull();
     expect(s.skipped).toEqual(["onset"]);
   });

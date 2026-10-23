@@ -64,3 +64,20 @@ body {
     background: #fff;
   }
 }
+
+/* A new red flag pulses once so the EMT notices it; then it stays put. */
+@keyframes flag-in {
+  0% {
+    transform: translateY(-6px);
+    box-shadow: 0 0 0 0 rgb(180 35 44 / 0.45);
+  }
+  60% {
+    box-shadow: 0 0 0 10px rgb(180 35 44 / 0);
+  }
+  100% {
+    transform: none;
+  }
+}
+.flag-in {
+  animation: flag-in 700ms ease-out;
+}

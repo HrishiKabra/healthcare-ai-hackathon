@@ -8,6 +8,8 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - **Next.js 16.4 with `cacheComponents: false`.** `create-next-app` now turns on Cache Components and Partial Prefetching by default. Every FirstWords screen is a client component driven by BroadcastChannel state, so prerender rules (for example around `Date.now()`) would only add friction. Turbopack and Tailwind v4 are kept as scaffolded.
 - **System fonts, no `next/font/google`.** The build and the demo never need the network. macOS and iPadOS system fonts cover Vietnamese, Chinese, Arabic, and Devanagari.
 - **Patient screen design:** a laminated triage card with a reflective-amber band on the leading edge of the question, 42px questions, 24px or larger everywhere, and color always paired with an icon and a word.
+- **Timer starts when the call is created** ("Start new call"), not on a separate button.
+- **A pending re-answer does not overwrite a confirmed value** until the patient confirms it.
 - **Light theme only**, with a calm, high-contrast palette defined as Tailwind tokens in `src/app/globals.css`.
 - **Settings** (provider override, Ollama preset, gesture toggle) live in `localStorage` under `firstwords.settings`, behind try/catch. Never patient data.
 - **Translations written by Claude, all unverified.** No API key was available overnight, so the es/vi/zh/ar/hi text in `questions.json` and `ui-strings.json` was written by hand by the model and every `translationsVerified` flag is `false`. Some languages default to masculine forms (for example Arabic imperatives, some Hindi verb forms); fluent reviewers should check these.
@@ -44,6 +46,13 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - Picture board mode (larger pictograms, icon-first cards), ASL mode (video slot with pictogram fallback and a small "ASL video coming soon" label), right-to-left layout for Arabic, read-aloud with `speechSynthesis`, mic with Web Speech API, and typed fallback.
 - `/patient?preview=1&lang=es&mode=spoken&q=chief_complaint` is a dev walkthrough of every question and widget, with no session needed.
 - Checked in headless Chrome at 1024x768: every question answered with both mouse and touch reaches the confirm-back screen, with no page scroll and no console errors.
+
+### Phase 3: EMT console and sync
+- `/emt?s=<id>`: header (time on scene, mode and language, open patient and ER windows, live interpreter modal, End call), sticky red flag banner (rule, facts, explanation, acknowledge; flags never disappear), question queue (protocol order, status chips, unverified-translation dots, skip, EMT records stroke findings), live chart (value, confidence, confirmed or not, source answer, conflicts), patient details (age, sex, vitals, treatments, "speech problem observed").
+- Mode picker first, with a "Point to your language" grid in native scripts. The patient window shows the same grid while no mode is chosen, so the patient can pick their own language.
+- Sync: the EMT window owns the session and broadcasts a snapshot on every change over `BroadcastChannel("firstwords:<id>")`; the patient window sends answer events. Late windows say hello and get a snapshot.
+- Session state is mirrored to `sessionStorage` (survives a reload) and wiped on End call, which also clears the patient and ER windows.
+- Checked in headless Chrome with two windows: a full Spanish chest-pain assessment through 11 questions, the chart updating live, rule 3 firing, "No, ask again" re-asking, a corrected answer replacing the old one, and End call clearing every window. No console errors.
 
 ## Needs a human
 

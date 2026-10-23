@@ -2,11 +2,7 @@
 
 > **Demo mode: these numbers are against canned mock responses, not a model.** The model column replays answers written for these cases (`src/lib/mock/answers.ts`), so it shows that the pipeline, rules, and scoring work end to end. It does not measure model quality. The keyword baseline column is real. Rerun with `npm run eval -- --provider anthropic` or `npm run eval -- --provider ollama`, or `npm run eval:compare`.
 
-Run 2026-10-23 21:17 UTC. 10 cases. Scoring: chart fields against a gold chart, medications by drug class, allergies by category, red flags by rule id.
-
-Skipped ollama: qwen3:1.7b is not pulled (run: ollama pull qwen3:1.7b).
-
-Skipped anthropic: ANTHROPIC_API_KEY is not set.
+Run 2026-10-23 21:25 UTC. 10 cases. Scoring: chart fields against a gold chart, medications by drug class, allergies by category, red flags by rule id.
 
 ## Summary
 

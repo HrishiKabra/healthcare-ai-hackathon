@@ -64,7 +64,7 @@ describe("medication table", () => {
 describe("user-facing text", () => {
   it("contains no em dashes in any data file", () => {
     for (const f of jsonFiles(DATA)) {
-      expect(readFileSync(f, "utf8").includes("—"), path.relative(DATA, f)).toBe(false);
+      expect(readFileSync(f, "utf8").includes("\u2014"), path.relative(DATA, f)).toBe(false);
     }
   });
 });

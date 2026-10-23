@@ -1,6 +1,32 @@
 # FirstWords build notes
 
-Work happens on the `firstwords-build` branch, one commit per phase. Merge into `main` with a fast-forward when you are happy with it.
+Work happens on the `firstwords-build` branch, one commit per phase. Merge into `main` with a fast-forward when you are happy with it (`git checkout main && git merge --ff-only firstwords-build`).
+
+## Summary (end of the overnight build)
+
+**Everything in SPEC.md phases 0 to 7 is built, including the gesture stretch goal.** The app runs end to end with no API key, no model, and no network: all three demo scenarios play through `/demo` or through three separate windows, fire their expected red flags, and produce the right ER handoff.
+
+Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `npm run lint`, `npm run build`, and `npm run eval` all pass.
+
+**Works**
+- Patient screen: every answer type (yes/no, 0 to 10 faces, front and back body map, icon choices, "how long ago", free text with mic, stroke instructions), confirm-back in the patient's language, "Or say it / type it" on every question, picture board mode, ASL slot with fallback, Arabic right to left, read aloud.
+- EMT console: mode picker with "Point to your language", question queue with follow-ups and unverified-translation dots, live chart with source, confidence and confirmation, sticky red flags with rule and facts, free-form questions, live interpreter modal, vitals and treatments, End call that wipes every window.
+- Nine deterministic red-flag rules, chart merge with conflicts, question flow with `showIf`, all pure and unit-tested.
+- AI layer: demo, on-device (Ollama), and cloud (Claude) behind one interface, Zod-validated, with safe fallbacks and a provider badge. Keyword baseline.
+- MIST handoff built in code from confirmed answers only, with the communication box, unconfirmed list, copy and print, plus a labeled AI summary.
+- Eval (CLI and `/eval`), `/about`, `/demo` split view with autopilot.
+
+**Stubbed or not verified overnight**
+- On-device and cloud providers are written and unit-tested against stubbed responses, but were never run against a real model (no key, and models were not downloaded on purpose). Ollama is running on this laptop but `qwen3:1.7b` is not pulled.
+- Gesture answers were checked to render, but the camera path was not run (it downloads the MediaPipe model).
+- ASL videos are empty slots by design.
+- All translations are unverified.
+
+**First things for the team on Sunday**
+1. `npm install && npm run dev`, open `/demo`, and press Play.
+2. `ollama pull qwen3:1.7b`, set `DEMO_MODE=false` and `AI_PROVIDER=ollama` in `.env`, then `npm run eval -- --provider ollama`.
+3. With a key: `AI_PROVIDER=anthropic`, `ANTHROPIC_API_KEY=...`, `DEMO_MODE=false`, then `npm run eval:compare`.
+4. Work through "Needs a human" below.
 
 ## Decisions
 
@@ -89,8 +115,17 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - Checked in headless Chrome with all external requests blocked: `/demo` plays the chest pain and stroke scenarios, generates the handoff, and slides in the ER panel; `/eval` runs; `/about` and the start page render; no console errors. 157 unit tests pass.
 - **Fix-up commit after phase 6.** The phase 6 commit went in before its checks finished. Installing `@mediapipe/tasks-vision` had hit npm's optional-dependency bug, which stripped the platform-specific native bindings from `package-lock.json`, so `vitest` could not start. The follow-up commit regenerates the lockfile from a clean install and adds these notes. All checks pass on the fixed tree.
 
+### Phase 7: Handover
+- `README.md`: running locally, the screens, scripts, switching off demo mode (on-device and cloud), deploying to Vercel, adding ASL videos (the full list of file names), verifying translations, a 2-minute demo click path, and the eval.
+- This summary.
+
 ## Needs a human
 
+- **Run a real model.** Pull `qwen3:1.7b` (or another preset) and run `npm run eval -- --provider ollama`; add a key and run `npm run eval:compare`. Read `eval/results.md`: the demo-mode numbers are against canned answers, not a model. Expect small models to miss some colloquial phrasing; tune `src/lib/ai/prompts.ts` if so.
+- **Record ASL videos** with a fluent Deaf signer: one clip per question in `public/asl/` (file names in the README).
+- **Interview an EMT** and update the question bank (`src/data/questions.json`) and rules (`src/lib/rules.ts`) from their feedback. The rule thresholds (for example the 4.5 hour stroke window wording) need clinical review.
+- **Deploy to Vercel** for the demo link (no environment variables needed). Check the microphone on the hosted https link in Chrome.
+- **Record the demo video** using the click path in the README.
 - **Gesture answers:** test on a real tablet (start page, AI settings, "Gesture answers"). Not run overnight, because it downloads the MediaPipe model at runtime.
 - **If `npm test` says "Cannot find native binding":** that is npm's optional-dependency bug (npm/cli#4828). Run `rm -rf node_modules package-lock.json && npm install`. Avoid adding packages with a bare `npm install <pkg>` on top of an existing lockfile without checking that `git diff package-lock.json` does not delete the `@rolldown/binding-*` entries.
 - **Translations:** a fluent speaker of each language should review `src/data/questions.json` and `src/data/ui-strings.json`, then flip `translationsVerified` to `true` per question and choice.

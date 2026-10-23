@@ -7,6 +7,7 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - **Branch:** built on `firstwords-build` instead of committing straight to `main`.
 - **Next.js 16.4 with `cacheComponents: false`.** `create-next-app` now turns on Cache Components and Partial Prefetching by default. Every FirstWords screen is a client component driven by BroadcastChannel state, so prerender rules (for example around `Date.now()`) would only add friction. Turbopack and Tailwind v4 are kept as scaffolded.
 - **System fonts, no `next/font/google`.** The build and the demo never need the network. macOS and iPadOS system fonts cover Vietnamese, Chinese, Arabic, and Devanagari.
+- **Patient screen design:** a laminated triage card with a reflective-amber band on the leading edge of the question, 42px questions, 24px or larger everywhere, and color always paired with an icon and a word.
 - **Light theme only**, with a calm, high-contrast palette defined as Tailwind tokens in `src/app/globals.css`.
 - **Settings** (provider override, Ollama preset, gesture toggle) live in `localStorage` under `firstwords.settings`, behind try/catch. Never patient data.
 - **Translations written by Claude, all unverified.** No API key was available overnight, so the es/vi/zh/ar/hi text in `questions.json` and `ui-strings.json` was written by hand by the model and every `translationsVerified` flag is `false`. Some languages default to masculine forms (for example Arabic imperatives, some Hindi verb forms); fluent reviewers should check these.
@@ -36,6 +37,13 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - Zod schemas for everything shared (`src/lib/schemas.ts`).
 - Pure logic with tests: chart merge (`chart.ts`), question flow with `showIf` (`flow.ts`), rules engine with all 9 rules (`rules.ts`), structured answer interpretation and confirm-back text (`interpret.ts`), session reducer (`session.ts`), med lookup (`meds.ts`).
 - 103 unit tests: every rule fires and does not fire, merge conflicts, follow-ups, every language present, no em dashes in data.
+
+### Phase 2: Patient screen
+- Widgets for every `answerType`: yes/no, 0 to 10 pain faces, front and back body map (plus a large-button region list, since the neck and face are too small to tap reliably on the figure), icon-card choices (single and multi, with exclusive "None"), "How long ago?" steps plus an optional number and unit, free text with mic and quick picks, and stroke-check instructions.
+- Confirm-back screen after every answer ("You said: ... Is this right?"), built in code from localized labels. "No, ask again" re-asks.
+- Picture board mode (larger pictograms, icon-first cards), ASL mode (video slot with pictogram fallback and a small "ASL video coming soon" label), right-to-left layout for Arabic, read-aloud with `speechSynthesis`, mic with Web Speech API, and typed fallback.
+- `/patient?preview=1&lang=es&mode=spoken&q=chief_complaint` is a dev walkthrough of every question and widget, with no session needed.
+- Checked in headless Chrome at 1024x768: every question answered with both mouse and touch reaches the confirm-back screen, with no page scroll and no console errors.
 
 ## Needs a human
 

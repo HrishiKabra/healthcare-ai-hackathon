@@ -17,6 +17,10 @@
   --color-warning-soft: #fff4dc;
   --color-ok: #1d7a3e;
   --color-ok-soft: #e6f5ea;
+  --color-signal: #f2b705;
+  --color-signal-soft: #fff6d6;
+  --color-yes: #17693a;
+  --color-no: #a51e27;
   --color-unconfirmed: #7a4fb5;
   --color-unconfirmed-soft: #f2ecfb;
 
@@ -41,6 +45,15 @@ body {
 :focus-visible {
   outline: 3px solid var(--color-brand);
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media print {

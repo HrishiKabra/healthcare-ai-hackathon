@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useReducer, useRef } from "react";
-import { openBus, PATIENT_EVENTS, type Bus } from "@/lib/bus";
+import { openBus, PATIENT_EVENTS, type Bus, type BusMessage } from "@/lib/bus";
 import type { Handoff } from "@/lib/handoff";
 import { newSession, sessionReducer, type SessionEvent, type SessionState } from "@/lib/session";
 import { clearSessionKeys, readJson, writeJson } from "@/lib/storage";
@@ -69,5 +69,7 @@ export function useEmtSession(sessionId: string) {
     clearSessionKeys();
   }, []);
 
-  return { state, dispatch, sendHandoff, endCall };
+  const post = useCallback((m: BusMessage) => busRef.current?.post(m), []);
+
+  return { state, dispatch, sendHandoff, endCall, post };
 }

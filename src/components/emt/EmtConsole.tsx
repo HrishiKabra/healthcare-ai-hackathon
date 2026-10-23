@@ -1,6 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AutopilotBar } from "@/components/demo/AutopilotBar";
+import { ProviderBadge } from "@/components/shared/ProviderBadge";
+import { useAutopilot } from "@/hooks/useAutopilot";
+import { explainFlag } from "@/lib/ai/client";
+import { questionStatus } from "@/lib/flow";
+import { FreeformComposer } from "./FreeformComposer";
 import { Modal } from "@/components/shared/Modal";
 import type { useEmtSession } from "@/hooks/useEmtSession";
 import { useNow } from "@/hooks/useNow";
@@ -21,21 +27,20 @@ export type EmtSession = ReturnType<typeof useEmtSession>;
 export function EmtConsole({
   session,
   embedded = false,
-  badge,
   onEnded,
   belowChart,
-  freeformSlot,
-  explanations,
+  autopilotExtras,
 }: {
   session: EmtSession;
   embedded?: boolean;
-  badge?: React.ReactNode;
   onEnded?: () => void;
   belowChart?: React.ReactNode;
-  freeformSlot?: React.ReactNode;
-  explanations?: Record<string, string>;
+  /** Extra controls in the autopilot bar (the /demo scenario picker). */
+  autopilotExtras?: React.ReactNode;
 }) {
-  const { state, dispatch, endCall } = session;
+  const { state, dispatch, endCall, post } = session;
+  const [autoAdvance, setAutoAdvance] = useState(false);
+  const ap = useAutopilot({ state, dispatch, post });
   const now = useNow(15_000);
   const chart = useMemo(() => sessionChart(state), [state]);
   const flags = useMemo(() => evaluateRules(chart, now), [chart, now]);
@@ -51,16 +56,48 @@ export function EmtConsole({
     else dispatch({ type: "clearCurrent" });
   };
 
+  // Auto-advance: send the next question as soon as the current one is confirmed.
+  const currentConfirmed = currentId ? questionStatus(currentId, state) === "confirmed" : false;
+  const nextRef = useRef(next);
+  useEffect(() => {
+    nextRef.current = next;
+  });
+  useEffect(() => {
+    if (!autoAdvance || !currentConfirmed || ap.playing) return;
+    const t = setTimeout(() => nextRef.current(), 700);
+    return () => clearTimeout(t);
+  }, [autoAdvance, currentConfirmed, currentId, ap.playing]);
+
+  // Optional AI wording for each new flag. The rule's own text stays the fallback.
+  const [explanations, setExplanations] = useState<Record<string, string>>({});
+  const requested = useRef(new Set<string>());
+  useEffect(() => {
+    for (const f of flags) {
+      if (requested.current.has(f.ruleId)) continue;
+      requested.current.add(f.ruleId);
+      explainFlag(f)
+        .then((r) => {
+          if (r.meta.provider === "anthropic" || r.meta.provider === "ollama") setExplanations((e) => ({ ...e, [f.ruleId]: `${r.explanation} (AI wording)` }));
+        })
+        .catch(() => {});
+    }
+  }, [flags]);
+
   return (
     <div className="@container flex min-h-0 flex-1 flex-col bg-canvas">
       <EmtHeader
         state={state}
         embedded={embedded}
-        badge={badge}
+        badge={<ProviderBadge />}
         onChangeMode={() => setModeOpen(true)}
         onInterpreter={() => setInterpreterOpen(true)}
         onEnd={() => setEndOpen(true)}
       />
+      {state.scenarioId || autopilotExtras ? (
+        <AutopilotBar ap={ap} autoAdvance={autoAdvance} onAutoAdvance={setAutoAdvance}>
+          {autopilotExtras}
+        </AutopilotBar>
+      ) : null}
       <RedFlagBanner flags={flags} acknowledged={state.acknowledgedFlags} onAck={(ruleId) => dispatch({ type: "ackFlag", ruleId })} explanations={explanations} />
 
       <div className="grid min-h-0 flex-1 gap-4 p-4 @3xl:grid-cols-[minmax(240px,280px)_1fr] @5xl:grid-cols-[260px_1fr_290px]">
@@ -72,7 +109,18 @@ export function EmtConsole({
             onNext={next}
             onObserve={(qid, v) => dispatch({ type: "answerProposed", answer: emtObservation(qid, v) })}
           />
-          {freeformSlot}
+          {state.mode ? (
+            <FreeformComposer
+              lang={state.mode === "spoken" ? state.language : "en"}
+              onAsk={(question) => dispatch({ type: "askFreeform", question, at: Date.now() })}
+            />
+          ) : null}
+          {!state.scenarioId && !autopilotExtras ? (
+            <label className="flex items-center gap-2 px-1 text-xs text-ink-soft">
+              <input type="checkbox" className="size-4 accent-[var(--color-brand)]" checked={autoAdvance} onChange={(e) => setAutoAdvance(e.target.checked)} />
+              Auto-advance after each confirmed answer
+            </label>
+          ) : null}
         </div>
 
         <div className="flex min-h-0 flex-col gap-3">

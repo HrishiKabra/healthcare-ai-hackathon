@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { openBus, type Bus, type Role } from "@/lib/bus";
+import { openBus, type Bus, type BusMessage, type Role } from "@/lib/bus";
 import type { SessionEvent, SessionState } from "@/lib/session";
 
 /** Follows the EMT window's session. Holds nothing beyond the latest snapshot in memory. */
@@ -30,7 +30,12 @@ export function useSessionFollower(sessionId: string, role: Role) {
     };
   }, [sessionId, role]);
 
+  const subscribe = useCallback((fn: (m: BusMessage) => void) => {
+    const bus = busRef.current;
+    return bus ? bus.subscribe(fn) : () => {};
+  }, []);
+
   const send = useCallback((event: SessionEvent) => busRef.current?.post({ type: "event", from: role, event }), [role]);
 
-  return { state, ended, send, bus: busRef };
+  return { state, ended, send, subscribe };
 }

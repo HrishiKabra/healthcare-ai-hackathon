@@ -5,12 +5,14 @@ import type { SessionEvent, SessionState } from "./session";
 // in the same page, which is how the /demo split view works without a server.
 
 export type Handoff = import("./handoff").Handoff;
+type ScenarioStep = import("./scenarios").ScenarioStep;
 
 export type BusMessage =
   | { type: "hello"; from: Role }
   | { type: "snapshot"; state: SessionState }
   | { type: "event"; from: Role; event: SessionEvent }
   | { type: "handoff"; handoff: Handoff; at: number }
+  | { type: "autopilot"; questionId: string; step: ScenarioStep; confirmAfterMs: number }
   | { type: "end" };
 
 export type Role = "emt" | "patient" | "er" | "demo";
@@ -21,7 +23,7 @@ export type Bus = {
   close: () => void;
 };
 
-const MESSAGE_TYPES = new Set(["hello", "snapshot", "event", "handoff", "end"]);
+const MESSAGE_TYPES = new Set(["hello", "snapshot", "event", "handoff", "autopilot", "end"]);
 
 function isBusMessage(x: unknown): x is BusMessage {
   return typeof x === "object" && x !== null && MESSAGE_TYPES.has((x as { type?: string }).type ?? "");

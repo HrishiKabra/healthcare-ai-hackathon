@@ -1,0 +1,33 @@
+{
+  "id": "es-chest-pain",
+  "title": "Spanish speaker, chest pain",
+  "summary": "Pressure in the chest spreading to the left arm, 7 out of 10, started 40 minutes ago. Allergic to aspirin. Takes metformin.",
+  "mode": "spoken",
+  "language": "es",
+  "emt": {
+    "age": "58",
+    "sex": "male",
+    "vitals": { "heartRate": "104", "bloodPressure": "158/94", "spo2": "95", "respRate": "20", "glucose": "142" },
+    "treatments": ["oxygen"]
+  },
+  "initialObservations": [],
+  "expectedFlags": ["chest_pain_aspirin_allergy"],
+  "communicationNeed": "Spanish interpreter on arrival",
+  "steps": [
+    { "questionId": "understand", "answer": { "kind": "yesno", "value": "yes" } },
+    { "questionId": "chief_complaint", "say": "Me duele mucho el pecho, como una presión." },
+    { "questionId": "onset", "answer": { "kind": "duration", "bucket": "minutes", "amount": 40, "unit": "minutes" } },
+    { "questionId": "activity", "answer": { "kind": "choice", "choiceIds": ["resting"] } },
+    { "questionId": "provocation", "answer": { "kind": "choice", "choiceIds": ["nothing"] } },
+    { "questionId": "quality", "answer": { "kind": "choice", "choiceIds": ["pressure"] } },
+    { "questionId": "region", "answer": { "kind": "bodymap", "regions": ["chest"] } },
+    { "questionId": "radiation", "answer": { "kind": "bodymap", "regions": ["left_arm"] } },
+    { "questionId": "severity", "answer": { "kind": "scale", "value": 7 } },
+    { "questionId": "allergy_any", "answer": { "kind": "yesno", "value": "yes" } },
+    { "questionId": "allergy_detail", "say": "Soy alérgico a la aspirina, me salen ronchas." },
+    { "questionId": "medications", "say": "Tomo metformina para el azúcar." },
+    { "questionId": "conditions", "answer": { "kind": "choice", "choiceIds": ["diabetes"] } },
+    { "questionId": "last_oral_intake", "answer": { "kind": "duration", "bucket": "few_hours" } },
+    { "questionId": "anything_else", "say": "No, nada más. Gracias." }
+  ]
+}

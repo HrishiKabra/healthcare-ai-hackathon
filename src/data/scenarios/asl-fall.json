@@ -1,0 +1,33 @@
+{
+  "id": "asl-fall",
+  "title": "Deaf ASL user, fall",
+  "summary": "Fell on the stairs and hit their head, pain 5 out of 10. Takes Eliquis.",
+  "mode": "asl",
+  "language": "en",
+  "emt": {
+    "age": "74",
+    "sex": "female",
+    "vitals": { "heartRate": "88", "bloodPressure": "146/82", "spo2": "97", "respRate": "16", "glucose": "" },
+    "treatments": ["c_collar"]
+  },
+  "initialObservations": [],
+  "expectedFlags": ["anticoag_head"],
+  "communicationNeed": "ASL interpreter on arrival",
+  "steps": [
+    { "questionId": "understand", "answer": { "kind": "yesno", "value": "yes" } },
+    { "questionId": "chief_complaint", "answer": { "kind": "choice", "choiceIds": ["fall_injury"] } },
+    { "questionId": "onset", "answer": { "kind": "duration", "bucket": "minutes", "amount": 20, "unit": "minutes" } },
+    { "questionId": "activity", "answer": { "kind": "choice", "choiceIds": ["stairs"] } },
+    { "questionId": "provocation", "answer": { "kind": "choice", "choiceIds": ["worse_moving"] } },
+    { "questionId": "quality", "answer": { "kind": "choice", "choiceIds": ["aching"] } },
+    { "questionId": "region", "answer": { "kind": "bodymap", "regions": ["head", "back"] } },
+    { "questionId": "radiation", "answer": { "kind": "bodymap", "regions": [] } },
+    { "questionId": "severity", "answer": { "kind": "scale", "value": 5 } },
+    { "questionId": "allergy_any", "answer": { "kind": "yesno", "value": "no" } },
+    { "questionId": "medications", "say": "Eliquis" },
+    { "questionId": "conditions", "answer": { "kind": "choice", "choiceIds": ["heart_problems"] } },
+    { "questionId": "last_oral_intake", "answer": { "kind": "duration", "bucket": "today" } },
+    { "questionId": "head_strike", "answer": { "kind": "yesno", "value": "yes" } },
+    { "questionId": "anything_else", "skip": true }
+  ]
+}

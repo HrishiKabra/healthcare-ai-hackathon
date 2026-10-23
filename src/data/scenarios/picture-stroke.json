@@ -1,0 +1,33 @@
+{
+  "id": "picture-stroke",
+  "title": "Picture board, stroke",
+  "summary": "Cannot speak. Weakness in the right arm. Facial droop. Last known well 1.5 hours ago.",
+  "mode": "picture",
+  "language": "en",
+  "emt": {
+    "age": "67",
+    "sex": "male",
+    "vitals": { "heartRate": "92", "bloodPressure": "182/98", "spo2": "96", "respRate": "18", "glucose": "118" },
+    "treatments": ["glucose_checked"]
+  },
+  "initialObservations": [{ "questionId": "stroke_speech", "value": true }],
+  "expectedFlags": ["stroke_alert"],
+  "communicationNeed": "Cannot speak (aphasia). Uses picture board; family or interpreter not needed for language.",
+  "steps": [
+    { "questionId": "understand", "answer": { "kind": "yesno", "value": "yes" } },
+    { "questionId": "chief_complaint", "answer": { "kind": "choice", "choiceIds": ["weakness_numbness"] } },
+    { "questionId": "onset", "answer": { "kind": "duration", "bucket": "about_1_hour", "amount": 90, "unit": "minutes" } },
+    { "questionId": "activity", "answer": { "kind": "choice", "choiceIds": ["resting"] } },
+    { "questionId": "provocation", "answer": { "kind": "choice", "choiceIds": ["nothing"] } },
+    { "questionId": "region", "answer": { "kind": "bodymap", "regions": ["right_arm"] } },
+    { "questionId": "allergy_any", "answer": { "kind": "yesno", "value": "no" } },
+    { "questionId": "medications", "answer": { "kind": "choice", "choiceIds": ["heart_medicine"] } },
+    { "questionId": "conditions", "answer": { "kind": "choice", "choiceIds": ["high_blood_pressure"] } },
+    { "questionId": "last_oral_intake", "answer": { "kind": "duration", "bucket": "few_hours" } },
+    { "questionId": "stroke_smile", "observe": true },
+    { "questionId": "stroke_arms", "observe": true },
+    { "questionId": "stroke_speech", "observe": true },
+    { "questionId": "last_known_well", "answer": { "kind": "duration", "bucket": "about_1_hour", "amount": 1.5, "unit": "hours" } },
+    { "questionId": "anything_else", "skip": true }
+  ]
+}

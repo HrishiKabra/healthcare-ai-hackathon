@@ -36,14 +36,20 @@ export function normalizeText(s: string): string {
 
 const LATIN = /^[a-z0-9 .-]+$/;
 
-/** True if `needle` occurs in `hay` (both normalized). Latin needles need word boundaries. */
-export function containsTerm(hay: string, needle: string): boolean {
-  if (!needle) return false;
+/** Index of `needle` in `hay` (both normalized), or -1. Latin needles need word boundaries. */
+export function termIndex(hay: string, needle: string): number {
+  if (!needle) return -1;
   if (LATIN.test(needle)) {
     const esc = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return new RegExp(`(^|[^a-z0-9])${esc}([^a-z0-9]|$)`).test(hay);
+    const m = new RegExp(`(^|[^a-z0-9])${esc}([^a-z0-9]|$)`).exec(hay);
+    return m ? m.index + m[1].length : -1;
   }
-  return hay.includes(needle);
+  return hay.indexOf(needle);
+}
+
+/** True if `needle` occurs in `hay` (both normalized). Latin needles need word boundaries. */
+export function containsTerm(hay: string, needle: string): boolean {
+  return termIndex(hay, needle) >= 0;
 }
 
 const ALIASES: { entry: MedEntry; alias: string }[] = MED_TABLE.flatMap((entry) =>
@@ -52,19 +58,20 @@ const ALIASES: { entry: MedEntry; alias: string }[] = MED_TABLE.flatMap((entry) 
 
 export type MedMatch = { entry: MedEntry; matched: string };
 
-/** Finds every table medication mentioned in free text, in any of the 6 scripts. */
+/** Finds every table medication mentioned in free text, in any of the 6 scripts, in reading order. */
 export function findMeds(text: string): MedMatch[] {
   const hay = normalizeText(text);
   const seen = new Set<string>();
-  const out: MedMatch[] = [];
+  const out: (MedMatch & { at: number })[] = [];
   for (const { entry, alias } of ALIASES) {
     if (seen.has(entry.generic)) continue;
-    if (containsTerm(hay, alias)) {
+    const at = termIndex(hay, alias);
+    if (at >= 0) {
       seen.add(entry.generic);
-      out.push({ entry, matched: alias });
+      out.push({ entry, matched: alias, at });
     }
   }
-  return out;
+  return out.sort((a, b) => a.at - b.at).map(({ entry, matched }) => ({ entry, matched }));
 }
 
 export function lookupMed(name: string): MedEntry | undefined {

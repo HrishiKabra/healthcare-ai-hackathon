@@ -10,6 +10,10 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - **Patient screen design:** a laminated triage card with a reflective-amber band on the leading edge of the question, 42px questions, 24px or larger everywhere, and color always paired with an icon and a word.
 - **Timer starts when the call is created** ("Start new call"), not on a separate button.
 - **A pending re-answer does not overwrite a confirmed value** until the patient confirms it.
+- **Provider rules.** `DEMO_MODE` unset or `true` means mock, always. Otherwise `AI_PROVIDER` is the default, and the settings panel can switch between demo and on-device at runtime. Cloud is only used when the team sets `AI_PROVIDER=anthropic` and a key, so a browser can never opt into a paid call. To use on-device mode, set `DEMO_MODE=false`.
+- **No forced tool choice on Claude.** `claude-sonnet-5-5` rejects forced `tool_choice`, so the cloud provider uses a `strict: true` tool with `tool_choice: auto`, names the tool in the prompt, and treats a missing tool call as invalid output (which falls back to the baseline). No `temperature` is sent (now rejected by the API). `fallbacks: "default"` re-runs a refused request on a fallback model server-side.
+- **Extraction schema is flat and small**, with every key defaulted, so a 1.7B model only has to pick ids from lists. Medications, allergies, and notes are accepted from any answer; a question's own slot is only filled from that question.
+- **Translate then extract** are two calls (the spec's two routes). In demo mode both are instant.
 - **Light theme only**, with a calm, high-contrast palette defined as Tailwind tokens in `src/app/globals.css`.
 - **Settings** (provider override, Ollama preset, gesture toggle) live in `localStorage` under `firstwords.settings`, behind try/catch. Never patient data.
 - **Translations written by Claude, all unverified.** No API key was available overnight, so the es/vi/zh/ar/hi text in `questions.json` and `ui-strings.json` was written by hand by the model and every `translationsVerified` flag is `false`. Some languages default to masculine forms (for example Arabic imperatives, some Hindi verb forms); fluent reviewers should check these.
@@ -53,6 +57,18 @@ Work happens on the `firstwords-build` branch, one commit per phase. Merge into 
 - Sync: the EMT window owns the session and broadcasts a snapshot on every change over `BroadcastChannel("firstwords:<id>")`; the patient window sends answer events. Late windows say hello and get a snapshot.
 - Session state is mirrored to `sessionStorage` (survives a reload) and wiped on End call, which also clears the patient and ER windows.
 - Checked in headless Chrome with two windows: a full Spanish chest-pain assessment through 11 questions, the chart updating live, rule 3 firing, "No, ask again" re-asking, a corrected answer replacing the old one, and End call clearing every window. No console errors.
+
+### Phase 4: AI routes and mock mode
+- Routes: `POST /api/translate`, `/api/extract`, `/api/explain-flag`, `/api/handoff` (the AI paragraph only), and `GET /api/provider-status` (with `?check=1` it asks Ollama's `/api/tags` whether the model is installed). Every body is validated with Zod and never logged.
+- Providers behind one interface (`src/lib/ai/provider.ts`): **mock** (canned answers for the 3 scenarios in `src/lib/mock/`, keyword baseline for anything else), **anthropic** (strict tool with a Zod-derived schema, Zod-validated again, `effort: low`, `fallbacks: "default"` for refusals), **ollama** (native `/api/chat`, `stream:false`, `think:false`, `format` = JSON schema, 60 s timeout).
+- Any failure (unreachable, timeout, invalid JSON, schema mismatch, refusal) falls back to a safe result: the keyword baseline for extraction (marked "needs review"), the original text for translation, the rule's own text for explanations, and a template for the narrative. The provider badge then says "(offline, keyword fallback)".
+- Keyword baseline (`src/lib/baseline.ts`): med names in 6 scripts, allergy words, negations, numbers, and localized option labels. It deliberately misses colloquial phrasing like "pastilla para la sangre rala".
+- "Or say it / type it" under every widget in spoken mode. Free answers are translated, extracted, and confirmed back in the patient's language from localized labels (for example "Medicamentos: metformin (metformina)").
+- Free-form EMT questions (typed or spoken in English) are translated and shown on the patient screen marked "Question from the crew", with the back-translation shown to the EMT.
+- Scenario loading from the start page plus an autopilot bar on the EMT console (Next step, Play, 1x or 2x, Auto-advance). The autopilot makes the patient window answer and confirm, so every screen shows the real flow.
+- Settings panel on the start page: provider, Ollama preset (Light `qwen3:1.7b`, Balanced `qwen3:4b`, Better `gemma4:e2b`), gesture toggle, and Test connection.
+- `npm run translate:questions` fills only missing translations via the API and skips cleanly with no key.
+- Checked: a unit test runs all 3 scenarios through the real pipeline with `fetch` stubbed to throw, and each fires exactly its expected rule. In headless Chrome, all 3 scenarios autoplay across two windows with every non-localhost request blocked: correct flags, zero external requests, and no console errors.
 
 ## Needs a human
 

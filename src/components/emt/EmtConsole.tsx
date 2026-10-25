@@ -137,7 +137,7 @@ export function EmtConsole({
         </div>
 
         <div className="flex flex-col gap-3 @5xl:min-h-0 @5xl:overflow-y-auto">
-          <HandoffButton state={state} send={sendHandoff} />
+          <HandoffButton state={state} send={sendHandoff} onRecipient={(handoffTo) => dispatch({ type: "setEmt", emt: { handoffTo } })} />
           <PatientInputs
             emt={state.emt}
             onChange={(emt) => dispatch({ type: "setEmt", emt })}

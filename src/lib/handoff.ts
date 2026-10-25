@@ -4,7 +4,7 @@ import { getLanguage } from "./languages";
 import { drugClassLabel } from "./meds";
 import { getQuestion } from "./questions";
 import { evaluateRules } from "./rules";
-import type { ChartField, ChartValue, ClinicalChart, EmtInputs, Medication, Treatment } from "./schemas";
+import type { ChartField, ChartValue, ClinicalChart, EmtInputs, HandoffTo, Medication, Treatment } from "./schemas";
 import { sessionChart, type SessionState } from "./session";
 
 // The MIST handoff is assembled in code from the chart, so it can never
@@ -15,8 +15,12 @@ import { sessionChart, type SessionState } from "./session";
 export type HandoffLine = { label: string; value: string };
 export type UnconfirmedItem = { label: string; value: string; reason: "Not confirmed by patient" | "Low confidence" | "Conflicting answers" };
 
+export const RECIPIENT_LABEL: Record<HandoffTo, string> = { noems: "arriving NOEMS crew", ed: "the emergency department" };
+
 export type Handoff = {
   sessionId: string;
+  /** Who it is for. NOEMS gets the red flags first. */
+  to: HandoffTo;
   generatedAt: number;
   callStartedAt: number;
   patient: string;
@@ -183,6 +187,7 @@ export function buildHandoff(state: SessionState, now: number): Handoff {
 
   return {
     sessionId: state.id,
+    to: state.emt.handoffTo ?? "ed",
     generatedAt: now,
     callStartedAt: state.startedAt,
     patient: patientLine(state.emt),
@@ -209,9 +214,13 @@ const lines = (ls: HandoffLine[]) => (ls.length ? ls.map((l) => `${l.label}: ${l
 
 /** Plain text for Copy and for the AI narrative prompt. */
 export function handoffText(h: Handoff): string {
+  const redFlags = `Red flags: ${h.redFlags.length ? h.redFlags.map((f) => `${f.title} [${f.rule}; ${f.facts.join("; ")}]`).join(" | ") : "None"}`;
+  // A paramedic crew taking over on scene needs the red flags before anything else.
+  const noems = h.to === "noems";
   const out = [
-    `FirstWords EMS handoff`,
+    `FirstWords handoff to ${RECIPIENT_LABEL[h.to]}`,
     h.patient,
+    ...(noems ? [redFlags] : []),
     `Communication: ${h.communication.headline}. Language: ${h.communication.language}. Preferred mode: ${h.communication.preferredMode}`,
     `M: ${lines(h.mist.m)}`,
     `I: ${lines(h.mist.i)}`,
@@ -220,7 +229,7 @@ export function handoffText(h: Handoff): string {
     `Allergies: ${h.allergies.length ? h.allergies.join(", ") : "None confirmed"}`,
     `Medications: ${h.medications.length ? h.medications.map((m) => (m.drugClass ? `${m.name}, ${m.drugClass}` : m.name)).join("; ") : "None confirmed"}`,
     `History: ${lines(h.history)}`,
-    `Red flags: ${h.redFlags.length ? h.redFlags.map((f) => `${f.title} [${f.rule}; ${f.facts.join("; ")}]`).join(" | ") : "None"}`,
+    ...(noems ? [] : [redFlags]),
     `Unconfirmed: ${h.unconfirmed.length ? h.unconfirmed.map((u) => `${u.label}: ${u.value} (${u.reason})`).join("; ") : "None"}`,
   ];
   if (h.narrative) out.push(`AI summary, review before use: ${h.narrative.text}`);

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`handoff for each demo scenario > plain text matches snapshot: asl-fall 1`] = `
-"FirstWords EMS handoff
+"FirstWords handoff to the emergency department
 Patient, about 74 years old, female
 Communication: ASL interpreter needed on arrival. Language: American Sign Language. Preferred mode: ASL. Until the interpreter arrives, use written English, pictures, and yes or no questions.
 M: Chief complaint: A fall or injury; Mechanism: Fall while: on the stairs; Onset: 20 minutes ago (about 13:40)
@@ -17,7 +17,7 @@ Prototype for demonstration. Not for clinical use."
 `;
 
 exports[`handoff for each demo scenario > plain text matches snapshot: es-chest-pain 1`] = `
-"FirstWords EMS handoff
+"FirstWords handoff to the emergency department
 Patient, about 58 years old, male
 Communication: Spanish interpreter needed on arrival. Language: Spanish (Español). Preferred mode: Spoken Spanish. Answers by tapping or speaking on the tablet.
 M: Chief complaint: Chest pain; Activity at onset: Resting or sitting; Onset: 40 minutes ago (about 13:20)
@@ -33,7 +33,7 @@ Prototype for demonstration. Not for clinical use."
 `;
 
 exports[`handoff for each demo scenario > plain text matches snapshot: picture-stroke 1`] = `
-"FirstWords EMS handoff
+"FirstWords handoff to the emergency department
 Patient, about 67 years old, male
 Communication: No spoken-language interpreter needed. Language: English (reads). Preferred mode: Picture board: point at pictures, yes or no answers. Patient may not be able to speak.
 M: Chief complaint: Weakness or numbness; Activity at onset: Resting or sitting; Onset: 90 minutes ago (about 12:30)

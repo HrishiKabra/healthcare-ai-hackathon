@@ -2,7 +2,7 @@
 
 import { Copy, Languages, Printer, ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
 import { useState } from "react";
-import { handoffText, type Handoff, type HandoffLine } from "@/lib/handoff";
+import { handoffText, RECIPIENT_LABEL, type Handoff, type HandoffLine } from "@/lib/handoff";
 
 function clock(ms: number): string {
   const d = new Date(ms);
@@ -47,12 +47,29 @@ export function HandoffView({ handoff, receivedAt }: { handoff: Handoff; receive
     }
   };
   const c = handoff.communication;
+  // A paramedic crew taking over on scene sees the red flags first.
+  const noems = handoff.to === "noems";
+  const redFlags = handoff.redFlags.length ? (
+    <section aria-label="Red flags" className="flex flex-col gap-2">
+      {handoff.redFlags.map((f) => (
+        <div key={f.title} className={`rounded-2xl border-s-8 border p-3 ${f.severity === "critical" ? "border-critical bg-critical-soft" : "border-warning bg-warning-soft"}`}>
+          <h2 className={`flex items-center gap-2 text-lg font-bold ${f.severity === "critical" ? "text-critical" : "text-warning"}`}>
+            <ShieldAlert size={20} aria-hidden /> {f.title}
+            {f.basedOnUnconfirmed ? <span className="text-xs font-semibold text-unconfirmed">Based on unconfirmed answer</span> : null}
+          </h2>
+          <p className="text-sm">{f.rule}</p>
+          <p className="text-sm text-ink-soft">{f.facts.join("; ")}</p>
+          <p className="mt-1 text-sm">{f.explanation}</p>
+        </div>
+      ))}
+    </section>
+  ) : null;
 
   return (
     <article className="mx-auto flex w-full max-w-4xl flex-col gap-4">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold">EMS handoff</h1>
+          <h1 className="text-2xl font-bold">Handoff to {RECIPIENT_LABEL[handoff.to ?? "ed"]}</h1>
           <p className="text-ink-soft">{handoff.patient}</p>
         </div>
         <div className="flex items-center gap-2">
@@ -66,6 +83,7 @@ export function HandoffView({ handoff, receivedAt }: { handoff: Handoff; receive
         </div>
       </header>
 
+      {noems ? redFlags : null}
       <section aria-label="Communication needs" className="rounded-2xl border-2 border-signal bg-signal-soft p-4">
         <div className="flex items-start gap-3">
           <Languages size={28} className="mt-0.5 shrink-0 text-warning" aria-hidden />
@@ -86,22 +104,7 @@ export function HandoffView({ handoff, receivedAt }: { handoff: Handoff; receive
         </div>
       </section>
 
-      {handoff.redFlags.length ? (
-        <section aria-label="Red flags" className="flex flex-col gap-2">
-          {handoff.redFlags.map((f) => (
-            <div key={f.title} className={`rounded-2xl border-s-8 border p-3 ${f.severity === "critical" ? "border-critical bg-critical-soft" : "border-warning bg-warning-soft"}`}>
-              <h2 className={`flex items-center gap-2 text-lg font-bold ${f.severity === "critical" ? "text-critical" : "text-warning"}`}>
-                <ShieldAlert size={20} aria-hidden /> {f.title}
-                {f.basedOnUnconfirmed ? <span className="text-xs font-semibold text-unconfirmed">Based on unconfirmed answer</span> : null}
-              </h2>
-              <p className="text-sm">{f.rule}</p>
-              <p className="text-sm text-ink-soft">{f.facts.join("; ")}</p>
-              <p className="mt-1 text-sm">{f.explanation}</p>
-            </div>
-          ))}
-        </section>
-      ) : null}
-
+      {noems ? null : redFlags}
       <section aria-label="MIST" className="rounded-2xl border border-line bg-surface px-4">
         <Mist letter="M" title="Medical complaint or mechanism" lines={handoff.mist.m} />
         <Mist letter="I" title="Injuries and inspection findings" lines={handoff.mist.i} />

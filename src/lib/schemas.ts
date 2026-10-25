@@ -310,11 +310,16 @@ export type Vitals = z.infer<typeof Vitals>;
 export const Sex = z.enum(["unknown", "female", "male", "other"]);
 export type Sex = z.infer<typeof Sex>;
 
+/** Who receives the handoff: arriving NOEMS paramedics (ALS intercept) or the emergency department. */
+export const HandoffTo = z.enum(["ed", "noems"]);
+export type HandoffTo = z.infer<typeof HandoffTo>;
+
 export const EmtInputs = z.object({
   age: z.string().default(""),
   sex: Sex.default("unknown"),
   vitals: Vitals.default({ heartRate: "", bloodPressure: "", spo2: "", respRate: "", glucose: "" }),
   treatments: z.array(Treatment).default([]),
+  handoffTo: HandoffTo.default("ed"),
 });
 export type EmtInputs = z.infer<typeof EmtInputs>;
 

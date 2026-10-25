@@ -104,3 +104,18 @@ describe("handoff only contains what the patient confirmed", () => {
     expect(buildHandoff(newSession("x", T0), NOW).mist.t).toEqual([{ label: "Given", value: "None recorded" }]);
   });
 });
+
+describe("handoff recipient", () => {
+  it("a NOEMS handoff is addressed to the arriving crew and leads with the red flags", async () => {
+    const s = await scenarioSession(1);
+    const text = handoffText(buildHandoff({ ...s, emt: { ...s.emt, handoffTo: "noems" } }, NOW)).split("\n");
+    expect(text[0]).toBe("FirstWords handoff to arriving NOEMS crew");
+    expect(text[2]).toMatch(/^Red flags: Blood thinner with fall or head strike/);
+    expect(text.filter((l) => l.startsWith("Red flags:"))).toHaveLength(1);
+  });
+
+  it("defaults to the emergency department", async () => {
+    expect(buildHandoff(await scenarioSession(0), NOW).to).toBe("ed");
+  });
+});
+

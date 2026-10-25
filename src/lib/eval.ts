@@ -15,7 +15,7 @@ import type { AiCalls } from "./ai/pipeline";
 import type { AiMeta } from "./ai/schemas";
 import { runScenario } from "./scenarioRunner";
 import { getScenario, ScenarioStep, type Scenario } from "./scenarios";
-import { LangCode, PatientMode, type ClinicalChart } from "./schemas";
+import { EmtInputs, LangCode, PatientMode, type ClinicalChart } from "./schemas";
 
 // The eval runs scripted cases through the real pipeline twice: once with the
 // selected AI provider, once with the keyword baseline, and scores both
@@ -51,7 +51,7 @@ export function caseScenario(c: EvalCase): Scenario {
     summary: c.title,
     mode: c.mode ?? "spoken",
     language: c.language ?? "en",
-    emt: { age: "", sex: "unknown", vitals: { heartRate: "", bloodPressure: "", spo2: "", respRate: "", glucose: "" }, treatments: [] },
+    emt: EmtInputs.parse({}),
     initialObservations: [],
     expectedFlags: c.gold.flags,
     communicationNeed: "",

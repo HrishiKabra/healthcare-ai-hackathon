@@ -280,6 +280,8 @@ export const Answer = z.object({
   by: z.enum(["patient", "emt"]),
   status: z.enum(["pending", "confirmed", "rejected"]),
   at: z.number(),
+  /** When the patient confirmed it (field-test timing). */
+  confirmedAt: z.number().optional(),
   patch: z.array(PatchEntry),
   confirmText: ConfirmText,
   /** Which pipeline produced the patch, for the EMT's information. */

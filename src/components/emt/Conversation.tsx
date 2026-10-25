@@ -76,7 +76,10 @@ function PatientSaid({ u, answer }: { u: Utterance; answer?: Answer }) {
       {english ? null : <Native text={u.original} lang={u.language} className="text-sm text-ink-soft" />}
       {u.status === "translating" ? <Pending since={u.at}>Translating to English</Pending> : null}
       {u.status === "failed" ? <p className="text-xs font-semibold text-critical">Could not translate. Ask again, use pictures, or call an interpreter.</p> : null}
-      {u.status === "done" && u.translation ? (
+      {u.status === "done" && !english && u.translation === u.original ? (
+        <p className="text-xs font-semibold text-warning">Not translated. Ask again, use pictures, or call an interpreter.</p>
+      ) : null}
+      {u.status === "done" && u.translation && (english || u.translation !== u.original) ? (
         <p className="text-sm font-semibold">
           &ldquo;{u.translation}&rdquo;
           {u.confidence === "low" ? <span className="ms-1 text-xs font-semibold text-warning">(low confidence translation)</span> : null}

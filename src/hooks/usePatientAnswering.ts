@@ -82,7 +82,7 @@ export function usePatientAnswering(opts: {
       sink.heard?.(line);
       try {
         const r = await interpretFree(q, text, lang, (english, confidence) =>
-          sink.heard?.(english == null ? { ...line, status: "failed" } : { ...line, translation: english, status: "done", confidence }),
+          sink.heard?.(english == null ? { ...line, status: "failed" } : { ...line, translation: english, status: "done", doneAt: Date.now(), confidence }),
         );
         if (!r.patch.length && !r.confirmText.native.trim()) {
           setStep({ kind: "answering", notice: "couldNotUnderstand" });

@@ -26,6 +26,8 @@ export type Utterance = {
   /** The other side's language: the patient's language for EMT lines, English for patient lines. */
   translation: string | null;
   status: "translating" | "done" | "failed";
+  /** When the translation arrived. */
+  doneAt?: number;
   confidence?: Confidence;
   questionId?: string;
 };
@@ -59,7 +61,7 @@ export type SessionEvent =
   | { type: "utterance"; utterance: Utterance }
   | { type: "clearCurrent" }
   | { type: "answerProposed"; answer: Answer }
-  | { type: "answerConfirmed"; answerId: string }
+  | { type: "answerConfirmed"; answerId: string; at?: number }
   | { type: "answerRejected"; answerId: string }
   | { type: "skip"; questionId: string }
   | { type: "unskip"; questionId: string }
@@ -104,8 +106,8 @@ function bankUtterance(s: SessionState, questionId: string, at: number): Utteran
   return { id: `ask-${questionId}-${at}`, at, from: "emt", original: q.english, language: "en", translation: native ?? null, status: "done", questionId };
 }
 
-function setStatus(s: SessionState, answerId: string, status: Answer["status"]): SessionState {
-  return { ...s, answers: s.answers.map((a) => (a.id === answerId ? { ...a, status } : a)) };
+function setStatus(s: SessionState, answerId: string, status: Answer["status"], at?: number): SessionState {
+  return { ...s, answers: s.answers.map((a) => (a.id === answerId ? { ...a, status, ...(at != null ? { confirmedAt: at } : {}) } : a)) };
 }
 
 /** Pure reducer. The EMT window owns the state; other windows send events. */
@@ -142,6 +144,7 @@ export function sessionReducer(s: SessionState, e: SessionEvent): SessionState {
           language: "en",
           translation: e.question.language === "en" ? null : e.question.native,
           status: "done",
+          doneAt: e.at,
           confidence: e.question.confidence,
           questionId: e.question.id,
         }),
@@ -154,7 +157,7 @@ export function sessionReducer(s: SessionState, e: SessionEvent): SessionState {
       if (s.answers.some((a) => a.id === e.answer.id)) return s;
       return { ...s, answers: [...s.answers, e.answer], asked: addOnce(s.asked, e.answer.questionId) };
     case "answerConfirmed":
-      return setStatus(s, e.answerId, "confirmed");
+      return setStatus(s, e.answerId, "confirmed", e.at);
     case "answerRejected":
       return setStatus(s, e.answerId, "rejected");
     case "skip":

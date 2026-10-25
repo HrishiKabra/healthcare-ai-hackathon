@@ -105,7 +105,7 @@ function chartField(chart: ClinicalChart, field: string): unknown {
   }
 }
 
-function fieldCorrect(chart: ClinicalChart, field: string, gold: unknown): boolean {
+export function fieldCorrect(chart: ClinicalChart, field: string, gold: unknown): boolean {
   const got = chartField(chart, field);
   if (Array.isArray(gold)) return Array.isArray(got) && gold.every((g) => got.includes(g));
   return got === gold;

@@ -64,6 +64,9 @@ export function StartScreen({ scenarios }: { scenarios?: React.ReactNode }) {
       {scenarios}
 
       <nav className="flex flex-wrap gap-4 text-sm">
+        <Link href="/drill" className="font-semibold text-brand underline-offset-4 hover:underline">
+          Field test with Tulane EMS
+        </Link>
         <Link href="/about" className="font-semibold text-brand underline-offset-4 hover:underline">
           About this prototype
         </Link>

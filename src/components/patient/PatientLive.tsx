@@ -31,7 +31,7 @@ export function PatientLive({ sessionId, extras }: { sessionId: string; extras?:
   const sink: AnswerSink = useMemo(
     () => ({
       proposed: (answer) => send({ type: "answerProposed", answer }),
-      confirmed: (answerId) => send({ type: "answerConfirmed", answerId }),
+      confirmed: (answerId) => send({ type: "answerConfirmed", answerId, at: Date.now() }),
       rejected: (answerId) => send({ type: "answerRejected", answerId }),
       heard: (utterance) => send({ type: "utterance", utterance }),
     }),

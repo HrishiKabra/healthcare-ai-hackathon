@@ -9,6 +9,9 @@ import c07 from "../../eval/scenarios/07-vi-penicillin-breathing.json";
 import c08 from "../../eval/scenarios/08-ar-chest-tearing.json";
 import c09 from "../../eval/scenarios/09-es-pregnant-belly.json";
 import c10 from "../../eval/scenarios/10-zh-aspirin-conflict.json";
+import c11 from "../../eval/scenarios/11-vi-student-fall.json";
+import c12 from "../../eval/scenarios/12-hi-parent-dizzy.json";
+import c13 from "../../eval/scenarios/13-pt-student-allergy.json";
 import { baselineExtract } from "./baseline";
 import { extractionToPatch, questionForExtract } from "./ai/extraction";
 import type { AiCalls } from "./ai/pipeline";
@@ -40,7 +43,7 @@ export const EvalCase = z.object({
 });
 export type EvalCase = z.infer<typeof EvalCase>;
 
-export const EVAL_CASES: readonly EvalCase[] = [c01, c02, c03, c04, c05, c06, c07, c08, c09, c10].map((c) => EvalCase.parse(c));
+export const EVAL_CASES: readonly EvalCase[] = [c01, c02, c03, c04, c05, c06, c07, c08, c09, c10, c11, c12, c13].map((c) => EvalCase.parse(c));
 
 export function caseScenario(c: EvalCase): Scenario {
   const base = c.scenario ? getScenario(c.scenario) : undefined;

@@ -1359,6 +1359,34 @@
       "aslVideo": "asl/last_oral_intake.mp4"
     },
     {
+      "id": "alcohol_drugs",
+      "phase": "sample",
+      "english": "Have you had any alcohol or drugs today?",
+      "answerType": "yesno",
+      "choices": [],
+      "chartField": "intoxication",
+      "showIf": null,
+      "icon": "drink",
+      "reassure": "alcoholReassure",
+      "translations": {
+        "es": "¿Ha tomado alcohol o alguna droga hoy?",
+        "vi": "Hôm nay bạn có uống rượu bia hoặc dùng chất kích thích không?",
+        "zh": "您今天喝过酒或使用过任何毒品吗？",
+        "ar": "هل تناولت أي كحول أو مخدرات اليوم؟",
+        "hi": "क्या आपने आज शराब या कोई नशीला पदार्थ लिया है?",
+        "pt": "Você bebeu álcool ou usou alguma droga hoje?"
+      },
+      "translationsVerified": {
+        "es": false,
+        "vi": false,
+        "zh": false,
+        "ar": false,
+        "hi": false,
+        "pt": false
+      },
+      "aslVideo": "asl/alcohol_drugs.mp4"
+    },
+    {
       "id": "head_strike",
       "phase": "followup",
       "english": "Did you hit your head?",

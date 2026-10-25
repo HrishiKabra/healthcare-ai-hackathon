@@ -16,8 +16,8 @@ const med = (raw: string, generic: string | null, drugClass: string): PatchEntry
 const eliquis = med("Eliquis", "apixaban", "anticoagulant");
 
 describe("rules engine", () => {
-  it("has the nine rules from the spec, numbered 1 to 9", () => {
-    expect(RULES.map((r) => r.number)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  it("has the nine rules from the spec plus the campus rule, numbered 1 to 10", () => {
+    expect(RULES.map((r) => r.number)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 
   it("fires nothing on an empty chart", () => {
@@ -39,6 +39,18 @@ describe("rules engine", () => {
     });
     it("does not count antiplatelets as anticoagulants", () => {
       expect(flagsFor([makeAnswer("head_strike", yes), free([med("Plavix", "clopidogrel", "antiplatelet")])])).not.toContain("anticoag_head");
+    });
+  });
+
+  describe("10. head strike while intoxicated", () => {
+    it("fires for a head strike after alcohol or drugs", () => {
+      expect(flagsFor([makeAnswer("head_strike", yes), makeAnswer("alcohol_drugs", yes)])).toContain("head_intoxication");
+    });
+    it("does not fire for alcohol without a head strike", () => {
+      expect(flagsFor([makeAnswer("chief_complaint", choice("fall_injury")), makeAnswer("head_strike", no), makeAnswer("alcohol_drugs", yes)])).not.toContain("head_intoxication");
+    });
+    it("does not fire for a head strike when sober", () => {
+      expect(flagsFor([makeAnswer("head_strike", yes), makeAnswer("alcohol_drugs", no)])).not.toContain("head_intoxication");
     });
   });
 

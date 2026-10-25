@@ -1,0 +1,101 @@
+{
+  "id": "pt-student-allergy",
+  "title": "Brazilian student, allergic reaction",
+  "setting": "campus",
+  "summary": "Ate peanuts at the dining hall 15 minutes ago. Throat tight, lips swelling, trouble breathing. Has asthma.",
+  "mode": "spoken",
+  "language": "pt",
+  "emt": {
+    "age": "19",
+    "sex": "female",
+    "vitals": {
+      "heartRate": "118",
+      "bloodPressure": "104/66",
+      "spo2": "93",
+      "respRate": "26",
+      "glucose": ""
+    },
+    "treatments": [
+      "oxygen"
+    ],
+    "handoffTo": "noems"
+  },
+  "initialObservations": [],
+  "expectedFlags": [
+    "allergic_reaction"
+  ],
+  "communicationNeed": "Portuguese interpreter on arrival",
+  "steps": [
+    {
+      "questionId": "understand",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "chief_complaint",
+      "say": "Sou alérgica a amendoim, comi no refeitório e minha garganta está fechando. Não consigo respirar direito."
+    },
+    {
+      "questionId": "onset",
+      "answer": {
+        "kind": "duration",
+        "bucket": "minutes",
+        "amount": 15,
+        "unit": "minutes"
+      }
+    },
+    {
+      "questionId": "activity",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "eating"
+        ]
+      }
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "allergy_detail",
+      "say": "Não tenho alergia a remédio. Só a amendoim."
+    },
+    {
+      "questionId": "medications",
+      "say": "Não tomo nenhum remédio."
+    },
+    {
+      "questionId": "conditions",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "asthma"
+        ]
+      }
+    },
+    {
+      "questionId": "last_oral_intake",
+      "answer": {
+        "kind": "duration",
+        "bucket": "minutes"
+      }
+    },
+    {
+      "questionId": "alcohol_drugs",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "anything_else",
+      "say": "Tenho uma caneta de adrenalina, mas ficou no meu quarto."
+    }
+  ]
+}

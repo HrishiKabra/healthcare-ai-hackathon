@@ -66,6 +66,106 @@ export const MOCK_ANSWERS: Record<string, MockAnswer[]> = {
       output: { medications: [{ raw: "Eliquis", generic: "apixaban", drugClass: "anticoagulant" }], confidence: "high", summaryEnglish: "Takes Eliquis (apixaban)." },
     },
   ],
+  // Tulane campus scenarios (also the field-test role-play cards).
+  "vi-student-fall": [
+    {
+      questionId: "chief_complaint",
+      language: "vi",
+      answerRaw: "Em bị ngã cầu thang ở bữa tiệc, đầu đập vào bậc thang.",
+      english: "I fell down the stairs at a party and hit my head on a step.",
+      backTranslation: "Em bị ngã cầu thang ở bữa tiệc và đập đầu vào bậc thang.",
+      output: { chiefComplaint: "fall_injury", region: ["head"], notes: ["Fell down the stairs at a party and hit head on a step."], confidence: "high", summaryEnglish: "Fell down stairs, hit head." },
+    },
+    {
+      questionId: "medications",
+      language: "vi",
+      answerRaw: "Em không uống thuốc gì.",
+      english: "I don't take any medicine.",
+      backTranslation: "Em không uống thuốc gì.",
+      output: { medications: [{ raw: "không uống thuốc gì", generic: "none", drugClass: "none" }], confidence: "high", summaryEnglish: "Takes no medicines." },
+    },
+    {
+      questionId: "alcohol_drugs",
+      language: "vi",
+      answerRaw: "Em có uống bia, khoảng năm lon.",
+      english: "I drank beer, about five cans.",
+      backTranslation: "Em có uống bia, khoảng năm lon.",
+      output: { yesNo: "yes", notes: ["Drank about five beers."], confidence: "high", summaryEnglish: "Drank about five beers." },
+    },
+  ],
+  "hi-parent-dizzy": [
+    {
+      questionId: "chief_complaint",
+      language: "hi",
+      answerRaw: "मुझे बहुत चक्कर आ रहे हैं, कमज़ोरी लग रही है।",
+      english: "I am very dizzy and I feel weak.",
+      backTranslation: "मुझे बहुत चक्कर आ रहे हैं और कमज़ोरी लग रही है।",
+      output: { chiefComplaint: "dizziness", notes: ["Also feels weak."], confidence: "high", summaryEnglish: "Very dizzy and weak." },
+    },
+    {
+      questionId: "medications",
+      language: "hi",
+      answerRaw: "मैं इंसुलिन का इंजेक्शन लेती हूँ और शुगर की गोली भी।",
+      english: "I take insulin injections and a sugar pill too.",
+      backTranslation: "मैं इंसुलिन का इंजेक्शन लेती हूँ और शुगर की गोली भी।",
+      output: {
+        medications: [
+          { raw: "इंसुलिन", generic: "insulin", drugClass: "insulin" },
+          { raw: "शुगर की गोली", generic: null, drugClass: "antidiabetic" },
+        ],
+        confidence: "high",
+        summaryEnglish: "Takes insulin and a diabetes pill.",
+      },
+    },
+    {
+      questionId: "anything_else",
+      language: "hi",
+      answerRaw: "मैंने आज दोपहर का खाना नहीं खाया।",
+      english: "I did not eat lunch today.",
+      backTranslation: "मैंने आज दोपहर का खाना नहीं खाया।",
+      output: { notes: ["Skipped lunch today."], confidence: "high", summaryEnglish: "Skipped lunch." },
+    },
+  ],
+  "pt-student-allergy": [
+    {
+      questionId: "chief_complaint",
+      language: "pt",
+      answerRaw: "Sou alérgica a amendoim, comi no refeitório e minha garganta está fechando. Não consigo respirar direito.",
+      english: "I am allergic to peanuts, I ate at the dining hall and my throat is closing. I can't breathe properly.",
+      backTranslation: "Sou alérgica a amendoim, comi no refeitório e minha garganta está fechando. Não consigo respirar direito.",
+      output: {
+        chiefComplaint: "trouble_breathing",
+        allergies: [{ raw: "amendoim", substance: "peanut", category: "food" }],
+        notes: ["Throat feels like it is closing after eating peanuts."],
+        confidence: "high",
+        summaryEnglish: "Peanut allergy, throat closing, trouble breathing.",
+      },
+    },
+    {
+      questionId: "allergy_detail",
+      language: "pt",
+      answerRaw: "Não tenho alergia a remédio. Só a amendoim.",
+      english: "I have no medicine allergies. Only peanuts.",
+      backTranslation: "Não tenho alergia a remédio. Só a amendoim.",
+      output: { allergies: [{ raw: "amendoim", substance: "peanut", category: "food" }], confidence: "high", summaryEnglish: "Allergic to peanuts only." },
+    },
+    {
+      questionId: "medications",
+      language: "pt",
+      answerRaw: "Não tomo nenhum remédio.",
+      english: "I don't take any medicine.",
+      backTranslation: "Não tomo nenhum remédio.",
+      output: { medications: [{ raw: "nenhum remédio", generic: "none", drugClass: "none" }], confidence: "high", summaryEnglish: "Takes no medicines." },
+    },
+    {
+      questionId: "anything_else",
+      language: "pt",
+      answerRaw: "Tenho uma caneta de adrenalina, mas ficou no meu quarto.",
+      english: "I have an epinephrine pen, but it is in my room.",
+      backTranslation: "Tenho uma caneta de adrenalina, mas ficou no meu quarto.",
+      output: { notes: ["Has an epinephrine auto-injector, left in dorm room."], confidence: "high", summaryEnglish: "Epinephrine pen left in dorm room." },
+    },
+  ],
   // Canned outputs for the extra eval cases (eval/scenarios/04 to 10). In demo
   // mode these play the part of the model; real providers are measured with
   // npm run eval -- --provider anthropic | ollama.

@@ -260,6 +260,15 @@
     "hi": "हम समझ नहीं पाए। कृपया फिर से कोशिश कीजिए या कोई जवाब चुनिए।",
     "pt": "Não conseguimos entender. Tente de novo ou toque em uma resposta."
   },
+  "alcoholReassure": {
+    "en": "We ask only for your safety. Please tell us the truth so we can help you.",
+    "es": "Solo preguntamos por su seguridad. Por favor, díganos la verdad para que podamos ayudarle.",
+    "vi": "Chúng tôi hỏi chỉ để bảo đảm an toàn cho bạn. Xin hãy nói thật để chúng tôi có thể giúp bạn.",
+    "zh": "我们询问只是为了您的安全。请如实告诉我们，以便我们帮助您。",
+    "ar": "نسأل فقط من أجل سلامتك. من فضلك أخبرنا بالحقيقة حتى نتمكن من مساعدتك.",
+    "hi": "हम केवल आपकी सुरक्षा के लिए पूछ रहे हैं। कृपया सच बताएं ताकि हम आपकी मदद कर सकें।",
+    "pt": "Perguntamos só pela sua segurança. Por favor, diga a verdade para podermos ajudar você."
+  },
   "front": {
     "en": "Front",
     "es": "Frente",
@@ -700,6 +709,15 @@
     "ar": "حامل",
     "hi": "गर्भवती",
     "pt": "Grávida"
+  },
+  "field.intoxication": {
+    "en": "Alcohol or drugs today",
+    "es": "Alcohol o drogas hoy",
+    "vi": "Rượu bia hoặc chất kích thích hôm nay",
+    "zh": "今天饮酒或使用毒品",
+    "ar": "كحول أو مخدرات اليوم",
+    "hi": "आज शराब या नशा",
+    "pt": "Álcool ou drogas hoje"
   },
   "field.lastKnownWell": {
     "en": "Last felt normal",

@@ -45,7 +45,7 @@ export type Choice = z.infer<typeof Choice>;
 export const ScalarField = z.enum(["chiefComplaint", "activity", "quality"]);
 export const ListField = z.enum(["provocation", "region", "radiation", "conditions", "notes"]);
 export const DurationField = z.enum(["onset", "lastOralIntake", "lastKnownWell"]);
-export const BoolField = z.enum(["headStrike", "pregnancy", "facialDroop", "armDrift", "speechAbnormal"]);
+export const BoolField = z.enum(["headStrike", "pregnancy", "intoxication", "facialDroop", "armDrift", "speechAbnormal"]);
 export type ScalarField = z.infer<typeof ScalarField>;
 export type ListField = z.infer<typeof ListField>;
 export type DurationField = z.infer<typeof DurationField>;
@@ -95,6 +95,8 @@ export const Question = z.object({
   chartField: ChartField,
   showIf: Condition.nullable(),
   icon: z.string(),
+  /** UI string key for a reassuring line shown under the question (for example on the alcohol question). */
+  reassure: z.string().optional(),
   translations: Translations,
   translationsVerified: Verified,
   aslVideo: z.string(),
@@ -232,6 +234,8 @@ export const ClinicalChart = z.object({
   lastOralIntake: chartValue(Duration).optional(),
   headStrike: chartValue(z.boolean()).optional(),
   pregnancy: chartValue(z.boolean()).optional(),
+  /** Alcohol or drugs today, as the patient said. */
+  intoxication: chartValue(z.boolean()).optional(),
   strokeScreen: z.object({
     facialDroop: chartValue(z.boolean()).optional(),
     armDrift: chartValue(z.boolean()).optional(),

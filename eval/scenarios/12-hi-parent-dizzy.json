@@ -1,0 +1,23 @@
+{
+  "id": "hi-parent-dizzy",
+  "scenario": "hi-parent-dizzy",
+  "title": "Hindi, visiting parent, dizzy on insulin (campus)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "dizziness",
+      "conditions": [
+        "diabetes"
+      ]
+    },
+    "medicationClasses": [
+      "insulin",
+      "antidiabetic"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "check_glucose"
+    ]
+  }
+}

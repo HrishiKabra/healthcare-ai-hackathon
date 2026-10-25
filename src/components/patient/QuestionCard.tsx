@@ -2,7 +2,7 @@
 
 import { Volume2 } from "lucide-react";
 import { Icon } from "@/components/shared/Icon";
-import { questionText, t } from "@/lib/i18n";
+import { questionText, t, tKey } from "@/lib/i18n";
 import { getLanguage } from "@/lib/languages";
 import type { LangCode, PatientMode, Question } from "@/lib/schemas";
 import { speak } from "@/lib/speech";
@@ -34,6 +34,7 @@ export function QuestionCard({ q, lang, mode, freeform }: { q: Question; lang: L
             <bdi>{q.english}</bdi>
           </p>
         ) : null}
+        {q.reassure ? <p className="text-[24px] font-medium text-ok">{tKey(q.reassure, lang)}</p> : null}
       </div>
       {asl ? (
         <div className="w-[360px] shrink-0">

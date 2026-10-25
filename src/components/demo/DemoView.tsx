@@ -47,10 +47,17 @@ function DemoSession({ sessionId, scenarioId, onScenario, onRestart }: { session
     <div className="flex h-[calc(100dvh-37px)] min-h-[560px] flex-col">
       <AutopilotBar ap={controls.ap} autoAdvance={controls.autoAdvance} onAutoAdvance={controls.setAutoAdvance}>
         <select value={scenarioId} onChange={(e) => onScenario(e.target.value)} className="rounded-lg border border-ink/20 bg-surface px-2 py-1.5 font-semibold" aria-label="Scenario">
-          {SCENARIOS.map((s) => (
-            <option key={s.id} value={s.id}>
-              {s.title}
-            </option>
+          {[
+            { label: "Demo scenarios", list: SCENARIOS.filter((s) => s.setting !== "campus") },
+            { label: "Tulane campus", list: SCENARIOS.filter((s) => s.setting === "campus") },
+          ].map((g) => (
+            <optgroup key={g.label} label={g.label}>
+              {g.list.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.title}
+                </option>
+              ))}
+            </optgroup>
           ))}
         </select>
         <button type="button" onClick={onRestart} className="flex items-center gap-1 rounded-lg border border-ink/20 bg-surface px-2 py-1.5" title="Start this scenario over">

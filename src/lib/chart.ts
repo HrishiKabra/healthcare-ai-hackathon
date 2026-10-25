@@ -170,7 +170,7 @@ function applyEntry(chart: ClinicalChart, answer: Answer, entry: PatchEntry): Cl
   const meta = { sourceAnswerId: answer.id, sourceQuestionId: answer.questionId, confidence: entry.confidence, confirmed };
   const field = entry.field;
 
-  if (isOneOf(SCALAR_FIELDS, field) || isOneOf(DURATION_FIELDS, field) || field === "severity" || field === "headStrike" || field === "pregnancy") {
+  if (isOneOf(SCALAR_FIELDS, field) || isOneOf(DURATION_FIELDS, field) || field === "severity" || field === "headStrike" || field === "pregnancy" || field === "intoxication") {
     const incoming = { ...meta, value: entry.value } as ChartValue<unknown>;
     const existing = chart[field] as ChartValue<unknown> | undefined;
     const r = mergeScalar(chart, field, existing, incoming);
@@ -250,6 +250,7 @@ export function allValues(chart: ClinicalChart): { field: ChartField; cv: ChartV
   push("severity", chart.severity);
   push("headStrike", chart.headStrike);
   push("pregnancy", chart.pregnancy);
+  push("intoxication", chart.intoxication);
   for (const f of STROKE_FIELDS) push(f, chart.strokeScreen[f]);
   for (const f of LIST_FIELDS) chart[f].forEach((cv) => push(f, cv));
   chart.allergies.forEach((cv) => push("allergies", cv));

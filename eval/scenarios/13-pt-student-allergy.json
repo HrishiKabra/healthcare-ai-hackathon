@@ -1,0 +1,19 @@
+{
+  "id": "pt-student-allergy",
+  "scenario": "pt-student-allergy",
+  "title": "Portuguese, peanut reaction at the dining hall (campus)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "trouble_breathing"
+    },
+    "medicationClasses": [
+      "none"
+    ],
+    "allergyCategories": [
+      "food"
+    ],
+    "flags": [
+      "allergic_reaction"
+    ]
+  }
+}

@@ -39,7 +39,7 @@ function medFact(cv: ChartValue<Medication>): Fact {
 const cc = (c: ClinicalChart) => c.chiefComplaint?.value;
 const ccIs = (c: ClinicalChart, ...ids: string[]) => ids.includes(cc(c) ?? "");
 const notesMatch = (c: ClinicalChart, re: RegExp) => c.notes.filter((n) => re.test(n.value));
-const SWELLING = /swell|swollen|hinchad|sưng|肿|تورم|सूज/i;
+const SWELLING = /swell|swollen|hinchad|inchad|sưng|肿|تورم|सूज/i;
 const CONFUSION = /confus|disorient|not making sense/i;
 
 export function hoursSince(epochMs: number | null | undefined, now: number): number | null {
@@ -228,6 +228,17 @@ export const RULES: Rule[] = [
           })),
         ),
     explanation: () => "Answers about allergies or medicines do not agree. Confirm with the patient before giving any drug.",
+  },
+  {
+    id: "head_intoxication",
+    number: 10,
+    title: "Head strike while intoxicated",
+    severity: "critical",
+    rule: "Hit head AND alcohol or drugs today",
+    when: ({ chart }) => chart.headStrike?.value === true && chart.intoxication?.value === true,
+    facts: ({ chart }) => [...fact("Hit head", "headStrike", chart.headStrike), ...fact("Alcohol or drugs today", "intoxication", chart.intoxication)],
+    explanation: () =>
+      "Alcohol and drugs can hide the signs of a head injury. Do not put confusion or drowsiness down to intoxication alone. Reassess mental status often and consider ALS and a head CT.",
   },
 ];
 

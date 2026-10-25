@@ -1,0 +1,22 @@
+{
+  "id": "vi-student-fall",
+  "scenario": "vi-student-fall",
+  "title": "Vietnamese, fall after a party, head strike while drunk (campus)",
+  "gold": {
+    "fields": {
+      "chiefComplaint": "fall_injury",
+      "headStrike": true,
+      "severity": 6,
+      "intoxication": true
+    },
+    "medicationClasses": [
+      "none"
+    ],
+    "allergyCategories": [
+      "none"
+    ],
+    "flags": [
+      "head_intoxication"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 import chestJson from "@/data/scenarios/es-chest-pain.json";
 import fallJson from "@/data/scenarios/asl-fall.json";
 import strokeJson from "@/data/scenarios/picture-stroke.json";
+import parentJson from "@/data/scenarios/hi-parent-dizzy.json";
+import allergyJson from "@/data/scenarios/pt-student-allergy.json";
+import studentFallJson from "@/data/scenarios/vi-student-fall.json";
 import { z } from "zod";
 import { AnswerValue, EmtInputs, LangCode, PatientMode } from "./schemas";
 
@@ -20,6 +23,8 @@ export const Scenario = z.object({
   id: z.string(),
   title: z.string(),
   summary: z.string(),
+  /** "campus" for the Tulane campus calls; grouped separately on the start page. */
+  setting: z.enum(["campus"]).optional(),
   mode: PatientMode,
   language: LangCode,
   emt: EmtInputs,
@@ -31,7 +36,7 @@ export const Scenario = z.object({
 });
 export type Scenario = z.infer<typeof Scenario>;
 
-export const SCENARIOS: readonly Scenario[] = [chestJson, fallJson, strokeJson].map((s) => Scenario.parse(s));
+export const SCENARIOS: readonly Scenario[] = [chestJson, fallJson, strokeJson, studentFallJson, parentJson, allergyJson].map((s) => Scenario.parse(s));
 
 export function getScenario(id: string | null | undefined): Scenario | undefined {
   return SCENARIOS.find((s) => s.id === id);

@@ -16,8 +16,9 @@ describe("demo scenarios in DEMO_MODE (no network)", () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
-  it("has the three demo scenarios", () => {
-    expect(SCENARIOS.map((s) => s.id)).toEqual(["es-chest-pain", "asl-fall", "picture-stroke"]);
+  it("has the three demo scenarios and the three Tulane campus calls", () => {
+    expect(SCENARIOS.map((s) => s.id)).toEqual(["es-chest-pain", "asl-fall", "picture-stroke", "vi-student-fall", "hi-parent-dizzy", "pt-student-allergy"]);
+    expect(SCENARIOS.filter((s) => s.setting === "campus")).toHaveLength(3);
   });
 
   for (const sc of SCENARIOS) {

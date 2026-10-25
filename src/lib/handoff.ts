@@ -195,7 +195,7 @@ export function buildHandoff(state: SessionState, now: number): Handoff {
     mist: { m, i, s, t },
     allergies: values(chart, "allergies"),
     medications: meds,
-    history: [...line(chart, "conditions"), ...line(chart, "pregnancy"), ...line(chart, "lastOralIntake"), ...line(chart, "notes")],
+    history: [...line(chart, "conditions"), ...line(chart, "pregnancy"), ...line(chart, "intoxication"), ...line(chart, "lastOralIntake"), ...line(chart, "notes")],
     redFlags: flags.map((f) => ({
       title: f.title,
       severity: f.severity,

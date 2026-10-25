@@ -19,6 +19,7 @@ export const FIELD_ORDER: { field: ChartField; label: string }[] = [
   { field: "lastOralIntake", label: "Last oral intake" },
   { field: "headStrike", label: "Head strike" },
   { field: "pregnancy", label: "Pregnancy" },
+  { field: "intoxication", label: "Alcohol or drugs today" },
   { field: "facialDroop", label: "Facial droop" },
   { field: "armDrift", label: "Arm drift" },
   { field: "speechAbnormal", label: "Speech abnormal" },
@@ -69,7 +70,7 @@ export function englishValue(field: ChartField, v: unknown): string {
     const at = (v as { absoluteTime?: number | null }).absoluteTime;
     return at != null ? `${base} (about ${clock(at)})` : base;
   }
-  if (field === "headStrike" || field === "pregnancy" || field === "facialDroop" || field === "armDrift" || field === "speechAbnormal") {
+  if (field === "headStrike" || field === "pregnancy" || field === "intoxication" || field === "facialDroop" || field === "armDrift" || field === "speechAbnormal") {
     return v ? "Yes" : "No";
   }
   return base;

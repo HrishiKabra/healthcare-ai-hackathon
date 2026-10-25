@@ -105,6 +105,7 @@ describe("follow-up questions (showIf)", () => {
       medications: choice("none"),
       conditions: choice("diabetes"),
       last_oral_intake: { kind: "duration", bucket: "few_hours" },
+      alcohol_drugs: no,
       anything_else: { kind: "free", text: "no" },
     };
     for (let i = 0; i < 30; i++) {

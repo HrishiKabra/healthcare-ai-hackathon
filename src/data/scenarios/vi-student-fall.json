@@ -1,0 +1,118 @@
+{
+  "id": "vi-student-fall",
+  "title": "Vietnamese student, fall after a party",
+  "setting": "campus",
+  "summary": "Fell down the stairs at a party and hit their head. Pain 6 out of 10. Drank about five beers.",
+  "mode": "spoken",
+  "language": "vi",
+  "emt": {
+    "age": "20",
+    "sex": "male",
+    "vitals": {
+      "heartRate": "96",
+      "bloodPressure": "128/78",
+      "spo2": "98",
+      "respRate": "18",
+      "glucose": ""
+    },
+    "treatments": [
+      "c_collar"
+    ],
+    "handoffTo": "noems"
+  },
+  "initialObservations": [],
+  "expectedFlags": [
+    "head_intoxication"
+  ],
+  "communicationNeed": "Vietnamese interpreter on arrival",
+  "steps": [
+    {
+      "questionId": "understand",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "chief_complaint",
+      "say": "Em bị ngã cầu thang ở bữa tiệc, đầu đập vào bậc thang."
+    },
+    {
+      "questionId": "onset",
+      "answer": {
+        "kind": "duration",
+        "bucket": "minutes",
+        "amount": 30,
+        "unit": "minutes"
+      }
+    },
+    {
+      "questionId": "activity",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "stairs"
+        ]
+      }
+    },
+    {
+      "questionId": "region",
+      "answer": {
+        "kind": "bodymap",
+        "regions": [
+          "head",
+          "right_arm"
+        ]
+      }
+    },
+    {
+      "questionId": "severity",
+      "answer": {
+        "kind": "scale",
+        "value": 6
+      }
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "Em không uống thuốc gì."
+    },
+    {
+      "questionId": "conditions",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "none"
+        ]
+      }
+    },
+    {
+      "questionId": "last_oral_intake",
+      "answer": {
+        "kind": "duration",
+        "bucket": "few_hours"
+      }
+    },
+    {
+      "questionId": "alcohol_drugs",
+      "say": "Em có uống bia, khoảng năm lon."
+    },
+    {
+      "questionId": "head_strike",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "anything_else",
+      "skip": true
+    }
+  ]
+}

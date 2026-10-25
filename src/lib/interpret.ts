@@ -102,6 +102,7 @@ function yesNoPatch(q: Question, yes: boolean): PatchEntry[] {
   switch (q.chartField) {
     case "headStrike":
     case "pregnancy":
+    case "intoxication":
     case "facialDroop":
     case "armDrift":
     case "speechAbnormal":
@@ -219,6 +220,7 @@ export function formatEntryValue(e: PatchEntry, lang: LangCode): string {
       return medicationLabel(e.value, lang);
     case "headStrike":
     case "pregnancy":
+    case "intoxication":
     case "facialDroop":
     case "armDrift":
     case "speechAbnormal":

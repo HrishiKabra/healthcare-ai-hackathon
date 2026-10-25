@@ -1,0 +1,94 @@
+{
+  "id": "hi-parent-dizzy",
+  "title": "Hindi-speaking parent, dizzy",
+  "setting": "campus",
+  "summary": "Visiting for Family Weekend. Dizzy and weak for an hour after walking across campus. On insulin, skipped lunch.",
+  "mode": "spoken",
+  "language": "hi",
+  "emt": {
+    "age": "56",
+    "sex": "female",
+    "vitals": {
+      "heartRate": "102",
+      "bloodPressure": "150/90",
+      "spo2": "97",
+      "respRate": "18",
+      "glucose": ""
+    },
+    "treatments": [],
+    "handoffTo": "noems"
+  },
+  "initialObservations": [],
+  "expectedFlags": [
+    "check_glucose"
+  ],
+  "communicationNeed": "Hindi interpreter on arrival",
+  "steps": [
+    {
+      "questionId": "understand",
+      "answer": {
+        "kind": "yesno",
+        "value": "yes"
+      }
+    },
+    {
+      "questionId": "chief_complaint",
+      "say": "मुझे बहुत चक्कर आ रहे हैं, कमज़ोरी लग रही है।"
+    },
+    {
+      "questionId": "onset",
+      "answer": {
+        "kind": "duration",
+        "bucket": "about_1_hour"
+      }
+    },
+    {
+      "questionId": "activity",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "walking"
+        ]
+      }
+    },
+    {
+      "questionId": "allergy_any",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "medications",
+      "say": "मैं इंसुलिन का इंजेक्शन लेती हूँ और शुगर की गोली भी।"
+    },
+    {
+      "questionId": "conditions",
+      "answer": {
+        "kind": "choice",
+        "choiceIds": [
+          "diabetes",
+          "high_blood_pressure"
+        ]
+      }
+    },
+    {
+      "questionId": "last_oral_intake",
+      "answer": {
+        "kind": "duration",
+        "bucket": "few_hours"
+      }
+    },
+    {
+      "questionId": "alcohol_drugs",
+      "answer": {
+        "kind": "yesno",
+        "value": "no"
+      }
+    },
+    {
+      "questionId": "anything_else",
+      "say": "मैंने आज दोपहर का खाना नहीं खाया।"
+    }
+  ]
+}

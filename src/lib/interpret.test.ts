@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { confirmFromPatch, interpretStructured, toDuration } from "./interpret";
+import { allergyLabel, confirmFromPatch, interpretStructured, toDuration } from "./interpret";
 import { requireQuestion } from "./questions";
 
 describe("interpretStructured", () => {
@@ -53,3 +53,15 @@ describe("toDuration", () => {
     expect(toDuration("unknown").approxMinutes).toBeNull();
   });
 });
+
+describe("allergyLabel", () => {
+  const peanut = { raw: "amendoim", substance: "peanut", category: "food" as const };
+  it("shows the patient their own word and the crew the English with it", () => {
+    expect(allergyLabel(peanut, "pt")).toBe("amendoim");
+    expect(allergyLabel(peanut, "en")).toBe("peanut (amendoim)");
+  });
+  it("uses the localized label for known categories", () => {
+    expect(allergyLabel({ raw: "aspirina", substance: "aspirin", category: "aspirin" }, "pt")).toBe("Aspirina");
+  });
+});
+

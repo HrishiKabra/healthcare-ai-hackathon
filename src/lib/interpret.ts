@@ -180,7 +180,11 @@ function yesNoWord(v: boolean, lang: LangCode): string {
 export function allergyLabel(a: Allergy, lang: LangCode): string {
   const known: AllergyCategory[] = ["aspirin", "nsaid", "penicillin", "sulfa", "opioid", "latex", "none", "unspecified"];
   if (known.includes(a.category)) return tKey(`allergy.${a.category}`, lang);
-  return a.substance ?? a.raw;
+  // The patient sees their own word ("amendoim"); the crew sees the English with it ("peanut (amendoim)").
+  if (lang !== "en") return a.raw.trim() || a.substance || "";
+  const raw = a.raw.trim();
+  if (!a.substance) return raw;
+  return raw && raw.toLowerCase() !== a.substance.toLowerCase() ? `${a.substance} (${raw})` : a.substance;
 }
 
 export function medicationLabel(m: Medication, lang: LangCode): string {

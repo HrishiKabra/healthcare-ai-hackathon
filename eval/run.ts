@@ -102,7 +102,7 @@ function paragraph(baseline: EvalRun, model: Labeled): string {
   const b = baseline.summary;
   const m = model.run.summary;
   return [
-    `Across ${EVAL_CASES.length} cases in Spanish, Vietnamese, Mandarin, Arabic, Hindi, English, and ASL, keyword matching found ${pct(b.fieldAccuracy)} of the gold chart fields and ${pct(b.flagRecall)} of the red flags (precision ${pct(b.flagPrecision)}), while ${model.label} found ${pct(m.fieldAccuracy)} of the fields and ${pct(m.flagRecall)} of the red flags (precision ${pct(m.flagPrecision)}).`,
+    `Across ${EVAL_CASES.length} cases in Spanish, Vietnamese, Mandarin, Arabic, Hindi, Portuguese, English, and ASL, keyword matching found ${pct(b.fieldAccuracy)} of the gold chart fields and ${pct(b.flagRecall)} of the red flags (precision ${pct(b.flagPrecision)}), while ${model.label} found ${pct(m.fieldAccuracy)} of the fields and ${pct(m.flagRecall)} of the red flags (precision ${pct(m.flagPrecision)}).`,
     missed.length
       ? `The baseline missed red flags in ${missed.length} cases (${missed.join("; ")}), almost always because the chief complaint or the medicine was said in everyday words rather than a listed label or drug name.`
       : "The baseline found every red flag.",
@@ -160,7 +160,7 @@ async function main() {
     "",
     caseTable(baseline, primary),
     "",
-    "R1 blood thinner with fall or head strike, R2 stroke alert, R3 chest pain with aspirin or NSAID allergy, R4 torn aorta, R5 allergic reaction, R6 check blood sugar, R7 pregnancy with belly pain or bleeding, R8 severe pain with unknown cause, R9 conflicting allergy or medication answers.",
+    "R1 blood thinner with fall or head strike, R2 stroke alert, R3 chest pain with aspirin or NSAID allergy, R4 torn aorta, R5 allergic reaction, R6 check blood sugar, R7 pregnancy with belly pain or bleeding, R8 severe pain with unknown cause, R9 conflicting allergy or medication answers, R10 head strike while intoxicated.",
     "",
     "Cases live in `eval/scenarios/`. Each has scripted answers in the patient's language (mostly free answers, many colloquial) and a gold chart with gold red flags.",
     "",

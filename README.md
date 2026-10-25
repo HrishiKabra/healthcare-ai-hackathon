@@ -2,7 +2,7 @@
 
 Emergency assessment for patients who can't communicate with the crew.
 
-An EMT runs the standard field assessment on a tablet. The patient answers however they can: in their own spoken language (Spanish, Vietnamese, Mandarin, Arabic, Hindi), in ASL (signed question videos plus taps), or on a picture board. Answers become a structured clinical chart, deterministic rules flag red flags live with their reasons, and the crew sends an English ER handoff (MIST) that includes the patient's communication needs.
+An EMT runs the standard field assessment on a tablet. The patient answers however they can: in their own spoken language (Spanish, Vietnamese, Mandarin, Arabic, Hindi, Portuguese), in ASL (signed question videos plus taps), or on a picture board. Answers become a structured clinical chart, deterministic rules flag red flags live with their reasons, and the crew sends an English ER handoff (MIST) that includes the patient's communication needs.
 
 Prototype for the Freeman AI Innovation Challenge (AI in Healthcare). **Prototype for demonstration. Not for clinical use.**
 
@@ -25,6 +25,8 @@ Open http://localhost:3000. It works with no API key and no network: by default 
 | `/patient?s=<id>` | Patient screen (patient's language). Open it from the console's "Patient window" button, or on a tablet on the same device |
 | `/er?s=<id>` | ER handoff screen |
 | `/eval` | Keyword matching vs. AI, run in the browser |
+| `/drill` | **Field test with Tulane EMS:** role-played patients, FirstWords vs. the usual method, timed and scored |
+| `/drill/results` | Field-test comparison table and chart, EMT quotes, CSV and JSON export |
 | `/about` | Data, privacy, and safety notes |
 | `/patient?preview=1` | Click through every question and widget without a session |
 
@@ -99,6 +101,7 @@ public/asl/allergy_detail.mp4    Which medicine are you allergic to?
 public/asl/medications.mp4       What medicines do you take?
 public/asl/conditions.mp4        Do you have any medical conditions?
 public/asl/last_oral_intake.mp4  When did you last eat or drink?
+public/asl/alcohol_drugs.mp4     Have you had any alcohol or drugs today?
 public/asl/head_strike.mp4       Did you hit your head?
 public/asl/pregnancy.mp4         Are you pregnant, or could you be?
 public/asl/stroke_smile.mp4      Please smile for me.
@@ -129,11 +132,37 @@ Record at 1440x900 or larger, in Chrome, at `/demo`. Demo mode needs no network.
 | 1:40 | Press **Generate handoff** | The ER panel slides in: MIST, red flags with reasons, unconfirmed items listed separately, and the communication box. |
 | 1:55 | Point at the communication box and the footer | "Interpreter needed on arrival. Nothing is stored; End call wipes it." |
 
+**Tulane version.** Open with **Vietnamese student, fall after a party** (Tulane campus group) in place of the Spanish chest pain: "A Tulane international student falls at a party. Tulane EMS is first on scene." It shows the alcohol question with its reassurance line, rule 10, and a handoff addressed to the arriving NOEMS crew. Close on `/drill/results` from the Tulane EMS field test (5 seconds): "We tested this with Tulane EMS EMTs."
+
 For a three-window version, open `/`, load a scenario, then use the console's **Patient window** and **ER window** buttons and the autopilot bar on the console.
+
+## Field test with Tulane EMS
+
+Everything for a test session is in `testing/`:
+
+- `TEMS-test-protocol.md`: what we test, the crossover design, setup, consent script, debrief questions, and honest limits.
+- `patient-cards/`: one card per role-played patient, with ready-to-read lines in Spanish, Vietnamese, Hindi, and Portuguese, and an ASL card.
+- `recruiting-message.md` and `results-to-submission.md`.
+
+Open `/drill`, enter a tester code (never a name), pick FirstWords or the usual method and a patient. FirstWords runs open the console with a drill bar; the clock starts when it opens and stops at **Finish drill**. Usual-method runs use a facilitator stopwatch and a short "what did you record" form. Both are scored against the same gold facts as the eval, then the EMT fills in a survey (System Usability Scale after FirstWords). `/drill/results` compares the two methods. Only timings, scores, and survey answers are kept, in this browser's local storage.
+
+The patient window must be a window of the same browser on the same laptop: an iPad as a second display (Sidecar) or an external monitor. For free answers, run on-device mode (`qwen3:1.7b` is the faster choice live). In demo mode, typed answers are understood only when they match a card line.
+
+## Tulane campus scenarios
+
+Three scenarios are built around calls Tulane EMS could run, each handed off to arriving NOEMS paramedics:
+
+| Scenario | Language | Red flag |
+|---|---|---|
+| Vietnamese student, fall after a party | Vietnamese | Rule 10: head strike while intoxicated |
+| Hindi-speaking parent, dizzy (Family Weekend) | Hindi | Rule 6: check blood sugar (on insulin) |
+| Brazilian student, allergic reaction (dining hall) | Portuguese | Rule 5: possible allergic reaction |
+
+The console's handoff selector sends the handoff to the **NOEMS crew** (red flags first) or the **emergency department**. The Conversation panel's **Read answers aloud** reads each translated answer and each new critical red flag aloud, so the EMT can keep their hands on the patient.
 
 ## Evaluation
 
-`npm run eval` runs 10 scripted cases (the 3 demo scenarios plus 7 more across all five languages, mostly colloquial free answers such as "tomo una pastilla para adelgazar la sangre, creo que se llama Xarelto" or "मैं खून पतला करने की दवा लेता हूँ") twice: through the AI provider and through keyword matching alone. Both use the same deterministic red-flag rules, so the difference is only how well free answers are read. Results go to `eval/results.md`. In demo mode the AI column is canned responses (the file says so in bold at the top). Rerun with a real provider to measure a model.
+`npm run eval` runs 13 scripted cases (the 6 scenarios plus 7 more across all six languages, mostly colloquial free answers such as "tomo una pastilla para adelgazar la sangre, creo que se llama Xarelto" or "मैं खून पतला करने की दवा लेता हूँ") twice: through the AI provider and through keyword matching alone. Both use the same deterministic red-flag rules, so the difference is only how well free answers are read. Results go to `eval/results.md`. In demo mode the AI column is canned responses (the file says so in bold at the top). Real on-device runs are in `eval/results-qwen3-1.7b.md` and `eval/results-qwen3-4b.md`: red-flag recall went from 43% with keyword matching to 93% (1.7b) and 86% (4b), with no false alarms.
 
 ## How it is built
 

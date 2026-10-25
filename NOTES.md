@@ -56,6 +56,12 @@ Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `n
 - **Stroke window wording:** rule 2 says "inside the 4.5 hour window" at 4.5 hours or less since last known well, and "may still qualify for clot removal" up to 24 hours.
 - **Rule 6** counts insulin and any diabetes medicine class (for example metformin), not only insulin.
 - **Med table** has 68 entries with aliases in all 6 scripts. The table class always wins over a model's class.
+- **Field-test storage does not break "no patient data is stored".** Drill runs use role-played patients only. `/drill` keeps timings, scores, a tester code (never a name), and the EMT's survey answers in `localStorage` (`firstwords:drills`), and never the patients' answers or the transcript. The session itself is still wiped by Finish drill (it calls End call).
+- **Drill scoring** reuses the eval gold for each scenario, on the fields both methods can record (chief complaint, head strike, pain score, medication classes, allergy categories). FirstWords is scored on the confirmed chart only. Fact times run from the start of the session to the moment the patient confirmed the answer. "Yes, I have an allergy" does not count as getting the allergy.
+- **Rule 10 (head strike while intoxicated)** was added for campus calls. Its wording ("do not put confusion down to intoxication alone; reassess mental status; consider ALS and a head CT") needs review by the TEMS medical director.
+- **The alcohol question** shows "We ask only for your safety. Please tell us the truth so we can help you." It deliberately does not promise "you will not get in trouble": the app cannot guarantee that.
+- **Portuguese is Brazilian Portuguese** (`pt-BR`, "você"), because Brazil is one of Tulane's top international origins. Unverified like the rest.
+- **Handoff recipient** defaults to the ED; campus scenarios default to NOEMS. A NOEMS handoff lists red flags first.
 
 ## Progress
 
@@ -129,13 +135,36 @@ Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `n
 - The transcript lives in the session state only (memory and sessionStorage) and is cleared on End call like everything else.
 - Checks: 168 unit tests pass (new tests cover the transcript reducer, line ordering, translation arriving before extraction, and the extraction filters). In headless Chrome, the Spanish chest-pain scenario still plays in demo mode with no network. A live free-form exchange works against qwen3:4b.
 
+### Tulane EMS: field test, campus fit, real-model eval (2026-10-25)
+- **Field-test mode** (`/drill`, `/drill/usual`, `/drill/survey`, `/drill/results`): role-played patients, FirstWords vs. the usual method, with a tester code, crossover suggestion, per-fact timing, accuracy against the eval gold, red flag found or missed, misunderstandings caught at confirm-back, SUS and confidence survey, comparison table and chart, EMT quotes, CSV and JSON export.
+- **Test kit** in `testing/`: protocol, five role-player cards (Spanish, Vietnamese, Hindi, Portuguese, ASL), recruiting messages, and a results-to-submission guide.
+- **NOEMS handoff:** the console picks NOEMS crew or ED; NOEMS gets red flags first.
+- **Hands-free:** "Read answers aloud" on the Conversation panel.
+- **Portuguese (Brazil)** as the sixth patient language, plus Brazilian drug names.
+- **Campus scenarios:** Vietnamese student fall after a party (new alcohol question, new rule 10), Hindi-speaking visiting parent dizzy on insulin (R6), Brazilian student peanut reaction (R5). Eval cases 11 to 13.
+- **First real-model eval** on this laptop, 13 cases (`eval/results-qwen3-1.7b.md`, `eval/results-qwen3-4b.md`; `eval/results.md` stays the demo-mode run):
+
+  | | Keyword baseline | qwen3:1.7b | qwen3:4b |
+  |---|---:|---:|---:|
+  | Field accuracy | 59% | 79% | 82% |
+  | Red flag recall | 43% | 93% | 86% |
+  | Red flag precision | 67% | 100% | 100% |
+  | Medication class accuracy | 82% | 52% | 71% |
+  | Allergy category accuracy | 77% | 100% | 100% |
+  | Seconds per AI call | <0.01 | 3.0 | 5.5 |
+
+  Both models more than double red-flag recall over keyword matching with no false alarms. Misses: 1.7b missed the torn aorta (Arabic); 4b missed pregnancy with belly pain (Spanish) and the campus head strike while drunk (Vietnamese). **Medication class accuracy is worse than keyword matching for both models**: when a drug name is in the table the baseline is exact, while the models sometimes add a class or a "none" that the gold does not have. Next tuning step: trust the table first and use the model only for medicines described without a name.
+- Checks: 193 unit tests; in headless Chrome, both drill methods end to end with results and CSV export, a Portuguese drill with typed card lines in demo mode, all three campus scenarios with the right flag and a NOEMS handoff, read-aloud during a full scenario, zero external requests.
+
 ## Needs a human
 
-- **Run a real model.** Models are pulled; run `npm run eval -- --provider ollama` (and with `OLLAMA_MODEL=qwen3:4b`); add a key and run `npm run eval:compare`. Extraction on qwen3:4b takes about 15 s per answer; consider 1.7b for live use, or a slimmer extraction schema. Read `eval/results.md`: the demo-mode numbers are against canned answers, not a model. Expect small models to miss some colloquial phrasing; tune `src/lib/ai/prompts.ts` if so.
+- **Real models:** qwen3:1.7b and 4b are measured (see Progress). Still to do: a cloud run with a key (`npm run eval:compare`), and the medication-class tuning noted above. Use 1.7b for live drills: faster, and better red-flag recall in this eval.
 - **Record ASL videos** with a fluent Deaf signer: one clip per question in `public/asl/` (file names in the README).
 - **Interview an EMT** and update the question bank (`src/data/questions.json`) and rules (`src/lib/rules.ts`) from their feedback. The rule thresholds (for example the 4.5 hour stroke window wording) need clinical review.
 - **Deploy to Vercel** for the demo link (no environment variables needed). Check the microphone on the hosted https link in Chrome.
 - **Record the demo video** using the click path in the README.
 - **Gesture answers:** test on a real tablet (start page, AI settings, "Gesture answers"). Not run overnight, because it downloads the MediaPipe model at runtime.
 - **If `npm test` says "Cannot find native binding":** that is npm's optional-dependency bug (npm/cli#4828). Run `rm -rf node_modules package-lock.json && npm install`. Avoid adding packages with a bare `npm install <pkg>` on top of an existing lockfile without checking that `git diff package-lock.json` does not delete the `@rolldown/binding-*` entries.
-- **Translations:** a fluent speaker of each language should review `src/data/questions.json` and `src/data/ui-strings.json`, then flip `translationsVerified` to `true` per question and choice.
+- **Run the Tulane EMS field test** with `testing/TEMS-test-protocol.md`, then export `/drill/results` (CSV and JSON) into `testing/results/` and fill in `testing/results-to-submission.md`.
+- **This folder appears to sync to iCloud** (Desktop & Documents). On 2026-10-25, 326 duplicate files named like `page 2.js` appeared in `.next` and broke the typecheck, and a stray `.git/index 2` appeared too. The `.next` copies were deleted (it is build output). Consider moving the repo out of the Desktop, or turning off Desktop sync, before the demo: iCloud can also slow builds badly.
+- **Translations:** a fluent speaker of each language (now including Portuguese) should review `src/data/questions.json` and `src/data/ui-strings.json`, then flip `translationsVerified` to `true` per question and choice.

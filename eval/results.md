@@ -2,20 +2,20 @@
 
 > **Demo mode: these numbers are against canned mock responses, not a model.** The model column replays answers written for these cases (`src/lib/mock/answers.ts`), so it shows that the pipeline, rules, and scoring work end to end. It does not measure model quality. The keyword baseline column is real. Rerun with `npm run eval -- --provider anthropic` or `npm run eval -- --provider ollama`, or `npm run eval:compare`.
 
-Run 2026-10-23 21:27 UTC. 10 cases. Scoring: chart fields against a gold chart, medications by drug class, allergies by category, red flags by rule id.
+Run 2026-10-25 23:31 UTC. 13 cases. Scoring: chart fields against a gold chart, medications by drug class, allergies by category, red flags by rule id.
 
 ## Summary
 
 | Metric | Keyword baseline | Demo mocks (canned) |
 |---|---:|---:|
 | Field accuracy | 59% | 100% |
-| Red flag recall | 45% | 100% |
-| Red flag precision | 71% | 100% |
-| Medication class accuracy | 86% | 100% |
-| Allergy category accuracy | 100% | 100% |
+| Red flag recall | 43% | 100% |
+| Red flag precision | 67% | 100% |
+| Medication class accuracy | 82% | 100% |
+| Allergy category accuracy | 77% | 100% |
 | Average seconds per AI call | <0.01 | <0.01 |
 
-Across 10 cases in Spanish, Vietnamese, Mandarin, Arabic, Hindi, English, and ASL, keyword matching found 59% of the gold chart fields and 45% of the red flags (precision 71%), while Demo mocks (canned) found 100% of the fields and 100% of the red flags (precision 100%). The baseline missed red flags in 6 cases (Spanish: chest pain (demo); Mandarin: dizziness on insulin; Hindi: fall on the stairs, blood thinner without a name; Arabic: tearing chest pain to the back; Spanish: belly pain in pregnancy; Mandarin: chest tightness, denies then reports an aspirin allergy), almost always because the chief complaint or the medicine was said in everyday words rather than a listed label or drug name. It also raised 2 false alarms: with the complaint unread, high pain looked like "severe pain, unknown cause". Red flags always come from the same deterministic rules; the only difference between the columns is how well free answers are turned into chart fields. That is what the product would lose without AI.
+Across 13 cases in Spanish, Vietnamese, Mandarin, Arabic, Hindi, Portuguese, English, and ASL, keyword matching found 59% of the gold chart fields and 43% of the red flags (precision 67%), while Demo mocks (canned) found 100% of the fields and 100% of the red flags (precision 100%). The baseline missed red flags in 8 cases (Spanish: chest pain (demo); Mandarin: dizziness on insulin; Hindi: fall on the stairs, blood thinner without a name; Arabic: tearing chest pain to the back; Spanish: belly pain in pregnancy; Mandarin: chest tightness, denies then reports an aspirin allergy; Hindi: visiting parent, dizzy on insulin (campus); Portuguese: peanut reaction at the dining hall (campus)), almost always because the chief complaint or the medicine was said in everyday words rather than a listed label or drug name. It also raised 3 false alarms: with the complaint unread, high pain looked like "severe pain, unknown cause". Red flags always come from the same deterministic rules; the only difference between the columns is how well free answers are turned into chart fields. That is what the product would lose without AI.
 
 ## Cases
 
@@ -31,7 +31,10 @@ Across 10 cases in Spanish, Vietnamese, Mandarin, Arabic, Hindi, English, and AS
 | Arabic, tearing chest pain to the back | Arabic | 1/4 | 4/4 | R4 | R8 (miss) | R4 |
 | Spanish, belly pain in pregnancy | Spanish | 2/3 | 3/3 | R7 | R8 (miss) | R7 |
 | Mandarin, chest tightness, denies then reports an aspirin allergy | Mandarin Chinese | 0/2 | 2/2 | R3, R9 | R9 (miss) | R3, R9 |
+| Vietnamese, fall after a party, head strike while drunk (campus) | Vietnamese | 3/4 | 4/4 | R10 | R10 | R10 |
+| Hindi, visiting parent, dizzy on insulin (campus) | Hindi | 1/2 | 2/2 | R6 | none (miss) | R6 |
+| Portuguese, peanut reaction at the dining hall (campus) | Portuguese | 0/1 | 1/1 | R5 | R9 (miss) | R5 |
 
-R1 blood thinner with fall or head strike, R2 stroke alert, R3 chest pain with aspirin or NSAID allergy, R4 torn aorta, R5 allergic reaction, R6 check blood sugar, R7 pregnancy with belly pain or bleeding, R8 severe pain with unknown cause, R9 conflicting allergy or medication answers.
+R1 blood thinner with fall or head strike, R2 stroke alert, R3 chest pain with aspirin or NSAID allergy, R4 torn aorta, R5 allergic reaction, R6 check blood sugar, R7 pregnancy with belly pain or bleeding, R8 severe pain with unknown cause, R9 conflicting allergy or medication answers, R10 head strike while intoxicated.
 
 Cases live in `eval/scenarios/`. Each has scripted answers in the patient's language (mostly free answers, many colloquial) and a gold chart with gold red flags.

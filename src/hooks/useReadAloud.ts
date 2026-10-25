@@ -8,7 +8,7 @@ import { speakQueued } from "@/lib/speech";
 
 /**
  * Hands-free: speaks each new patient answer (once its English is ready) and
- * each new critical red flag. Anything already on screen when it is turned on
+ * each new red flag or warning. Anything already on screen when it is turned on
  * is skipped, so switching it on does not read out the whole call.
  */
 export function useReadAloud(state: SessionState, flags: RedFlag[], on: boolean) {
@@ -20,7 +20,7 @@ export function useReadAloud(state: SessionState, flags: RedFlag[], on: boolean)
         const text = readAloudText(l);
         return text ? [{ key: l.kind === "said" ? `said:${l.u.id}` : `tap:${l.answer.id}`, text }] : [];
       }),
-      ...flags.filter((f) => f.severity === "critical").map((f) => ({ key: `flag:${f.ruleId}`, text: `Red flag. ${f.title}.` })),
+      ...flags.map((f) => ({ key: `flag:${f.ruleId}`, text: `${f.severity === "critical" ? "Red flag" : "Warning"}. ${f.title}.` })),
     ];
     if (!on) {
       spoken.current = null;

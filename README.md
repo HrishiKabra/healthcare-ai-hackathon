@@ -158,7 +158,7 @@ Three scenarios are built around calls Tulane EMS could run, each handed off to 
 | Hindi-speaking parent, dizzy (Family Weekend) | Hindi | Rule 6: check blood sugar (on insulin) |
 | Brazilian student, allergic reaction (dining hall) | Portuguese | Rule 5: possible allergic reaction |
 
-The console's handoff selector sends the handoff to the **NOEMS crew** (red flags first) or the **emergency department**. The Conversation panel's **Read answers aloud** reads each translated answer and each new critical red flag aloud, so the EMT can keep their hands on the patient.
+The console's handoff selector sends the handoff to the **NOEMS crew** (red flags first) or the **emergency department**. The Conversation panel's **Read answers aloud** reads each translated answer and each new red flag or warning aloud, so the EMT can keep their hands on the patient.
 
 ## Evaluation
 

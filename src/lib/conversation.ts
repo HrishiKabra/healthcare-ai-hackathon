@@ -14,3 +14,13 @@ export function conversationLines(state: Pick<SessionState, "utterances" | "answ
   const at = (l: ConversationLine) => (l.kind === "said" ? l.u.at : l.answer.at);
   return [...said, ...tapped].sort((a, b) => at(a) - at(b));
 }
+
+/** What the console says aloud for a line, or null when there is nothing to say yet (EMT lines, translations still running). */
+export function readAloudText(l: ConversationLine): string | null {
+  if (l.kind === "tapped") return `Patient answered: ${l.answer.confirmText.english}.`;
+  if (l.u.from !== "patient") return null;
+  if (l.u.status === "failed") return "Patient's answer could not be translated.";
+  if (l.u.status !== "done" || !l.u.translation) return null;
+  if (l.u.language !== "en" && l.u.translation === l.u.original) return "Patient's answer was not translated.";
+  return `Patient says: ${l.u.translation}`;
+}

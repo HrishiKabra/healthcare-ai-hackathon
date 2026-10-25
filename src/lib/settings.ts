@@ -16,6 +16,8 @@ export const Settings = z.object({
   provider: ProviderChoice.default("default"),
   ollamaPreset: z.enum(["light", "balanced", "better"]).default("light"),
   gestureAnswers: z.boolean().default(false),
+  /** EMT console reads each translated patient answer and new critical red flag aloud in English. */
+  readAloud: z.boolean().default(false),
 });
 export type Settings = z.infer<typeof Settings>;
 

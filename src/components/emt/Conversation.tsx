@@ -1,6 +1,6 @@
 "use client";
 
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useNow } from "@/hooks/useNow";
 import { conversationLines } from "@/lib/conversation";
@@ -102,7 +102,7 @@ function PatientTapped({ answer }: { answer: Answer }) {
 }
 
 /** The live conversation on the EMT console, newest at the bottom. */
-export function Conversation({ state }: { state: SessionState }) {
+export function Conversation({ state, readAloud, onToggleReadAloud }: { state: SessionState; readAloud: boolean; onToggleReadAloud: () => void }) {
   const lines = conversationLines(state);
   const patientLang: LangCode = state.mode === "asl" ? "en" : state.language;
   const listRef = useRef<HTMLOListElement>(null);
@@ -115,7 +115,18 @@ export function Conversation({ state }: { state: SessionState }) {
 
   return (
     <section aria-label="Conversation" className="flex shrink-0 flex-col rounded-xl border border-line bg-surface">
-      <h2 className="px-3 pt-2 text-base font-semibold">Conversation</h2>
+      <div className="flex items-center justify-between gap-2 px-3 pt-2">
+        <h2 className="text-base font-semibold">Conversation</h2>
+        <button
+          type="button"
+          aria-pressed={readAloud}
+          onClick={onToggleReadAloud}
+          className={`flex items-center gap-1.5 rounded-lg border px-2 py-1 text-xs font-semibold ${readAloud ? "border-brand bg-brand-soft text-brand-strong" : "border-line text-ink-soft hover:border-brand"}`}
+        >
+          {readAloud ? <Volume2 size={14} aria-hidden /> : <VolumeX size={14} aria-hidden />}
+          {readAloud ? "Reading answers aloud" : "Read answers aloud"}
+        </button>
+      </div>
       {lines.length ? (
         <ol ref={listRef} aria-live="polite" className="flex max-h-56 flex-col gap-2 overflow-y-auto px-3 pt-1 pb-3">
           {lines.map((l) =>

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { interpretFree, type AiCalls } from "./ai/pipeline";
 import { ExtractOutput } from "./ai/schemas";
-import { conversationLines } from "./conversation";
+import { conversationLines, readAloudText } from "./conversation";
 import { requireQuestion } from "./questions";
 import { newSession, sessionReducer } from "./session";
 import { makeAnswer, yes } from "./testing";
@@ -59,3 +59,23 @@ describe("interpretFree live translation", () => {
     expect(heard).toEqual([null]);
   });
 });
+
+describe("readAloudText", () => {
+  const u = { id: "u", at: 1, from: "patient" as const, original: "me duele", language: "es" as const, translation: "It hurts" as string | null, status: "done" as const };
+
+  it("reads the English once it is ready, and nothing while translating", () => {
+    expect(readAloudText({ kind: "said", u })).toBe("Patient says: It hurts");
+    expect(readAloudText({ kind: "said", u: { ...u, status: "translating", translation: null } })).toBeNull();
+  });
+
+  it("says when a translation failed or never happened", () => {
+    expect(readAloudText({ kind: "said", u: { ...u, status: "failed" } })).toBe("Patient's answer could not be translated.");
+    expect(readAloudText({ kind: "said", u: { ...u, translation: "me duele" } })).toBe("Patient's answer was not translated.");
+  });
+
+  it("reads taps but not the EMT's own questions", () => {
+    expect(readAloudText({ kind: "tapped", answer: makeAnswer("head_strike", yes) })).toMatch(/^Patient answered: /);
+    expect(readAloudText({ kind: "said", u: { ...u, from: "emt" } })).toBeNull();
+  });
+});
+

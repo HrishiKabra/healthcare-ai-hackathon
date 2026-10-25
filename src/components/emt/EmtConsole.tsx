@@ -11,11 +11,14 @@ import { HandoffButton } from "./HandoffButton";
 import { Modal } from "@/components/shared/Modal";
 import type { useEmtSession } from "@/hooks/useEmtSession";
 import { useNow } from "@/hooks/useNow";
+import { useReadAloud } from "@/hooks/useReadAloud";
 import { emtObservation } from "@/lib/emt";
 import { nextQuestion } from "@/lib/flow";
 import { getLanguage } from "@/lib/languages";
 import { evaluateRules } from "@/lib/rules";
 import { sessionChart } from "@/lib/session";
+import { loadSettings, saveSettings } from "@/lib/settings";
+import { stopSpeaking } from "@/lib/speech";
 import { EmtHeader } from "./EmtHeader";
 import { Conversation } from "./Conversation";
 import { LiveChart } from "./LiveChart";
@@ -50,6 +53,19 @@ export function EmtConsole({
   const [modeOpen, setModeOpen] = useState(false);
   const [interpreterOpen, setInterpreterOpen] = useState(false);
   const [endOpen, setEndOpen] = useState(false);
+  const [readAloud, setReadAloud] = useState(false);
+  useEffect(() => {
+    // localStorage is only readable after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setReadAloud(loadSettings().readAloud);
+  }, []);
+  const toggleReadAloud = () => {
+    const next = !readAloud;
+    setReadAloud(next);
+    saveSettings({ ...loadSettings(), readAloud: next });
+    if (!next) stopSpeaking();
+  };
+  useReadAloud(state, flags, readAloud);
 
   const currentId = state.current?.kind === "bank" ? state.current.questionId : null;
   const ask = (questionId: string) => dispatch({ type: "ask", questionId, at: Date.now() });
@@ -131,7 +147,7 @@ export function EmtConsole({
               <ModePicker onPick={(mode, language) => dispatch({ type: "setMode", mode, language })} />
             </section>
           ) : null}
-          {state.mode ? <Conversation state={state} /> : null}
+          {state.mode ? <Conversation state={state} readAloud={readAloud} onToggleReadAloud={toggleReadAloud} /> : null}
           <LiveChart chart={chart} answers={state.answers} freeform={state.freeform} modeChosen={!!state.mode} />
           {belowChart}
         </div>

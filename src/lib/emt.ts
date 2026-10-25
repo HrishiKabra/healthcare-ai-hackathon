@@ -1,3 +1,4 @@
+import { sameInEveryLanguage } from "./i18n";
 import { interpretStructured } from "./interpret";
 import { requireQuestion } from "./questions";
 import type { Answer } from "./schemas";
@@ -25,7 +26,7 @@ export function emtObservation(questionId: string, value: boolean, at: number = 
 
 /** Free-form EMT questions reuse the free-answer widget by posing as a bank question. */
 export function freeformAsQuestion(f: FreeformQuestion): Question {
-  const translations = { es: f.native, vi: f.native, zh: f.native, ar: f.native, hi: f.native };
+  const translations = sameInEveryLanguage(f.native);
   return {
     id: f.id,
     phase: "closing",
@@ -36,7 +37,7 @@ export function freeformAsQuestion(f: FreeformQuestion): Question {
     showIf: null,
     icon: "chat",
     translations,
-    translationsVerified: { es: false, vi: false, zh: false, ar: false, hi: false },
+    translationsVerified: sameInEveryLanguage(false),
     aslVideo: "",
   };
 }

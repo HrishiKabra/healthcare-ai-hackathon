@@ -13,6 +13,13 @@ describe("keyword baseline", () => {
     expect(baselineExtract(q("medications"), "我每天打胰岛素", "zh").medications[0].generic).toBe("insulin");
   });
 
+  it("knows Brazilian Portuguese drug names, yes, and no", () => {
+    expect(baselineExtract(q("medications"), "Tomo apixabana e Glifage", "pt").medications.map((m) => m.drugClass)).toEqual(["anticoagulant", "antidiabetic"]);
+    expect(baselineExtract(q("head_strike"), "Sim, bati", "pt").yesNo).toBe("yes");
+    expect(baselineExtract(q("head_strike"), "Não", "pt").yesNo).toBe("no");
+    expect(baselineExtract(q("medications"), "Não tomo nenhum remédio", "pt").medications[0].generic).toBe("none");
+  });
+
   it("misses colloquial descriptions without a drug name (the gap the model fills)", () => {
     expect(baselineExtract(q("medications"), "tomo una pastilla para la sangre rala", "es").medications).toEqual([]);
     expect(baselineExtract(q("medications"), "मैं खून पतला करने की दवा लेता हूँ", "hi").medications).toEqual([]);

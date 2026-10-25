@@ -48,8 +48,8 @@ describe("ui strings", () => {
 });
 
 describe("languages", () => {
-  it("has the five demo languages plus English, Arabic is right to left", () => {
-    expect(LANGUAGES.map((l) => l.code).sort()).toEqual(["ar", "en", "es", "hi", "vi", "zh"]);
+  it("has the six patient languages plus English, Arabic is right to left", () => {
+    expect(LANGUAGES.map((l) => l.code).sort()).toEqual(["ar", "en", "es", "hi", "pt", "vi", "zh"]);
     expect(LANGUAGES.find((l) => l.code === "ar")?.dir).toBe("rtl");
   });
 });

@@ -7,12 +7,12 @@ import type { ExtractRequest, TranslateRequest } from "./schemas";
 // Prompts are short on purpose: the on-device model is 1.7B parameters.
 
 export const GLOSSARY = [
-  "chest pain = dolor de pecho = đau ngực = 胸痛 = ألم في الصدر = सीने में दर्द",
-  "shortness of breath = falta de aire = khó thở = 呼吸困难 = ضيق التنفس = साँस फूलना",
-  "blood thinner = anticoagulante = thuốc chống đông máu = 抗凝血药 = مميع للدم = खून पतला करने की दवा",
-  "allergy = alergia = dị ứng = 过敏 = حساسية = एलर्जी",
-  "dizziness = mareo = chóng mặt = 头晕 = دوخة = चक्कर",
-  "hit my head = me golpeé la cabeza = đập đầu = 撞到头 = ضربت رأسي = सिर पर चोट लगी",
+  "chest pain = dolor de pecho = đau ngực = 胸痛 = ألم في الصدر = सीने में दर्द = dor no peito",
+  "shortness of breath = falta de aire = khó thở = 呼吸困难 = ضيق التنفس = साँस फूलना = falta de ar",
+  "blood thinner = anticoagulante = thuốc chống đông máu = 抗凝血药 = مميع للدم = खून पतला करने की दवा = remédio para afinar o sangue",
+  "allergy = alergia = dị ứng = 过敏 = حساسية = एलर्जी = alergia",
+  "dizziness = mareo = chóng mặt = 头晕 = دوخة = चक्कर = tontura",
+  "hit my head = me golpeé la cabeza = đập đầu = 撞到头 = ضربت رأسي = सिर पर चोट लगी = bati a cabeça",
 ].join("\n");
 
 export function translatePrompt(r: TranslateRequest): { system: string; user: string } {

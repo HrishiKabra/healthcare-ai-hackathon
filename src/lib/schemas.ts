@@ -4,7 +4,7 @@ import { z } from "zod";
 // Languages and modes
 // ---------------------------------------------------------------------------
 
-export const PATIENT_LANGS = ["es", "vi", "zh", "ar", "hi"] as const;
+export const PATIENT_LANGS = ["es", "vi", "zh", "ar", "hi", "pt"] as const;
 export const LangCode = z.enum(["en", ...PATIENT_LANGS]);
 export type LangCode = z.infer<typeof LangCode>;
 export type PatientLang = (typeof PATIENT_LANGS)[number];

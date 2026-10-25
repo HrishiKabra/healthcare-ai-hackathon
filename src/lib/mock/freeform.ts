@@ -6,26 +6,26 @@ import type { PatientLang } from "../schemas";
 export const MOCK_FREEFORM: { english: string; translations: Record<PatientLang, string> }[] = [
   {
     english: "Are you having trouble breathing?",
-    translations: { es: "¿Tiene dificultad para respirar?", vi: "Bạn có bị khó thở không?", zh: "您呼吸困难吗？", ar: "هل تجد صعوبة في التنفس؟", hi: "क्या आपको साँस लेने में तकलीफ़ हो रही है?" },
+    translations: { es: "¿Tiene dificultad para respirar?", vi: "Bạn có bị khó thở không?", zh: "您呼吸困难吗？", ar: "هل تجد صعوبة في التنفس؟", hi: "क्या आपको साँस लेने में तकलीफ़ हो रही है?", pt: "Você está com dificuldade para respirar?" },
   },
   {
     english: "Is anyone with you?",
-    translations: { es: "¿Hay alguien con usted?", vi: "Có ai đi cùng bạn không?", zh: "有人和您在一起吗？", ar: "هل معك أحد؟", hi: "क्या आपके साथ कोई है?" },
+    translations: { es: "¿Hay alguien con usted?", vi: "Có ai đi cùng bạn không?", zh: "有人和您在一起吗？", ar: "هل معك أحد؟", hi: "क्या आपके साथ कोई है?", pt: "Tem alguém com você?" },
   },
   {
     english: "Do you take any blood thinners?",
-    translations: { es: "¿Toma algún anticoagulante?", vi: "Bạn có dùng thuốc chống đông máu không?", zh: "您在服用抗凝血药吗？", ar: "هل تتناول أي دواء مميع للدم؟", hi: "क्या आप खून पतला करने की कोई दवा लेते हैं?" },
+    translations: { es: "¿Toma algún anticoagulante?", vi: "Bạn có dùng thuốc chống đông máu không?", zh: "您在服用抗凝血药吗？", ar: "هل تتناول أي دواء مميع للدم؟", hi: "क्या आप खून पतला करने की कोई दवा लेते हैं?", pt: "Você toma algum remédio para afinar o sangue?" },
   },
   {
     english: "Is the pain getting worse?",
-    translations: { es: "¿El dolor está empeorando?", vi: "Cơn đau có đang nặng hơn không?", zh: "疼痛在加重吗？", ar: "هل الألم يزداد سوءاً؟", hi: "क्या दर्द बढ़ रहा है?" },
+    translations: { es: "¿El dolor está empeorando?", vi: "Cơn đau có đang nặng hơn không?", zh: "疼痛在加重吗？", ar: "هل الألم يزداد سوءاً؟", hi: "क्या दर्द बढ़ रहा है?", pt: "A dor está piorando?" },
   },
   {
     english: "We are going to give you oxygen.",
-    translations: { es: "Le vamos a dar oxígeno.", vi: "Chúng tôi sẽ cho bạn thở oxy.", zh: "我们要给您吸氧。", ar: "سنعطيك الأكسجين.", hi: "हम आपको ऑक्सीजन देने जा रहे हैं।" },
+    translations: { es: "Le vamos a dar oxígeno.", vi: "Chúng tôi sẽ cho bạn thở oxy.", zh: "我们要给您吸氧。", ar: "سنعطيك الأكسجين.", hi: "हम आपको ऑक्सीजन देने जा रहे हैं।", pt: "Vamos dar oxigênio para você." },
   },
   {
     english: "We are taking you to the hospital now.",
-    translations: { es: "Ahora lo llevamos al hospital.", vi: "Bây giờ chúng tôi sẽ đưa bạn đến bệnh viện.", zh: "我们现在送您去医院。", ar: "سننقلك إلى المستشفى الآن.", hi: "हम अभी आपको अस्पताल ले जा रहे हैं।" },
+    translations: { es: "Ahora lo llevamos al hospital.", vi: "Bây giờ chúng tôi sẽ đưa bạn đến bệnh viện.", zh: "我们现在送您去医院。", ar: "سننقلك إلى المستشفى الآن.", hi: "हम अभी आपको अस्पताल ले जा रहे हैं।", pt: "Vamos levar você para o hospital agora." },
   },
 ];

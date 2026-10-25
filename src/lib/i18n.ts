@@ -1,5 +1,5 @@
 import uiStrings from "@/data/ui-strings.json";
-import type { BodyRegion, ChartField, Duration, LangCode, Question } from "./schemas";
+import { PATIENT_LANGS, type BodyRegion, type ChartField, type Duration, type LangCode, type PatientLang, type Question } from "./schemas";
 
 export type UiKey = keyof typeof uiStrings;
 type Entry = Record<LangCode, string>;
@@ -16,6 +16,11 @@ export function t(key: UiKey, lang: LangCode): string {
 export function tKey(key: string, lang: LangCode): string {
   const e = STRINGS[key];
   return e?.[lang] ?? e?.en ?? key;
+}
+
+/** One value for every patient language, for stand-in questions that are already in the patient's language. */
+export function sameInEveryLanguage<T>(value: T): Record<PatientLang, T> {
+  return Object.fromEntries(PATIENT_LANGS.map((l) => [l, value])) as Record<PatientLang, T>;
 }
 
 export function fmt(template: string, vars: Record<string, string | number>): string {

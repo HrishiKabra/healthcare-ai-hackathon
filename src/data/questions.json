@@ -5,7 +5,8 @@
     "vi",
     "zh",
     "ar",
-    "hi"
+    "hi",
+    "pt"
   ],
   "questions": [
     {
@@ -22,14 +23,16 @@
         "vi": "Bạn có nghe và hiểu tôi nói không?",
         "zh": "您能听到并听懂我说的话吗？",
         "ar": "هل تسمعني وتفهمني؟",
-        "hi": "क्या आप मुझे सुन और समझ पा रहे हैं?"
+        "hi": "क्या आप मुझे सुन और समझ पा रहे हैं?",
+        "pt": "Você consegue me ouvir e me entender?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/understand.mp4"
     },
@@ -48,14 +51,16 @@
             "vi": "Đau ngực",
             "zh": "胸痛",
             "ar": "ألم في الصدر",
-            "hi": "सीने में दर्द"
+            "hi": "सीने में दर्द",
+            "pt": "Dor no peito"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -67,14 +72,16 @@
             "vi": "Khó thở",
             "zh": "呼吸困难",
             "ar": "صعوبة في التنفس",
-            "hi": "साँस लेने में तकलीफ़"
+            "hi": "साँस लेने में तकलीफ़",
+            "pt": "Dificuldade para respirar"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -86,14 +93,16 @@
             "vi": "Bị ngã hoặc bị thương",
             "zh": "摔倒或受伤",
             "ar": "سقوط أو إصابة",
-            "hi": "गिरना या चोट"
+            "hi": "गिरना या चोट",
+            "pt": "Uma queda ou ferimento"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -105,14 +114,16 @@
             "vi": "Đau bụng",
             "zh": "肚子痛",
             "ar": "ألم في البطن",
-            "hi": "पेट में दर्द"
+            "hi": "पेट में दर्द",
+            "pt": "Dor na barriga"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -124,14 +135,16 @@
             "vi": "Yếu hoặc tê",
             "zh": "无力或麻木",
             "ar": "ضعف أو خدر",
-            "hi": "कमज़ोरी या सुन्नपन"
+            "hi": "कमज़ोरी या सुन्नपन",
+            "pt": "Fraqueza ou dormência"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -143,14 +156,16 @@
             "vi": "Chóng mặt",
             "zh": "头晕",
             "ar": "دوخة",
-            "hi": "चक्कर आना"
+            "hi": "चक्कर आना",
+            "pt": "Tontura"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -162,14 +177,16 @@
             "vi": "Chảy máu",
             "zh": "出血",
             "ar": "نزيف",
-            "hi": "खून बहना"
+            "hi": "खून बहना",
+            "pt": "Sangramento"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -181,14 +198,16 @@
             "vi": "Điều khác",
             "zh": "其他",
             "ar": "شيء آخر",
-            "hi": "कुछ और"
+            "hi": "कुछ और",
+            "pt": "Outra coisa"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         }
       ],
@@ -200,14 +219,16 @@
         "vi": "Điều gì làm bạn khó chịu nhất lúc này?",
         "zh": "您现在最不舒服的是什么？",
         "ar": "ما الذي يزعجك أكثر الآن؟",
-        "hi": "अभी आपको सबसे ज़्यादा क्या परेशान कर रहा है?"
+        "hi": "अभी आपको सबसे ज़्यादा क्या परेशान कर रहा है?",
+        "pt": "O que mais está incomodando você agora?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/chief_complaint.mp4"
     },
@@ -225,14 +246,16 @@
         "vi": "Nó bắt đầu khi nào?",
         "zh": "什么时候开始的？",
         "ar": "متى بدأ ذلك؟",
-        "hi": "यह कब शुरू हुआ?"
+        "hi": "यह कब शुरू हुआ?",
+        "pt": "Quando começou?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/onset.mp4"
     },
@@ -251,14 +274,16 @@
             "vi": "Đang nghỉ hoặc ngồi",
             "zh": "休息或坐着",
             "ar": "أستريح أو أجلس",
-            "hi": "आराम कर रहे थे या बैठे थे"
+            "hi": "आराम कर रहे थे या बैठे थे",
+            "pt": "Descansando ou sentado"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -270,14 +295,16 @@
             "vi": "Đang ngủ",
             "zh": "睡觉",
             "ar": "نائم",
-            "hi": "सो रहे थे"
+            "hi": "सो रहे थे",
+            "pt": "Dormindo"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -289,14 +316,16 @@
             "vi": "Đang đi bộ",
             "zh": "走路",
             "ar": "أمشي",
-            "hi": "चल रहे थे"
+            "hi": "चल रहे थे",
+            "pt": "Andando"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -308,14 +337,16 @@
             "vi": "Đang đi cầu thang",
             "zh": "在楼梯上",
             "ar": "على الدرج",
-            "hi": "सीढ़ियों पर"
+            "hi": "सीढ़ियों पर",
+            "pt": "Na escada"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -327,14 +358,16 @@
             "vi": "Tập thể dục hoặc làm việc nặng",
             "zh": "运动或干重活",
             "ar": "رياضة أو عمل شاق",
-            "hi": "व्यायाम या भारी काम"
+            "hi": "व्यायाम या भारी काम",
+            "pt": "Exercício ou trabalho pesado"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -346,14 +379,16 @@
             "vi": "Đang ăn",
             "zh": "吃饭",
             "ar": "آكل",
-            "hi": "खाना खा रहे थे"
+            "hi": "खाना खा रहे थे",
+            "pt": "Comendo"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -365,14 +400,16 @@
             "vi": "Đang lái xe",
             "zh": "开车",
             "ar": "أقود السيارة",
-            "hi": "गाड़ी चला रहे थे"
+            "hi": "गाड़ी चला रहे थे",
+            "pt": "Dirigindo"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -384,14 +421,16 @@
             "vi": "Điều khác",
             "zh": "其他",
             "ar": "شيء آخر",
-            "hi": "कुछ और"
+            "hi": "कुछ और",
+            "pt": "Outra coisa"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         }
       ],
@@ -403,14 +442,16 @@
         "vi": "Bạn đang làm gì khi nó bắt đầu?",
         "zh": "开始的时候您在做什么？",
         "ar": "ماذا كنت تفعل عندما بدأ ذلك؟",
-        "hi": "जब यह शुरू हुआ तब आप क्या कर रहे थे?"
+        "hi": "जब यह शुरू हुआ तब आप क्या कर रहे थे?",
+        "pt": "O que você estava fazendo quando começou?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/activity.mp4"
     },
@@ -430,14 +471,16 @@
             "vi": "Cử động làm nó tệ hơn",
             "zh": "活动时更严重",
             "ar": "الحركة تجعله أسوأ",
-            "hi": "हिलने से बढ़ता है"
+            "hi": "हिलने से बढ़ता है",
+            "pt": "Piora quando me mexo"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -449,14 +492,16 @@
             "vi": "Hít thở sâu làm nó tệ hơn",
             "zh": "深呼吸时更严重",
             "ar": "التنفس العميق يجعله أسوأ",
-            "hi": "गहरी साँस लेने से बढ़ता है"
+            "hi": "गहरी साँस लेने से बढ़ता है",
+            "pt": "Piora quando respiro fundo"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -468,14 +513,16 @@
             "vi": "Ấn vào làm nó tệ hơn",
             "zh": "按压时更严重",
             "ar": "الضغط عليه يجعله أسوأ",
-            "hi": "दबाने से बढ़ता है"
+            "hi": "दबाने से बढ़ता है",
+            "pt": "Piora quando aperto"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -487,14 +534,16 @@
             "vi": "Nghỉ ngơi làm nó đỡ hơn",
             "zh": "休息后好一些",
             "ar": "الراحة تجعله أفضل",
-            "hi": "आराम करने से कम होता है"
+            "hi": "आराम करने से कम होता है",
+            "pt": "Melhora quando descanso"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -506,14 +555,16 @@
             "vi": "Thuốc làm nó đỡ hơn",
             "zh": "吃药后好一些",
             "ar": "الدواء جعله أفضل",
-            "hi": "दवा से कम हुआ"
+            "hi": "दवा से कम हुआ",
+            "pt": "O remédio melhorou"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -525,14 +576,16 @@
             "vi": "Không có gì thay đổi",
             "zh": "没有变化",
             "ar": "لا شيء يغيره",
-            "hi": "किसी चीज़ से फ़र्क नहीं पड़ता"
+            "hi": "किसी चीज़ से फ़र्क नहीं पड़ता",
+            "pt": "Nada muda"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           },
           "exclusive": true
         }
@@ -545,14 +598,16 @@
         "vi": "Có điều gì làm nó đỡ hơn hoặc tệ hơn không?",
         "zh": "有什么会让它好一些或更严重吗？",
         "ar": "هل هناك شيء يجعله أفضل أو أسوأ؟",
-        "hi": "क्या किसी चीज़ से यह बेहतर या बदतर होता है?"
+        "hi": "क्या किसी चीज़ से यह बेहतर या बदतर होता है?",
+        "pt": "Alguma coisa melhora ou piora?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/provocation.mp4"
     },
@@ -571,14 +626,16 @@
             "vi": "Đè nặng hoặc bóp chặt",
             "zh": "压迫感或紧缩感",
             "ar": "ضغط أو عصر",
-            "hi": "दबाव या जकड़न"
+            "hi": "दबाव या जकड़न",
+            "pt": "Pressão ou aperto"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -590,14 +647,16 @@
             "vi": "Nhói hoặc như dao đâm",
             "zh": "尖锐或刺痛",
             "ar": "حاد أو طاعن",
-            "hi": "तेज़ या चुभने वाला"
+            "hi": "तेज़ या चुभने वाला",
+            "pt": "Pontada ou facada"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -609,14 +668,16 @@
             "vi": "Nóng rát",
             "zh": "烧灼感",
             "ar": "حرقان",
-            "hi": "जलन"
+            "hi": "जलन",
+            "pt": "Queimação"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -628,14 +689,16 @@
             "vi": "Như bị xé",
             "zh": "撕裂感",
             "ar": "تمزق",
-            "hi": "फटने जैसा"
+            "hi": "फटने जैसा",
+            "pt": "Como se estivesse rasgando"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -647,14 +710,16 @@
             "vi": "Đau âm ỉ",
             "zh": "隐隐作痛",
             "ar": "ألم خفيف مستمر",
-            "hi": "हल्का लगातार दर्द"
+            "hi": "हल्का लगातार दर्द",
+            "pt": "Dor surda"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         }
       ],
@@ -669,14 +734,16 @@
         "vi": "Bạn cảm thấy nó như thế nào?",
         "zh": "是什么样的感觉？",
         "ar": "كيف تشعر به؟",
-        "hi": "यह कैसा महसूस होता है?"
+        "hi": "यह कैसा महसूस होता है?",
+        "pt": "Como é a sensação?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/quality.mp4"
     },
@@ -694,14 +761,16 @@
         "vi": "Ở chỗ nào trên cơ thể bạn?",
         "zh": "在身体的哪个部位？",
         "ar": "في أي جزء من جسمك؟",
-        "hi": "यह आपके शरीर में कहाँ है?"
+        "hi": "यह आपके शरीर में कहाँ है?",
+        "pt": "Em que parte do corpo é?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/region.mp4"
     },
@@ -722,14 +791,16 @@
         "vi": "Nó có lan ra chỗ nào khác không?",
         "zh": "会扩散到其他地方吗？",
         "ar": "هل ينتشر إلى مكان آخر؟",
-        "hi": "क्या यह कहीं और फैलता है?"
+        "hi": "क्या यह कहीं और फैलता है?",
+        "pt": "Espalha para algum lugar?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/radiation.mp4"
     },
@@ -750,14 +821,16 @@
         "vi": "Nó nặng mức nào, từ 0 đến 10?",
         "zh": "从0到10，有多严重？",
         "ar": "ما مدى شدته من 0 إلى 10؟",
-        "hi": "0 से 10 तक, यह कितना बुरा है?"
+        "hi": "0 से 10 तक, यह कितना बुरा है?",
+        "pt": "Quão forte é, de 0 a 10?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/severity.mp4"
     },
@@ -775,14 +848,16 @@
         "vi": "Bạn có bị dị ứng với thuốc nào không?",
         "zh": "您对什么药物过敏吗？",
         "ar": "هل لديك حساسية من أي دواء؟",
-        "hi": "क्या आपको किसी दवा से एलर्जी है?"
+        "hi": "क्या आपको किसी दवा से एलर्जी है?",
+        "pt": "Você tem alergia a algum remédio?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/allergy_any.mp4"
     },
@@ -802,14 +877,16 @@
             "vi": "Aspirin",
             "zh": "阿司匹林",
             "ar": "الأسبرين",
-            "hi": "एस्पिरिन"
+            "hi": "एस्पिरिन",
+            "pt": "Aspirina"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -821,14 +898,16 @@
             "vi": "Ibuprofen hoặc thuốc giảm đau tương tự",
             "zh": "布洛芬或类似止痛药",
             "ar": "إيبوبروفين أو مسكنات مشابهة",
-            "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ"
+            "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ",
+            "pt": "Ibuprofeno ou analgésicos parecidos"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -840,14 +919,16 @@
             "vi": "Penicillin",
             "zh": "青霉素",
             "ar": "البنسلين",
-            "hi": "पेनिसिलिन"
+            "hi": "पेनिसिलिन",
+            "pt": "Penicilina"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -859,14 +940,16 @@
             "vi": "Thuốc nhóm sulfa",
             "zh": "磺胺类药物",
             "ar": "أدوية السلفا",
-            "hi": "सल्फ़ा दवाएँ"
+            "hi": "सल्फ़ा दवाएँ",
+            "pt": "Sulfas"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -878,14 +961,16 @@
             "vi": "Morphin hoặc thuốc opioid khác",
             "zh": "吗啡或其他阿片类药物",
             "ar": "المورفين أو مسكنات أفيونية أخرى",
-            "hi": "मॉर्फ़ीन या अन्य ओपिओइड"
+            "hi": "मॉर्फ़ीन या अन्य ओपिओइड",
+            "pt": "Morfina ou outros opioides"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         }
       ],
@@ -900,14 +985,16 @@
         "vi": "Bạn dị ứng với thuốc nào?",
         "zh": "您对哪种药物过敏？",
         "ar": "ما الدواء الذي لديك حساسية منه؟",
-        "hi": "आपको किस दवा से एलर्जी है?"
+        "hi": "आपको किस दवा से एलर्जी है?",
+        "pt": "Você tem alergia a qual remédio?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/allergy_detail.mp4"
     },
@@ -927,14 +1014,16 @@
             "vi": "Thuốc chống đông máu",
             "zh": "抗凝血药",
             "ar": "مميع للدم",
-            "hi": "रक्त पतला करने वाली दवा"
+            "hi": "रक्त पतला करने वाली दवा",
+            "pt": "Anticoagulante (afina o sangue)"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -946,14 +1035,16 @@
             "vi": "Insulin",
             "zh": "胰岛素",
             "ar": "الأنسولين",
-            "hi": "इंसुलिन"
+            "hi": "इंसुलिन",
+            "pt": "Insulina"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -965,14 +1056,16 @@
             "vi": "Thuốc tim",
             "zh": "心脏药",
             "ar": "دواء للقلب",
-            "hi": "दिल की दवा"
+            "hi": "दिल की दवा",
+            "pt": "Remédio para o coração"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -984,14 +1077,16 @@
             "vi": "Bình xịt hen",
             "zh": "吸入器",
             "ar": "بخاخ",
-            "hi": "इनहेलर"
+            "hi": "इनहेलर",
+            "pt": "Bombinha (inalador)"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1003,14 +1098,16 @@
             "vi": "Không dùng thuốc",
             "zh": "不吃药",
             "ar": "لا أتناول أدوية",
-            "hi": "कोई दवा नहीं"
+            "hi": "कोई दवा नहीं",
+            "pt": "Nenhum remédio"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           },
           "exclusive": true
         }
@@ -1023,14 +1120,16 @@
         "vi": "Bạn đang dùng những thuốc gì?",
         "zh": "您平时吃什么药？",
         "ar": "ما الأدوية التي تتناولها؟",
-        "hi": "आप कौन सी दवाएँ लेते हैं?"
+        "hi": "आप कौन सी दवाएँ लेते हैं?",
+        "pt": "Quais remédios você toma?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/medications.mp4"
     },
@@ -1050,14 +1149,16 @@
             "vi": "Bệnh tim",
             "zh": "心脏病",
             "ar": "مشاكل في القلب",
-            "hi": "दिल की बीमारी"
+            "hi": "दिल की बीमारी",
+            "pt": "Problemas no coração"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1069,14 +1170,16 @@
             "vi": "Tiểu đường",
             "zh": "糖尿病",
             "ar": "السكري",
-            "hi": "मधुमेह (शुगर)"
+            "hi": "मधुमेह (शुगर)",
+            "pt": "Diabetes"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1088,14 +1191,16 @@
             "vi": "Huyết áp cao",
             "zh": "高血压",
             "ar": "ضغط الدم المرتفع",
-            "hi": "हाई ब्लड प्रेशर"
+            "hi": "हाई ब्लड प्रेशर",
+            "pt": "Pressão alta"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1107,14 +1212,16 @@
             "vi": "Hen suyễn",
             "zh": "哮喘",
             "ar": "الربو",
-            "hi": "दमा"
+            "hi": "दमा",
+            "pt": "Asma"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1126,14 +1233,16 @@
             "vi": "Động kinh",
             "zh": "癫痫",
             "ar": "نوبات صرع",
-            "hi": "दौरे (मिर्गी)"
+            "hi": "दौरे (मिर्गी)",
+            "pt": "Convulsões"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1145,14 +1254,16 @@
             "vi": "Từng bị đột quỵ",
             "zh": "以前中风过",
             "ar": "جلطة دماغية سابقة",
-            "hi": "पहले स्ट्रोक हुआ था"
+            "hi": "पहले स्ट्रोक हुआ था",
+            "pt": "Já teve AVC (derrame)"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1164,14 +1275,16 @@
             "vi": "Đang mang thai",
             "zh": "怀孕",
             "ar": "حمل",
-            "hi": "गर्भावस्था"
+            "hi": "गर्भावस्था",
+            "pt": "Gravidez"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           }
         },
         {
@@ -1183,14 +1296,16 @@
             "vi": "Không có",
             "zh": "没有",
             "ar": "لا شيء",
-            "hi": "कोई नहीं"
+            "hi": "कोई नहीं",
+            "pt": "Nenhum"
           },
           "translationsVerified": {
             "es": false,
             "vi": false,
             "zh": false,
             "ar": false,
-            "hi": false
+            "hi": false,
+            "pt": false
           },
           "exclusive": true
         }
@@ -1203,14 +1318,16 @@
         "vi": "Bạn có bệnh gì không?",
         "zh": "您有什么疾病吗？",
         "ar": "هل لديك أي أمراض؟",
-        "hi": "क्या आपको कोई बीमारी है?"
+        "hi": "क्या आपको कोई बीमारी है?",
+        "pt": "Você tem algum problema de saúde?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/conditions.mp4"
     },
@@ -1228,14 +1345,16 @@
         "vi": "Lần cuối bạn ăn hoặc uống là khi nào?",
         "zh": "您最后一次吃东西或喝水是什么时候？",
         "ar": "متى أكلت أو شربت آخر مرة؟",
-        "hi": "आपने आखिरी बार कब खाया या पिया?"
+        "hi": "आपने आखिरी बार कब खाया या पिया?",
+        "pt": "Quando você comeu ou bebeu pela última vez?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/last_oral_intake.mp4"
     },
@@ -1259,14 +1378,16 @@
         "vi": "Bạn có bị đập đầu không?",
         "zh": "您撞到头了吗？",
         "ar": "هل ضربت رأسك؟",
-        "hi": "क्या आपके सिर पर चोट लगी?"
+        "hi": "क्या आपके सिर पर चोट लगी?",
+        "pt": "Você bateu a cabeça?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/head_strike.mp4"
     },
@@ -1299,14 +1420,16 @@
         "vi": "Bạn có đang mang thai hoặc có thể đang mang thai không?",
         "zh": "您怀孕了吗，或者有可能怀孕吗？",
         "ar": "هل أنتِ حامل أو يمكن أن تكوني حاملاً؟",
-        "hi": "क्या आप गर्भवती हैं, या हो सकती हैं?"
+        "hi": "क्या आप गर्भवती हैं, या हो सकती हैं?",
+        "pt": "Você está grávida, ou pode estar?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/pregnancy.mp4"
     },
@@ -1327,14 +1450,16 @@
         "vi": "Bạn hãy cười cho tôi xem.",
         "zh": "请对我笑一下。",
         "ar": "من فضلك ابتسم.",
-        "hi": "कृपया मुस्कुराइए।"
+        "hi": "कृपया मुस्कुराइए।",
+        "pt": "Por favor, sorria para mim."
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/stroke_smile.mp4"
     },
@@ -1355,14 +1480,16 @@
         "vi": "Bạn hãy giơ cả hai tay lên và giữ nguyên.",
         "zh": "请举起双臂并保持住。",
         "ar": "من فضلك ارفع ذراعيك الاثنتين وأبقهما مرفوعتين.",
-        "hi": "कृपया दोनों हाथ ऊपर उठाइए और उन्हें ऊपर रखिए।"
+        "hi": "कृपया दोनों हाथ ऊपर उठाइए और उन्हें ऊपर रखिए।",
+        "pt": "Por favor, levante os dois braços e mantenha-os no alto."
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/stroke_arms.mp4"
     },
@@ -1383,14 +1510,16 @@
         "vi": "Bạn hãy nói: Bầu trời màu xanh.",
         "zh": "请说：天空是蓝色的。",
         "ar": "من فضلك قل: السماء زرقاء.",
-        "hi": "कृपया बोलिए: आसमान नीला है।"
+        "hi": "कृपया बोलिए: आसमान नीला है।",
+        "pt": "Por favor, diga: O céu é azul."
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/stroke_speech.mp4"
     },
@@ -1411,14 +1540,16 @@
         "vi": "Lần cuối bạn thấy bình thường là khi nào?",
         "zh": "您最后一次感觉正常是什么时候？",
         "ar": "متى كانت آخر مرة شعرت فيها بأنك طبيعي؟",
-        "hi": "आपने आखिरी बार कब सामान्य महसूस किया था?"
+        "hi": "आपने आखिरी बार कब सामान्य महसूस किया था?",
+        "pt": "Quando você se sentiu normal pela última vez?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/last_known_well.mp4"
     },
@@ -1436,14 +1567,16 @@
         "vi": "Còn điều gì khác chúng tôi nên biết không?",
         "zh": "还有什么我们应该知道的吗？",
         "ar": "هل هناك أي شيء آخر يجب أن نعرفه؟",
-        "hi": "क्या कुछ और है जो हमें जानना चाहिए?"
+        "hi": "क्या कुछ और है जो हमें जानना चाहिए?",
+        "pt": "Tem mais alguma coisa que devemos saber?"
       },
       "translationsVerified": {
         "es": false,
         "vi": false,
         "zh": false,
         "ar": false,
-        "hi": false
+        "hi": false,
+        "pt": false
       },
       "aslVideo": "asl/anything_else.mp4"
     }

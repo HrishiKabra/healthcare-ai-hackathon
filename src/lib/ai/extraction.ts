@@ -2,6 +2,7 @@ import { allergyFromQuickPick, structuredPatch, toDuration } from "../interpret"
 import { ALLERGY_WORDS } from "../baseline";
 import { lookupMed, findMeds, normalizeMedication, normalizeText } from "../meds";
 import { getQuestion } from "../questions";
+import { sameInEveryLanguage } from "../i18n";
 import type { Allergy, AllergyCategory, PatchEntry, Question } from "../schemas";
 import type { ExtractOutput, ExtractRequest } from "./schemas";
 
@@ -99,8 +100,8 @@ export function questionForExtract(r: ExtractRequest): Question {
     chartField: "notes",
     showIf: null,
     icon: "chat",
-    translations: { es: r.questionEnglish, vi: r.questionEnglish, zh: r.questionEnglish, ar: r.questionEnglish, hi: r.questionEnglish },
-    translationsVerified: { es: false, vi: false, zh: false, ar: false, hi: false },
+    translations: sameInEveryLanguage(r.questionEnglish),
+    translationsVerified: sameInEveryLanguage(false),
     aslVideo: "",
   };
 }

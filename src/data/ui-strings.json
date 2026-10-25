@@ -5,7 +5,8 @@
     "vi": "Đọc to",
     "zh": "朗读",
     "ar": "اقرأ بصوت عالٍ",
-    "hi": "ज़ोर से पढ़ें"
+    "hi": "ज़ोर से पढ़ें",
+    "pt": "Ler em voz alta"
   },
   "waiting": {
     "en": "Please wait. The crew will ask you a question soon.",
@@ -13,7 +14,8 @@
     "vi": "Vui lòng chờ. Nhân viên cấp cứu sẽ hỏi bạn ngay.",
     "zh": "请稍等。急救人员马上会问您问题。",
     "ar": "يرجى الانتظار. سيطرح عليك المسعف سؤالاً قريباً.",
-    "hi": "कृपया रुकिए। टीम जल्द ही आपसे एक सवाल पूछेगी।"
+    "hi": "कृपया रुकिए। टीम जल्द ही आपसे एक सवाल पूछेगी।",
+    "pt": "Por favor, aguarde. A equipe vai fazer uma pergunta em breve."
   },
   "yes": {
     "en": "Yes",
@@ -21,7 +23,8 @@
     "vi": "Có",
     "zh": "是",
     "ar": "نعم",
-    "hi": "हाँ"
+    "hi": "हाँ",
+    "pt": "Sim"
   },
   "no": {
     "en": "No",
@@ -29,7 +32,8 @@
     "vi": "Không",
     "zh": "不是",
     "ar": "لا",
-    "hi": "नहीं"
+    "hi": "नहीं",
+    "pt": "Não"
   },
   "youSaid": {
     "en": "You said:",
@@ -37,7 +41,8 @@
     "vi": "Bạn đã nói:",
     "zh": "您说的是：",
     "ar": "لقد قلت:",
-    "hi": "आपने कहा:"
+    "hi": "आपने कहा:",
+    "pt": "Você disse:"
   },
   "isThisRight": {
     "en": "Is this right?",
@@ -45,7 +50,8 @@
     "vi": "Có đúng không?",
     "zh": "对吗？",
     "ar": "هل هذا صحيح؟",
-    "hi": "क्या यह सही है?"
+    "hi": "क्या यह सही है?",
+    "pt": "Está certo?"
   },
   "confirmYes": {
     "en": "Yes, that is right",
@@ -53,7 +59,8 @@
     "vi": "Đúng rồi",
     "zh": "对",
     "ar": "نعم، هذا صحيح",
-    "hi": "हाँ, यह सही है"
+    "hi": "हाँ, यह सही है",
+    "pt": "Sim, está certo"
   },
   "confirmNo": {
     "en": "No, ask again",
@@ -61,7 +68,8 @@
     "vi": "Không, hỏi lại",
     "zh": "不对，再问一次",
     "ar": "لا، اسأل مرة أخرى",
-    "hi": "नहीं, फिर से पूछिए"
+    "hi": "नहीं, फिर से पूछिए",
+    "pt": "Não, pergunte de novo"
   },
   "done": {
     "en": "Done",
@@ -69,7 +77,8 @@
     "vi": "Xong",
     "zh": "完成",
     "ar": "تم",
-    "hi": "हो गया"
+    "hi": "हो गया",
+    "pt": "Pronto"
   },
   "continue": {
     "en": "Continue",
@@ -77,7 +86,8 @@
     "vi": "Tiếp tục",
     "zh": "继续",
     "ar": "متابعة",
-    "hi": "आगे बढ़ें"
+    "hi": "आगे बढ़ें",
+    "pt": "Continuar"
   },
   "chooseAll": {
     "en": "Choose all that apply",
@@ -85,7 +95,8 @@
     "vi": "Chọn tất cả những gì đúng",
     "zh": "可多选",
     "ar": "اختر كل ما ينطبق",
-    "hi": "जो भी लागू हों, सब चुनें"
+    "hi": "जो भी लागू हों, सब चुनें",
+    "pt": "Escolha todas as opções que se aplicam"
   },
   "orSayIt": {
     "en": "Or say it / type it",
@@ -93,7 +104,8 @@
     "vi": "Hoặc nói / gõ ra",
     "zh": "或者说出来 / 打字",
     "ar": "أو قلها / اكتبها",
-    "hi": "या बोलिए / लिखिए"
+    "hi": "या बोलिए / लिखिए",
+    "pt": "Ou fale / escreva"
   },
   "typeHere": {
     "en": "Type your answer here",
@@ -101,7 +113,8 @@
     "vi": "Gõ câu trả lời ở đây",
     "zh": "在这里输入您的回答",
     "ar": "اكتب إجابتك هنا",
-    "hi": "अपना जवाब यहाँ लिखिए"
+    "hi": "अपना जवाब यहाँ लिखिए",
+    "pt": "Escreva sua resposta aqui"
   },
   "send": {
     "en": "Send",
@@ -109,7 +122,8 @@
     "vi": "Gửi",
     "zh": "发送",
     "ar": "إرسال",
-    "hi": "भेजें"
+    "hi": "भेजें",
+    "pt": "Enviar"
   },
   "speak": {
     "en": "Tap and speak",
@@ -117,7 +131,8 @@
     "vi": "Chạm và nói",
     "zh": "点击后说话",
     "ar": "اضغط وتكلم",
-    "hi": "दबाइए और बोलिए"
+    "hi": "दबाइए और बोलिए",
+    "pt": "Toque e fale"
   },
   "listening": {
     "en": "Listening...",
@@ -125,7 +140,8 @@
     "vi": "Đang nghe...",
     "zh": "正在听...",
     "ar": "جارٍ الاستماع...",
-    "hi": "सुन रहे हैं..."
+    "hi": "सुन रहे हैं...",
+    "pt": "Ouvindo..."
   },
   "stop": {
     "en": "Stop",
@@ -133,7 +149,8 @@
     "vi": "Dừng",
     "zh": "停止",
     "ar": "إيقاف",
-    "hi": "रोकें"
+    "hi": "रोकें",
+    "pt": "Parar"
   },
   "back": {
     "en": "Back",
@@ -141,7 +158,8 @@
     "vi": "Quay lại",
     "zh": "返回",
     "ar": "رجوع",
-    "hi": "वापस"
+    "hi": "वापस",
+    "pt": "Voltar"
   },
   "thinking": {
     "en": "One moment, we are reading your answer.",
@@ -149,7 +167,8 @@
     "vi": "Xin chờ một chút, chúng tôi đang đọc câu trả lời của bạn.",
     "zh": "请稍等，我们正在理解您的回答。",
     "ar": "لحظة من فضلك، نحن نقرأ إجابتك.",
-    "hi": "एक पल रुकिए, हम आपका जवाब पढ़ रहे हैं।"
+    "hi": "एक पल रुकिए, हम आपका जवाब पढ़ रहे हैं।",
+    "pt": "Um momento, estamos lendo sua resposta."
   },
   "micUnavailable": {
     "en": "Speaking is not available here. Please type.",
@@ -157,7 +176,8 @@
     "vi": "Không dùng được giọng nói ở đây. Vui lòng gõ.",
     "zh": "这里无法使用语音，请打字。",
     "ar": "التحدث غير متاح هنا. يرجى الكتابة.",
-    "hi": "यहाँ बोलना उपलब्ध नहीं है। कृपया लिखिए।"
+    "hi": "यहाँ बोलना उपलब्ध नहीं है। कृपया लिखिए।",
+    "pt": "Não é possível falar aqui. Por favor, escreva."
   },
   "instructionWatching": {
     "en": "The crew member is watching. Do your best.",
@@ -165,7 +185,8 @@
     "vi": "Nhân viên cấp cứu đang quan sát. Bạn cố gắng hết sức nhé.",
     "zh": "急救人员正在观察，请尽力去做。",
     "ar": "المسعف يراقبك. افعل ما تستطيع.",
-    "hi": "टीम का सदस्य देख रहा है। जितना हो सके, कोशिश कीजिए।"
+    "hi": "टीम का सदस्य देख रहा है। जितना हो सके, कोशिश कीजिए।",
+    "pt": "O socorrista está observando. Faça o melhor que puder."
   },
   "thankYou": {
     "en": "Thank you.",
@@ -173,7 +194,8 @@
     "vi": "Cảm ơn bạn.",
     "zh": "谢谢。",
     "ar": "شكراً لك.",
-    "hi": "धन्यवाद।"
+    "hi": "धन्यवाद।",
+    "pt": "Obrigado."
   },
   "callEnded": {
     "en": "The call has ended. Thank you.",
@@ -181,7 +203,8 @@
     "vi": "Cuộc gọi đã kết thúc. Cảm ơn bạn.",
     "zh": "通话已结束。谢谢。",
     "ar": "انتهت المكالمة. شكراً لك.",
-    "hi": "कॉल खत्म हो गई है। धन्यवाद।"
+    "hi": "कॉल खत्म हो गई है। धन्यवाद।",
+    "pt": "O atendimento terminou. Obrigado."
   },
   "freeFormLabel": {
     "en": "Question from the crew",
@@ -189,7 +212,8 @@
     "vi": "Câu hỏi từ nhân viên cấp cứu",
     "zh": "急救人员的提问",
     "ar": "سؤال من المسعف",
-    "hi": "टीम का सवाल"
+    "hi": "टीम का सवाल",
+    "pt": "Pergunta da equipe"
   },
   "pointToLanguage": {
     "en": "Point to your language",
@@ -197,7 +221,8 @@
     "vi": "Chỉ vào ngôn ngữ của bạn",
     "zh": "请指出您的语言",
     "ar": "أشر إلى لغتك",
-    "hi": "अपनी भाषा पर उंगली रखिए"
+    "hi": "अपनी भाषा पर उंगली रखिए",
+    "pt": "Aponte para o seu idioma"
   },
   "aslComingSoon": {
     "en": "ASL video coming soon",
@@ -205,7 +230,8 @@
     "vi": "Video ASL sắp có",
     "zh": "ASL视频即将推出",
     "ar": "فيديو لغة الإشارة الأمريكية قريباً",
-    "hi": "ASL वीडियो जल्द आएगा"
+    "hi": "ASL वीडियो जल्द आएगा",
+    "pt": "Vídeo em ASL em breve"
   },
   "gestureHint": {
     "en": "Gesture answer: thumbs up for yes, thumbs down for no",
@@ -213,7 +239,8 @@
     "vi": "Trả lời bằng cử chỉ: giơ ngón cái lên là có, chỉ xuống là không",
     "zh": "手势回答：竖起大拇指表示是，大拇指向下表示不是",
     "ar": "إجابة بالإيماءة: الإبهام لأعلى تعني نعم، والإبهام لأسفل تعني لا",
-    "hi": "इशारे से जवाब: हाँ के लिए अंगूठा ऊपर, नहीं के लिए अंगूठा नीचे"
+    "hi": "इशारे से जवाब: हाँ के लिए अंगूठा ऊपर, नहीं के लिए अंगूठा नीचे",
+    "pt": "Resposta por gesto: polegar para cima para sim, polegar para baixo para não"
   },
   "gestureSeen": {
     "en": "We saw:",
@@ -221,7 +248,8 @@
     "vi": "Chúng tôi thấy:",
     "zh": "我们看到：",
     "ar": "رأينا:",
-    "hi": "हमने देखा:"
+    "hi": "हमने देखा:",
+    "pt": "Vimos:"
   },
   "couldNotUnderstand": {
     "en": "We could not understand that. Please try again or tap an answer.",
@@ -229,7 +257,8 @@
     "vi": "Chúng tôi chưa hiểu. Vui lòng thử lại hoặc chạm vào một câu trả lời.",
     "zh": "我们没能理解。请再试一次，或点击一个答案。",
     "ar": "لم نتمكن من الفهم. حاول مرة أخرى أو اضغط على إجابة.",
-    "hi": "हम समझ नहीं पाए। कृपया फिर से कोशिश कीजिए या कोई जवाब चुनिए।"
+    "hi": "हम समझ नहीं पाए। कृपया फिर से कोशिश कीजिए या कोई जवाब चुनिए।",
+    "pt": "Não conseguimos entender. Tente de novo ou toque em uma resposta."
   },
   "front": {
     "en": "Front",
@@ -237,7 +266,8 @@
     "vi": "Mặt trước",
     "zh": "正面",
     "ar": "الأمام",
-    "hi": "आगे"
+    "hi": "आगे",
+    "pt": "Frente"
   },
   "backSide": {
     "en": "Back",
@@ -245,7 +275,8 @@
     "vi": "Mặt sau",
     "zh": "背面",
     "ar": "الخلف",
-    "hi": "पीछे"
+    "hi": "पीछे",
+    "pt": "Costas"
   },
   "noSpread": {
     "en": "It does not spread",
@@ -253,7 +284,8 @@
     "vi": "Không lan ra",
     "zh": "不扩散",
     "ar": "لا ينتشر",
-    "hi": "नहीं फैलता"
+    "hi": "नहीं फैलता",
+    "pt": "Não espalha"
   },
   "tapBody": {
     "en": "Tap where it is. You can choose more than one.",
@@ -261,7 +293,8 @@
     "vi": "Chạm vào chỗ bị. Bạn có thể chọn nhiều chỗ.",
     "zh": "点击相应部位，可以选择多个。",
     "ar": "اضغط على المكان. يمكنك اختيار أكثر من مكان.",
-    "hi": "जहाँ है वहाँ दबाइए। आप एक से ज़्यादा चुन सकते हैं।"
+    "hi": "जहाँ है वहाँ दबाइए। आप एक से ज़्यादा चुन सकते हैं।",
+    "pt": "Toque onde é. Você pode escolher mais de um."
   },
   "region.head": {
     "en": "Head",
@@ -269,7 +302,8 @@
     "vi": "Đầu",
     "zh": "头",
     "ar": "الرأس",
-    "hi": "सिर"
+    "hi": "सिर",
+    "pt": "Cabeça"
   },
   "region.face": {
     "en": "Face",
@@ -277,7 +311,8 @@
     "vi": "Mặt",
     "zh": "脸",
     "ar": "الوجه",
-    "hi": "चेहरा"
+    "hi": "चेहरा",
+    "pt": "Rosto"
   },
   "region.neck": {
     "en": "Neck",
@@ -285,7 +320,8 @@
     "vi": "Cổ",
     "zh": "脖子",
     "ar": "الرقبة",
-    "hi": "गर्दन"
+    "hi": "गर्दन",
+    "pt": "Pescoço"
   },
   "region.chest": {
     "en": "Chest",
@@ -293,7 +329,8 @@
     "vi": "Ngực",
     "zh": "胸部",
     "ar": "الصدر",
-    "hi": "सीना"
+    "hi": "सीना",
+    "pt": "Peito"
   },
   "region.upper_abdomen": {
     "en": "Upper belly",
@@ -301,7 +338,8 @@
     "vi": "Bụng trên",
     "zh": "上腹部",
     "ar": "أعلى البطن",
-    "hi": "पेट का ऊपरी हिस्सा"
+    "hi": "पेट का ऊपरी हिस्सा",
+    "pt": "Parte de cima da barriga"
   },
   "region.lower_abdomen": {
     "en": "Lower belly",
@@ -309,7 +347,8 @@
     "vi": "Bụng dưới",
     "zh": "下腹部",
     "ar": "أسفل البطن",
-    "hi": "पेट का निचला हिस्सा"
+    "hi": "पेट का निचला हिस्सा",
+    "pt": "Parte de baixo da barriga"
   },
   "region.pelvis": {
     "en": "Hips and pelvis",
@@ -317,7 +356,8 @@
     "vi": "Hông và xương chậu",
     "zh": "骨盆和髋部",
     "ar": "الحوض والورك",
-    "hi": "कूल्हे और श्रोणि"
+    "hi": "कूल्हे और श्रोणि",
+    "pt": "Quadril e pelve"
   },
   "region.back": {
     "en": "Back",
@@ -325,7 +365,8 @@
     "vi": "Lưng",
     "zh": "背部",
     "ar": "الظهر",
-    "hi": "पीठ"
+    "hi": "पीठ",
+    "pt": "Costas"
   },
   "region.left_arm": {
     "en": "Left arm",
@@ -333,7 +374,8 @@
     "vi": "Tay trái",
     "zh": "左臂",
     "ar": "الذراع اليسرى",
-    "hi": "बायाँ हाथ"
+    "hi": "बायाँ हाथ",
+    "pt": "Braço esquerdo"
   },
   "region.right_arm": {
     "en": "Right arm",
@@ -341,7 +383,8 @@
     "vi": "Tay phải",
     "zh": "右臂",
     "ar": "الذراع اليمنى",
-    "hi": "दायाँ हाथ"
+    "hi": "दायाँ हाथ",
+    "pt": "Braço direito"
   },
   "region.left_leg": {
     "en": "Left leg",
@@ -349,7 +392,8 @@
     "vi": "Chân trái",
     "zh": "左腿",
     "ar": "الساق اليسرى",
-    "hi": "बायाँ पैर"
+    "hi": "बायाँ पैर",
+    "pt": "Perna esquerda"
   },
   "region.right_leg": {
     "en": "Right leg",
@@ -357,7 +401,8 @@
     "vi": "Chân phải",
     "zh": "右腿",
     "ar": "الساق اليمنى",
-    "hi": "दायाँ पैर"
+    "hi": "दायाँ पैर",
+    "pt": "Perna direita"
   },
   "painNone": {
     "en": "No pain",
@@ -365,7 +410,8 @@
     "vi": "Không đau",
     "zh": "不痛",
     "ar": "لا ألم",
-    "hi": "कोई दर्द नहीं"
+    "hi": "कोई दर्द नहीं",
+    "pt": "Sem dor"
   },
   "painMild": {
     "en": "A little",
@@ -373,7 +419,8 @@
     "vi": "Hơi đau",
     "zh": "有点痛",
     "ar": "قليلاً",
-    "hi": "थोड़ा"
+    "hi": "थोड़ा",
+    "pt": "Um pouco"
   },
   "painModerate": {
     "en": "Medium",
@@ -381,7 +428,8 @@
     "vi": "Đau vừa",
     "zh": "中等",
     "ar": "متوسط",
-    "hi": "मध्यम"
+    "hi": "मध्यम",
+    "pt": "Média"
   },
   "painSevere": {
     "en": "Very bad",
@@ -389,7 +437,8 @@
     "vi": "Rất đau",
     "zh": "很痛",
     "ar": "شديد جداً",
-    "hi": "बहुत ज़्यादा"
+    "hi": "बहुत ज़्यादा",
+    "pt": "Muito forte"
   },
   "painWorst": {
     "en": "Worst pain",
@@ -397,7 +446,8 @@
     "vi": "Đau nhất",
     "zh": "最痛",
     "ar": "أسوأ ألم",
-    "hi": "सबसे बुरा दर्द"
+    "hi": "सबसे बुरा दर्द",
+    "pt": "A pior dor"
   },
   "painOutOf": {
     "en": "{n} out of 10",
@@ -405,7 +455,8 @@
     "vi": "{n} trên 10",
     "zh": "10分中的{n}分",
     "ar": "{n} من 10",
-    "hi": "10 में से {n}"
+    "hi": "10 में से {n}",
+    "pt": "{n} de 10"
   },
   "howLongAgo": {
     "en": "How long ago?",
@@ -413,7 +464,8 @@
     "vi": "Cách đây bao lâu?",
     "zh": "多久以前？",
     "ar": "منذ متى؟",
-    "hi": "कितनी देर पहले?"
+    "hi": "कितनी देर पहले?",
+    "pt": "Há quanto tempo?"
   },
   "duration.minutes": {
     "en": "A few minutes",
@@ -421,7 +473,8 @@
     "vi": "Vài phút",
     "zh": "几分钟",
     "ar": "بضع دقائق",
-    "hi": "कुछ मिनट"
+    "hi": "कुछ मिनट",
+    "pt": "Alguns minutos"
   },
   "duration.about_1_hour": {
     "en": "About 1 hour",
@@ -429,7 +482,8 @@
     "vi": "Khoảng 1 tiếng",
     "zh": "大约1小时",
     "ar": "حوالي ساعة",
-    "hi": "लगभग 1 घंटा"
+    "hi": "लगभग 1 घंटा",
+    "pt": "Mais ou menos 1 hora"
   },
   "duration.few_hours": {
     "en": "A few hours",
@@ -437,7 +491,8 @@
     "vi": "Vài tiếng",
     "zh": "几个小时",
     "ar": "بضع ساعات",
-    "hi": "कुछ घंटे"
+    "hi": "कुछ घंटे",
+    "pt": "Algumas horas"
   },
   "duration.today": {
     "en": "Earlier today",
@@ -445,7 +500,8 @@
     "vi": "Sớm hơn trong hôm nay",
     "zh": "今天早些时候",
     "ar": "في وقت سابق اليوم",
-    "hi": "आज पहले"
+    "hi": "आज पहले",
+    "pt": "Hoje, mais cedo"
   },
   "duration.yesterday": {
     "en": "Yesterday",
@@ -453,7 +509,8 @@
     "vi": "Hôm qua",
     "zh": "昨天",
     "ar": "أمس",
-    "hi": "कल"
+    "hi": "कल",
+    "pt": "Ontem"
   },
   "duration.days": {
     "en": "Days ago",
@@ -461,7 +518,8 @@
     "vi": "Vài ngày trước",
     "zh": "几天前",
     "ar": "منذ أيام",
-    "hi": "कुछ दिन पहले"
+    "hi": "कुछ दिन पहले",
+    "pt": "Há alguns dias"
   },
   "duration.unknown": {
     "en": "I do not know",
@@ -469,7 +527,8 @@
     "vi": "Tôi không biết",
     "zh": "我不知道",
     "ar": "لا أعرف",
-    "hi": "मुझे नहीं पता"
+    "hi": "मुझे नहीं पता",
+    "pt": "Não sei"
   },
   "exactNumber": {
     "en": "Exact number (optional)",
@@ -477,7 +536,8 @@
     "vi": "Con số cụ thể (không bắt buộc)",
     "zh": "具体数字（可选）",
     "ar": "رقم محدد (اختياري)",
-    "hi": "सही संख्या (वैकल्पिक)"
+    "hi": "सही संख्या (वैकल्पिक)",
+    "pt": "Número exato (opcional)"
   },
   "unit.minutes": {
     "en": "minutes",
@@ -485,7 +545,8 @@
     "vi": "phút",
     "zh": "分钟",
     "ar": "دقائق",
-    "hi": "मिनट"
+    "hi": "मिनट",
+    "pt": "minutos"
   },
   "unit.hours": {
     "en": "hours",
@@ -493,7 +554,8 @@
     "vi": "giờ",
     "zh": "小时",
     "ar": "ساعات",
-    "hi": "घंटे"
+    "hi": "घंटे",
+    "pt": "horas"
   },
   "unit.days": {
     "en": "days",
@@ -501,7 +563,8 @@
     "vi": "ngày",
     "zh": "天",
     "ar": "أيام",
-    "hi": "दिन"
+    "hi": "दिन",
+    "pt": "dias"
   },
   "agoFormat": {
     "en": "{n} {unit} ago",
@@ -509,7 +572,8 @@
     "vi": "{n} {unit} trước",
     "zh": "{n}{unit}前",
     "ar": "منذ {n} {unit}",
-    "hi": "{n} {unit} पहले"
+    "hi": "{n} {unit} पहले",
+    "pt": "há {n} {unit}"
   },
   "field.chiefComplaint": {
     "en": "Main problem",
@@ -517,7 +581,8 @@
     "vi": "Vấn đề chính",
     "zh": "主要问题",
     "ar": "المشكلة الرئيسية",
-    "hi": "मुख्य समस्या"
+    "hi": "मुख्य समस्या",
+    "pt": "Problema principal"
   },
   "field.onset": {
     "en": "Started",
@@ -525,7 +590,8 @@
     "vi": "Bắt đầu",
     "zh": "开始时间",
     "ar": "بدأ",
-    "hi": "शुरू हुआ"
+    "hi": "शुरू हुआ",
+    "pt": "Começou"
   },
   "field.activity": {
     "en": "Doing",
@@ -533,7 +599,8 @@
     "vi": "Đang làm",
     "zh": "当时在做",
     "ar": "كنت تفعل",
-    "hi": "कर रहे थे"
+    "hi": "कर रहे थे",
+    "pt": "Estava fazendo"
   },
   "field.provocation": {
     "en": "Better or worse",
@@ -541,7 +608,8 @@
     "vi": "Đỡ hơn hoặc tệ hơn",
     "zh": "好转或加重",
     "ar": "أفضل أو أسوأ",
-    "hi": "बेहतर या बदतर"
+    "hi": "बेहतर या बदतर",
+    "pt": "Melhora ou piora"
   },
   "field.quality": {
     "en": "Feels like",
@@ -549,7 +617,8 @@
     "vi": "Cảm giác",
     "zh": "感觉",
     "ar": "الإحساس",
-    "hi": "महसूस होता है"
+    "hi": "महसूस होता है",
+    "pt": "Sensação"
   },
   "field.region": {
     "en": "Where",
@@ -557,7 +626,8 @@
     "vi": "Ở đâu",
     "zh": "部位",
     "ar": "المكان",
-    "hi": "कहाँ"
+    "hi": "कहाँ",
+    "pt": "Onde"
   },
   "field.radiation": {
     "en": "Spreads to",
@@ -565,7 +635,8 @@
     "vi": "Lan ra",
     "zh": "扩散到",
     "ar": "ينتشر إلى",
-    "hi": "फैलता है"
+    "hi": "फैलता है",
+    "pt": "Espalha para"
   },
   "field.severity": {
     "en": "Pain level",
@@ -573,7 +644,8 @@
     "vi": "Mức đau",
     "zh": "疼痛程度",
     "ar": "مستوى الألم",
-    "hi": "दर्द का स्तर"
+    "hi": "दर्द का स्तर",
+    "pt": "Nível de dor"
   },
   "field.allergies": {
     "en": "Allergies",
@@ -581,7 +653,8 @@
     "vi": "Dị ứng",
     "zh": "过敏",
     "ar": "الحساسية",
-    "hi": "एलर्जी"
+    "hi": "एलर्जी",
+    "pt": "Alergias"
   },
   "field.medications": {
     "en": "Medicines",
@@ -589,7 +662,8 @@
     "vi": "Thuốc",
     "zh": "药物",
     "ar": "الأدوية",
-    "hi": "दवाएँ"
+    "hi": "दवाएँ",
+    "pt": "Remédios"
   },
   "field.conditions": {
     "en": "Conditions",
@@ -597,7 +671,8 @@
     "vi": "Bệnh",
     "zh": "疾病",
     "ar": "الأمراض",
-    "hi": "बीमारियाँ"
+    "hi": "बीमारियाँ",
+    "pt": "Problemas de saúde"
   },
   "field.lastOralIntake": {
     "en": "Last ate or drank",
@@ -605,7 +680,8 @@
     "vi": "Lần cuối ăn uống",
     "zh": "最后进食或喝水",
     "ar": "آخر أكل أو شرب",
-    "hi": "आखिरी बार खाया या पिया"
+    "hi": "आखिरी बार खाया या पिया",
+    "pt": "Última vez que comeu ou bebeu"
   },
   "field.headStrike": {
     "en": "Hit head",
@@ -613,7 +689,8 @@
     "vi": "Bị đập đầu",
     "zh": "撞到头",
     "ar": "ضرب الرأس",
-    "hi": "सिर पर चोट"
+    "hi": "सिर पर चोट",
+    "pt": "Bateu a cabeça"
   },
   "field.pregnancy": {
     "en": "Pregnant",
@@ -621,7 +698,8 @@
     "vi": "Mang thai",
     "zh": "怀孕",
     "ar": "حامل",
-    "hi": "गर्भवती"
+    "hi": "गर्भवती",
+    "pt": "Grávida"
   },
   "field.lastKnownWell": {
     "en": "Last felt normal",
@@ -629,7 +707,8 @@
     "vi": "Lần cuối thấy bình thường",
     "zh": "最后感觉正常",
     "ar": "آخر مرة شعرت بأنك طبيعي",
-    "hi": "आखिरी बार सामान्य महसूस किया"
+    "hi": "आखिरी बार सामान्य महसूस किया",
+    "pt": "Última vez que se sentiu normal"
   },
   "field.notes": {
     "en": "Note",
@@ -637,7 +716,8 @@
     "vi": "Ghi chú",
     "zh": "备注",
     "ar": "ملاحظة",
-    "hi": "नोट"
+    "hi": "नोट",
+    "pt": "Observação"
   },
   "field.facialDroop": {
     "en": "Face droop",
@@ -645,7 +725,8 @@
     "vi": "Méo mặt",
     "zh": "面部下垂",
     "ar": "تدلي الوجه",
-    "hi": "चेहरा लटकना"
+    "hi": "चेहरा लटकना",
+    "pt": "Rosto caído"
   },
   "field.armDrift": {
     "en": "Arm drift",
@@ -653,7 +734,8 @@
     "vi": "Tay bị rơi xuống",
     "zh": "手臂下垂",
     "ar": "انحراف الذراع",
-    "hi": "हाथ नीचे गिरना"
+    "hi": "हाथ नीचे गिरना",
+    "pt": "Braço que cai"
   },
   "field.speechAbnormal": {
     "en": "Speech problem",
@@ -661,7 +743,8 @@
     "vi": "Khó nói",
     "zh": "说话困难",
     "ar": "مشكلة في الكلام",
-    "hi": "बोलने में दिक्कत"
+    "hi": "बोलने में दिक्कत",
+    "pt": "Problema na fala"
   },
   "allergy.aspirin": {
     "en": "Aspirin",
@@ -669,7 +752,8 @@
     "vi": "Aspirin",
     "zh": "阿司匹林",
     "ar": "الأسبرين",
-    "hi": "एस्पिरिन"
+    "hi": "एस्पिरिन",
+    "pt": "Aspirina"
   },
   "allergy.nsaid": {
     "en": "Ibuprofen or similar pain pills",
@@ -677,7 +761,8 @@
     "vi": "Ibuprofen hoặc thuốc giảm đau tương tự",
     "zh": "布洛芬或类似止痛药",
     "ar": "إيبوبروفين أو مسكنات مشابهة",
-    "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ"
+    "hi": "आइबुप्रोफ़ेन या ऐसी दर्द की गोलियाँ",
+    "pt": "Ibuprofeno ou analgésicos parecidos"
   },
   "allergy.penicillin": {
     "en": "Penicillin",
@@ -685,7 +770,8 @@
     "vi": "Penicillin",
     "zh": "青霉素",
     "ar": "البنسلين",
-    "hi": "पेनिसिलिन"
+    "hi": "पेनिसिलिन",
+    "pt": "Penicilina"
   },
   "allergy.sulfa": {
     "en": "Sulfa drugs",
@@ -693,7 +779,8 @@
     "vi": "Thuốc nhóm sulfa",
     "zh": "磺胺类药物",
     "ar": "أدوية السلفا",
-    "hi": "सल्फ़ा दवाएँ"
+    "hi": "सल्फ़ा दवाएँ",
+    "pt": "Sulfas"
   },
   "allergy.opioid": {
     "en": "Morphine or other opioids",
@@ -701,7 +788,8 @@
     "vi": "Morphin hoặc thuốc opioid khác",
     "zh": "吗啡或其他阿片类药物",
     "ar": "المورفين أو مسكنات أفيونية أخرى",
-    "hi": "मॉर्फ़ीन या अन्य ओपिओइड"
+    "hi": "मॉर्फ़ीन या अन्य ओपिओइड",
+    "pt": "Morfina ou outros opioides"
   },
   "allergy.latex": {
     "en": "Latex",
@@ -709,7 +797,8 @@
     "vi": "Cao su latex",
     "zh": "乳胶",
     "ar": "اللاتكس",
-    "hi": "लेटेक्स"
+    "hi": "लेटेक्स",
+    "pt": "Látex"
   },
   "allergy.food": {
     "en": "A food",
@@ -717,7 +806,8 @@
     "vi": "Thức ăn",
     "zh": "食物",
     "ar": "طعام",
-    "hi": "खाना"
+    "hi": "खाना",
+    "pt": "Um alimento"
   },
   "allergy.other": {
     "en": "Another medicine",
@@ -725,7 +815,8 @@
     "vi": "Thuốc khác",
     "zh": "其他药物",
     "ar": "دواء آخر",
-    "hi": "कोई और दवा"
+    "hi": "कोई और दवा",
+    "pt": "Outro remédio"
   },
   "allergy.none": {
     "en": "No allergies",
@@ -733,7 +824,8 @@
     "vi": "Không dị ứng",
     "zh": "没有过敏",
     "ar": "لا توجد حساسية",
-    "hi": "कोई एलर्जी नहीं"
+    "hi": "कोई एलर्जी नहीं",
+    "pt": "Sem alergias"
   },
   "allergy.unspecified": {
     "en": "Yes, I have an allergy",
@@ -741,7 +833,8 @@
     "vi": "Có, tôi bị dị ứng",
     "zh": "是，我有过敏",
     "ar": "نعم، لدي حساسية",
-    "hi": "हाँ, मुझे एलर्जी है"
+    "hi": "हाँ, मुझे एलर्जी है",
+    "pt": "Sim, tenho alergia"
   },
   "understood.yes": {
     "en": "I can understand",
@@ -749,7 +842,8 @@
     "vi": "Tôi hiểu được",
     "zh": "我能听懂",
     "ar": "أستطيع أن أفهم",
-    "hi": "मुझे समझ आ रहा है"
+    "hi": "मुझे समझ आ रहा है",
+    "pt": "Consigo entender"
   },
   "understood.no": {
     "en": "I cannot understand well",
@@ -757,7 +851,8 @@
     "vi": "Tôi không hiểu rõ",
     "zh": "我听不太懂",
     "ar": "لا أفهم جيداً",
-    "hi": "मुझे ठीक से समझ नहीं आ रहा"
+    "hi": "मुझे ठीक से समझ नहीं आ रहा",
+    "pt": "Não entendo bem"
   },
   "noMedicines": {
     "en": "No medicines",
@@ -765,7 +860,8 @@
     "vi": "Không dùng thuốc",
     "zh": "不吃药",
     "ar": "لا أتناول أدوية",
-    "hi": "कोई दवा नहीं"
+    "hi": "कोई दवा नहीं",
+    "pt": "Nenhum remédio"
   },
   "listSeparator": {
     "en": ", ",
@@ -773,6 +869,7 @@
     "vi": ", ",
     "zh": "、",
     "ar": "، ",
-    "hi": ", "
+    "hi": ", ",
+    "pt": ", "
   }
 }

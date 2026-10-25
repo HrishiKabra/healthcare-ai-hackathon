@@ -16,6 +16,34 @@ describe("sessionReducer", () => {
     expect(s.asked).toEqual(["understand"]);
   });
 
+  it("asking a bank question adds it to the conversation with what the patient saw", () => {
+    const s = run([
+      { type: "setMode", mode: "spoken", language: "es" },
+      { type: "ask", questionId: "medications", at: 5 },
+    ]);
+    expect(s.utterances).toHaveLength(1);
+    expect(s.utterances[0]).toMatchObject({ from: "emt", original: "What medicines do you take?", status: "done", questionId: "medications" });
+    expect(s.utterances[0].translation).toBeTruthy();
+  });
+
+  it("a free-form question shows as translating, then completes in place", () => {
+    const draft = { id: "ff-1", at: 10, from: "emt" as const, original: "Do you feel dizzy?", language: "en" as const, translation: null, status: "translating" as const };
+    let s = run([{ type: "setMode", mode: "spoken", language: "es" }, { type: "utterance", utterance: draft }]);
+    expect(s.utterances[0].status).toBe("translating");
+    s = sessionReducer(s, { type: "askFreeform", question: { id: "ff-1", english: "Do you feel dizzy?", native: "¿Siente mareo?", language: "es", confidence: "high" }, at: 30 });
+    expect(s.utterances).toHaveLength(1);
+    expect(s.utterances[0]).toMatchObject({ at: 10, status: "done", translation: "¿Siente mareo?" });
+  });
+
+  it("a patient line is replaced when its translation arrives", () => {
+    const line = { id: "a1", at: 10, from: "patient" as const, original: "me duele el pecho", language: "es" as const, translation: null, status: "translating" as const };
+    const s = run([
+      { type: "utterance", utterance: line },
+      { type: "utterance", utterance: { ...line, translation: "My chest hurts", status: "done" } },
+    ]);
+    expect(s.utterances).toEqual([{ ...line, translation: "My chest hurts", status: "done" }]);
+  });
+
   it("a proposed answer shows in the chart unconfirmed, then confirmed", () => {
     const a = makeAnswer("chief_complaint", choice("fall_injury"), { status: "pending", id: "x1" });
     let s = run([{ type: "answerProposed", answer: a }]);

@@ -17,6 +17,7 @@ import { getLanguage } from "@/lib/languages";
 import { evaluateRules } from "@/lib/rules";
 import { sessionChart } from "@/lib/session";
 import { EmtHeader } from "./EmtHeader";
+import { Conversation } from "./Conversation";
 import { LiveChart } from "./LiveChart";
 import { ModePicker } from "./ModePicker";
 import { PatientInputs } from "./PatientInputs";
@@ -112,6 +113,7 @@ export function EmtConsole({
             <FreeformComposer
               lang={state.mode === "spoken" ? state.language : "en"}
               onAsk={(question) => dispatch({ type: "askFreeform", question, at: Date.now() })}
+              onDraft={(utterance) => dispatch({ type: "utterance", utterance })}
             />
           ) : null}
           {!state.scenarioId && !controls ? (
@@ -129,6 +131,7 @@ export function EmtConsole({
               <ModePicker onPick={(mode, language) => dispatch({ type: "setMode", mode, language })} />
             </section>
           ) : null}
+          {state.mode ? <Conversation state={state} /> : null}
           <LiveChart chart={chart} answers={state.answers} freeform={state.freeform} modeChosen={!!state.mode} />
           {belowChart}
         </div>

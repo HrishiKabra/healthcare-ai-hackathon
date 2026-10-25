@@ -2,7 +2,8 @@
 
 import { useCallback, useState } from "react";
 import { interpretStructured } from "@/lib/interpret";
-import type { Answer, AnswerValue, ConfirmText, LangCode, PatchEntry, Question } from "@/lib/schemas";
+import type { Answer, AnswerValue, Confidence, ConfirmText, LangCode, PatchEntry, Question } from "@/lib/schemas";
+import type { Utterance } from "@/lib/session";
 
 export type FreeInterpretation = {
   patch: PatchEntry[];
@@ -22,6 +23,8 @@ export type AnswerSink = {
   proposed: (a: Answer) => void;
   confirmed: (answerId: string) => void;
   rejected: (answerId: string) => void;
+  /** The patient's own words and, once ready, their English translation, for the live conversation. */
+  heard?: (u: Utterance) => void;
 };
 
 function answerId(): string {
@@ -39,7 +42,7 @@ export function usePatientAnswering(opts: {
   promptKey?: string | null;
   lang: LangCode;
   sink: AnswerSink;
-  interpretFree: (q: Question, text: string, lang: LangCode) => Promise<FreeInterpretation>;
+  interpretFree: (q: Question, text: string, lang: LangCode, onTranslated?: (english: string | null, confidence: Confidence) => void) => Promise<FreeInterpretation>;
 }) {
   const { q, lang, sink, interpretFree } = opts;
   const key = opts.promptKey !== undefined ? opts.promptKey : (q?.id ?? null);
@@ -73,14 +76,20 @@ export function usePatientAnswering(opts: {
     async (text: string) => {
       if (!q) return;
       setStep({ kind: "thinking" });
+      // The same id links the conversation line to the answer it becomes.
+      const id = answerId();
+      const line: Utterance = { id, at: Date.now(), from: "patient", original: text, language: lang, translation: lang === "en" ? text : null, status: lang === "en" ? "done" : "translating", questionId: q.id };
+      sink.heard?.(line);
       try {
-        const r = await interpretFree(q, text, lang);
+        const r = await interpretFree(q, text, lang, (english, confidence) =>
+          sink.heard?.(english == null ? { ...line, status: "failed" } : { ...line, translation: english, status: "done", confidence }),
+        );
         if (!r.patch.length && !r.confirmText.native.trim()) {
           setStep({ kind: "answering", notice: "couldNotUnderstand" });
           return;
         }
         propose({
-          id: answerId(),
+          id,
           questionId: q.id,
           value: { kind: "free", text, english: r.english },
           language: lang,
@@ -93,10 +102,11 @@ export function usePatientAnswering(opts: {
           needsReview: r.needsReview,
         });
       } catch {
+        sink.heard?.({ ...line, status: "failed" });
         setStep({ kind: "answering", notice: "couldNotUnderstand" });
       }
     },
-    [q, lang, interpretFree, propose],
+    [q, lang, interpretFree, propose, sink],
   );
 
   const onConfirm = useCallback(

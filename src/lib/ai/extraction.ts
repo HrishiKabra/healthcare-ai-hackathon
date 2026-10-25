@@ -1,5 +1,6 @@
 import { allergyFromQuickPick, structuredPatch, toDuration } from "../interpret";
-import { lookupMed, findMeds, normalizeMedication } from "../meds";
+import { ALLERGY_WORDS } from "../baseline";
+import { lookupMed, findMeds, normalizeMedication, normalizeText } from "../meds";
 import { getQuestion } from "../questions";
 import type { Allergy, AllergyCategory, PatchEntry, Question } from "../schemas";
 import type { ExtractOutput, ExtractRequest } from "./schemas";
@@ -14,20 +15,29 @@ export function normalizeAllergy(a: { raw: string; substance: string | null; cat
   return { raw: a.raw, substance: a.substance, category: a.category };
 }
 
+/** True when the patient's words (original or English) mention an allergy at all. */
+export function mentionsAllergy(said: string[]): boolean {
+  const hay = normalizeText(said.join(" "));
+  return ALLERGY_WORDS.some((w) => hay.includes(normalizeText(w)));
+}
+
 /**
  * Maps a validated model (or baseline) extraction onto chart entries for one
  * question. Only fields the question can carry are used for the question's own
- * slot; medications, allergies, and notes are always accepted because patients
- * volunteer them anywhere. Never invents values the output did not contain.
+ * slot. Medications and notes are accepted from any answer because patients
+ * volunteer them anywhere; a volunteered allergy is accepted only when the
+ * patient's words mention an allergy (`said`), since small models tend to fill
+ * every field. "None" answers only count on their own question. Never invents
+ * values the output did not contain.
  */
-export function extractionToPatch(q: Question, out: ExtractOutput): PatchEntry[] {
+export function extractionToPatch(q: Question, out: ExtractOutput, said?: string[]): PatchEntry[] {
   const c = out.confidence;
   const patch: PatchEntry[] = [];
   const f = q.chartField;
 
   if (out.chiefComplaint && f === "chiefComplaint") patch.push({ field: "chiefComplaint", value: out.chiefComplaint, confidence: c });
   if (out.activity && f === "activity") patch.push({ field: "activity", value: out.activity, confidence: c });
-  if (out.quality) patch.push({ field: "quality", value: out.quality, confidence: c });
+  if (out.quality && (f === "quality" || f === "chiefComplaint")) patch.push({ field: "quality", value: out.quality, confidence: c });
   if (f === "provocation") out.provocation.forEach((v) => patch.push({ field: "provocation", value: v, confidence: c }));
   if (f === "region" || f === "chiefComplaint") out.region.forEach((v) => patch.push({ field: "region", value: v, confidence: c }));
   if (f === "radiation") out.radiation.forEach((v) => patch.push({ field: "radiation", value: v, confidence: c }));
@@ -41,7 +51,10 @@ export function extractionToPatch(q: Question, out: ExtractOutput): PatchEntry[]
   if (f === "conditions" || f === "notes") out.conditions.forEach((v) => patch.push({ field: "conditions", value: v, confidence: c }));
 
   const allergyQuestion = f === "allergies";
-  for (const a of out.allergies) patch.push({ field: "allergies", value: normalizeAllergy(a), confidence: c });
+  const volunteered = (a: ExtractOutput["allergies"][number]) => a.category !== "none" && a.category !== "unspecified" && (!said || mentionsAllergy(said));
+  for (const a of out.allergies) {
+    if (allergyQuestion || volunteered(a)) patch.push({ field: "allergies", value: normalizeAllergy(a), confidence: c });
+  }
   for (const m of out.medications) {
     // On the allergy questions, a named drug is an allergy, not a medicine the patient takes.
     if (allergyQuestion) {
@@ -49,7 +62,7 @@ export function extractionToPatch(q: Question, out: ExtractOutput): PatchEntry[]
       continue;
     }
     if (m.generic === "none") {
-      patch.push({ field: "medications", value: { raw: m.raw, generic: "none", drugClass: "none", classSource: "none" }, confidence: c });
+      if (f === "medications") patch.push({ field: "medications", value: { raw: m.raw, generic: "none", drugClass: "none", classSource: "none" }, confidence: c });
       continue;
     }
     patch.push({ field: "medications", value: normalizeMedication(m.raw, m.generic, m.drugClass), confidence: c });

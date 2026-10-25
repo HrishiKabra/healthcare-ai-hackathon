@@ -42,3 +42,27 @@ describe("normalizeAllergy", () => {
     expect(normalizeAllergy({ raw: "amoxicilina", substance: "amoxicillin", category: "other" }).category).toBe("penicillin");
   });
 });
+
+describe("extractionToPatch with the patient's words", () => {
+  const meds = requireQuestion("medications");
+  const xarelto = { raw: "Xarelto", generic: "rivaroxaban", drugClass: "anticoagulant" as const };
+
+  it("drops allergies a small model filled in when the patient never mentioned one", () => {
+    const p = extractionToPatch(meds, out({ medications: [xarelto], allergies: [{ raw: "aspirin", substance: "aspirin", category: "aspirin" }] }), ["tomo Xarelto", "I take Xarelto"]);
+    expect(p.map((e) => e.field)).toEqual(["medications"]);
+  });
+
+  it("keeps a volunteered allergy when the patient mentioned one", () => {
+    const p = extractionToPatch(meds, out({ allergies: [{ raw: "aspirina", substance: "aspirin", category: "aspirin" }] }), ["tomo Xarelto, soy alérgico a la aspirina", ""]);
+    expect(p.map((e) => e.field)).toEqual(["allergies"]);
+  });
+
+  it("only counts 'none' on its own question", () => {
+    expect(extractionToPatch(meds, out({ allergies: [{ raw: "nothing", substance: null, category: "none" }] }), ["no allergies"])).toEqual([]);
+    expect(extractionToPatch(requireQuestion("conditions"), out({ medications: [{ raw: "nada", generic: "none", drugClass: "none" }] }), ["nada"])).toEqual([]);
+  });
+
+  it("ignores pain quality on unrelated questions", () => {
+    expect(extractionToPatch(meds, out({ quality: "pressure" }), ["tomo Xarelto"])).toEqual([]);
+  });
+});

@@ -65,7 +65,7 @@ export async function runExtract(provider: AiProvider, r: ExtractRequest): Promi
   if (q.chartField === "notes" && r.answerEnglish && meta.provider === "baseline") {
     output = { ...output, notes: output.notes.map((n) => (n === r.answerRaw.trim() ? r.answerEnglish!.trim() : n)) };
   }
-  const patch = extractionToPatch(q, output);
+  const patch = extractionToPatch(q, output, [r.answerRaw, r.answerEnglish ?? ""]);
   return { output, patch, needsReview: output.confidence === "low" || meta.provider === "baseline", meta };
 }
 

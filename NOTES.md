@@ -119,9 +119,19 @@ Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `n
 - `README.md`: running locally, the screens, scripts, switching off demo mode (on-device and cloud), deploying to Vercel, adding ASL videos (the full list of file names), verifying translations, a 2-minute demo click path, and the eval.
 - This summary.
 
+### After handover: live conversation panel (tested with the team's Ollama)
+- The team pulled `qwen3:1.7b` and `qwen3:4b`. On the real model, a patient's typed answer was translated but only showed up in small print under a chart field, and never reached the EMT if no chart field could be pulled from it.
+- **Conversation panel** on the EMT console, above the live chart. In time order it shows every question sent (English, plus what the patient saw), the patient's own words with the English translation, and the patient's taps. Each answer is marked Not confirmed yet, Confirmed, or Patient said this was wrong.
+- **Translation shows up first.** Lines appear the moment something is sent, marked "Translating" with a seconds counter. The patient's English translation is shown as soon as it arrives, before chart extraction finishes. An EMT question that went out untranslated, or a translation that failed, is called out.
+- **Fewer invented answers.** Small models fill every field: on "What medicines do you take?" qwen3:4b also returned "no allergies", a pain location and a condition. An allergy mentioned in reply to some other question is now kept only when the patient's words mention an allergy. A "none" answer only counts for the question it answers, and pain quality only counts on the quality and chief-complaint questions.
+- Ollama requests send `keep_alive: 30m` so the model stays loaded between answers.
+- **Timings on this laptop with qwen3:4b, model loaded:** question translated in 3 s; the patient's answer shown in English after 5 s; chart fields and confirm-back after about 19 s. A cold start took 23 s for one translation. Extraction is the slow step.
+- The transcript lives in the session state only (memory and sessionStorage) and is cleared on End call like everything else.
+- Checks: 168 unit tests pass (new tests cover the transcript reducer, line ordering, translation arriving before extraction, and the extraction filters). In headless Chrome, the Spanish chest-pain scenario still plays in demo mode with no network. A live free-form exchange works against qwen3:4b.
+
 ## Needs a human
 
-- **Run a real model.** Pull `qwen3:1.7b` (or another preset) and run `npm run eval -- --provider ollama`; add a key and run `npm run eval:compare`. Read `eval/results.md`: the demo-mode numbers are against canned answers, not a model. Expect small models to miss some colloquial phrasing; tune `src/lib/ai/prompts.ts` if so.
+- **Run a real model.** Models are pulled; run `npm run eval -- --provider ollama` (and with `OLLAMA_MODEL=qwen3:4b`); add a key and run `npm run eval:compare`. Extraction on qwen3:4b takes about 15 s per answer; consider 1.7b for live use, or a slimmer extraction schema. Read `eval/results.md`: the demo-mode numbers are against canned answers, not a model. Expect small models to miss some colloquial phrasing; tune `src/lib/ai/prompts.ts` if so.
 - **Record ASL videos** with a fluent Deaf signer: one clip per question in `public/asl/` (file names in the README).
 - **Interview an EMT** and update the question bank (`src/data/questions.json`) and rules (`src/lib/rules.ts`) from their feedback. The rule thresholds (for example the 4.5 hour stroke window wording) need clinical review.
 - **Deploy to Vercel** for the demo link (no environment variables needed). Check the microphone on the hosted https link in Chrome.

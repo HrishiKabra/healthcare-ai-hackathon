@@ -33,6 +33,7 @@ export function PatientLive({ sessionId, extras }: { sessionId: string; extras?:
       proposed: (answer) => send({ type: "answerProposed", answer }),
       confirmed: (answerId) => send({ type: "answerConfirmed", answerId }),
       rejected: (answerId) => send({ type: "answerRejected", answerId }),
+      heard: (utterance) => send({ type: "utterance", utterance }),
     }),
     [send],
   );

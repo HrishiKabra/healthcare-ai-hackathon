@@ -65,7 +65,7 @@ export const baselineCalls: AiCalls = {
   extract: async (r) => {
     const q = questionForExtract(r);
     const output = baselineExtract(q, r.answerRaw, r.answerLanguage);
-    return { output, patch: extractionToPatch(q, output), needsReview: true, meta: { provider: "baseline", model: "keyword matching" } };
+    return { output, patch: extractionToPatch(q, output, [r.answerRaw, r.answerEnglish ?? ""]), needsReview: true, meta: { provider: "baseline", model: "keyword matching" } };
   },
 };
 

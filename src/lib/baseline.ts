@@ -10,7 +10,7 @@ import { BODY_REGIONS, type AllergyCategory, type DurationUnit, type LangCode, t
 
 const NEGATIONS = ["no", "none", "nothing", "never", "ninguno", "ninguna", "nada", "không", "没有", "لا", "ليس", "नहीं", "कोई नहीं"];
 const AFFIRMATIONS = ["yes", "yeah", "sí", "si", "có", "是", "是的", "有", "对", "نعم", "أيوه", "हाँ", "हां", "जी"];
-const ALLERGY_WORDS = ["allerg", "alergi", "alérgic", "dị ứng", "过敏", "حساسية", "حساسيه", "एलर्जी"];
+export const ALLERGY_WORDS = ["allerg", "alergi", "alérgic", "dị ứng", "过敏", "حساسية", "حساسيه", "एलर्जी"];
 const UNIT_WORDS: Record<DurationUnit, string[]> = {
   minutes: ["minute", "min", "minuto", "phút", "分钟", "دقيقة", "دقائق", "मिनट"],
   hours: ["hour", "hr", "hora", "giờ", "tiếng", "小时", "ساعة", "ساعات", "घंटे", "घंटा"],

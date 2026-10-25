@@ -17,7 +17,11 @@ export function useEmtSession(sessionId: string) {
   const [state, dispatchLocal] = useReducer(
     sessionReducer,
     sessionId,
-    (id) => readJson<SessionState>("session", key(id)) ?? newSession(id, Date.now()),
+    (id) => {
+      const saved = readJson<SessionState>("session", key(id));
+      // Older saved sessions may lack newer fields; fill them from a fresh session.
+      return saved ? { ...newSession(id, saved.startedAt), ...saved } : newSession(id, Date.now());
+    },
   );
   const stateRef = useRef(state);
   const busRef = useRef<Bus | null>(null);

@@ -64,4 +64,4 @@ export function openBus(sessionId: string): Bus {
 }
 
 /** Events a non-EMT window is allowed to send. The EMT window ignores everything else. */
-export const PATIENT_EVENTS: ReadonlySet<SessionEvent["type"]> = new Set(["answerProposed", "answerConfirmed", "answerRejected", "setMode"]);
+export const PATIENT_EVENTS: ReadonlySet<SessionEvent["type"]> = new Set(["answerProposed", "answerConfirmed", "answerRejected", "setMode", "utterance"]);

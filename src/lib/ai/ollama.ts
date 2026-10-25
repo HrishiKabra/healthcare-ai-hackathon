@@ -8,6 +8,8 @@ import { ExplainOutput, ExtractOutput, NarrativeOutput, TranslateOutput } from "
 // JSON schema so the model is forced into valid JSON; Zod validates it anyway.
 
 const TIMEOUT_MS = 60_000;
+// Keep the model in memory between answers so a call does not pay the load time again.
+const KEEP_ALIVE = "30m";
 
 async function callJson<T>(baseUrl: string, model: string, schema: z.ZodType<T>, system: string, user: string): Promise<T> {
   let res: Response;
@@ -20,6 +22,7 @@ async function callJson<T>(baseUrl: string, model: string, schema: z.ZodType<T>,
         model,
         stream: false,
         think: false,
+        keep_alive: KEEP_ALIVE,
         format: jsonSchemaFor(schema),
         options: { temperature: 0 },
         messages: [

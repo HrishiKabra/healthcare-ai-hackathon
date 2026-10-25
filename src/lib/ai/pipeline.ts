@@ -23,7 +23,14 @@ export type FreeResult = {
  * understood (localized labels). The model's own wording is only used when
  * nothing structured came out. An empty patch means "could not understand".
  */
-export async function interpretFree(calls: AiCalls, q: Question, text: string, lang: LangCode): Promise<FreeResult> {
+export async function interpretFree(
+  calls: AiCalls,
+  q: Question,
+  text: string,
+  lang: LangCode,
+  /** Called with the English as soon as it is known, before extraction finishes; null when no translation was possible. */
+  onTranslated?: (english: string | null, confidence: TranslateResponse["confidence"]) => void,
+): Promise<FreeResult> {
   let english = text;
   let back = text;
   let lowTranslation = false;
@@ -32,6 +39,9 @@ export async function interpretFree(calls: AiCalls, q: Question, text: string, l
     english = t.translation;
     back = t.backTranslation || text;
     lowTranslation = t.confidence === "low";
+    onTranslated?.(t.meta.fallbackReason ? null : english, t.confidence);
+  } else {
+    onTranslated?.(text, "high");
   }
   const x = await calls.extract({ questionId: q.id, questionEnglish: q.english, answerRaw: text, answerLanguage: lang, answerEnglish: english });
   const source: Answer["source"] = x.meta.provider;

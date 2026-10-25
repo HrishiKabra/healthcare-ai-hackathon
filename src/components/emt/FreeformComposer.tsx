@@ -6,10 +6,10 @@ import { useSpeechInput } from "@/hooks/useSpeechInput";
 import { translateQuestion } from "@/lib/ai/client";
 import { getLanguage } from "@/lib/languages";
 import type { LangCode } from "@/lib/schemas";
-import type { FreeformQuestion } from "@/lib/session";
+import type { FreeformQuestion, Utterance } from "@/lib/session";
 
 /** The EMT asks something that is not in the bank. It is translated and marked "free-form". */
-export function FreeformComposer({ lang, onAsk }: { lang: LangCode; onAsk: (q: FreeformQuestion) => void }) {
+export function FreeformComposer({ lang, onAsk, onDraft }: { lang: LangCode; onAsk: (q: FreeformQuestion) => void; onDraft: (u: Utterance) => void }) {
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const [last, setLast] = useState<{ native: string; back: string; confidence: string; notes: string } | null>(null);
@@ -19,18 +19,24 @@ export function FreeformComposer({ lang, onAsk }: { lang: LangCode; onAsk: (q: F
   const send = async () => {
     const english = text.trim();
     if (!english) return;
+    const id = `ff-${Date.now().toString(36)}`;
+    setText("");
+    if (lang === "en") {
+      onAsk({ id, english, native: english, language: "en", confidence: "high" });
+      setLast(null);
+      return;
+    }
+    // Show the question in the conversation now; the translation fills in when it arrives.
+    const draft: Utterance = { id, at: Date.now(), from: "emt", original: english, language: "en", translation: null, status: "translating", questionId: id };
+    onDraft(draft);
     setBusy(true);
     try {
-      const id = `ff-${Date.now().toString(36)}`;
-      if (lang === "en") {
-        onAsk({ id, english, native: english, language: "en", confidence: "high" });
-        setLast(null);
-      } else {
-        const t = await translateQuestion(english, lang);
-        onAsk({ id, english, native: t.translation, language: lang, confidence: t.confidence });
-        setLast({ native: t.translation, back: t.backTranslation, confidence: t.confidence, notes: t.notes });
-      }
-      setText("");
+      const t = await translateQuestion(english, lang);
+      onAsk({ id, english, native: t.translation, language: lang, confidence: t.confidence });
+      setLast({ native: t.translation, back: t.backTranslation, confidence: t.confidence, notes: t.notes });
+    } catch {
+      onDraft({ ...draft, status: "failed" });
+      setText((cur) => cur || english);
     } finally {
       setBusy(false);
     }

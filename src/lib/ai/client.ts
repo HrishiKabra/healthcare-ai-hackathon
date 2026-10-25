@@ -43,8 +43,8 @@ export const apiCalls: AiCalls = {
   extract: (r: ExtractRequest) => post("/api/extract", r, ExtractResponse),
 };
 
-export async function interpretFreeAnswer(q: Question, text: string, lang: LangCode): Promise<FreeInterpretation> {
-  return interpretFree(apiCalls, q, text, lang);
+export async function interpretFreeAnswer(q: Question, text: string, lang: LangCode, onTranslated?: Parameters<typeof interpretFree>[4]): Promise<FreeInterpretation> {
+  return interpretFree(apiCalls, q, text, lang, onTranslated);
 }
 
 export async function translateQuestion(text: string, to: LangCode) {

@@ -13,6 +13,8 @@ export const GLOSSARY = [
   "allergy = alergia = dị ứng = 过敏 = حساسية = एलर्जी = alergia",
   "dizziness = mareo = chóng mặt = 头晕 = دوخة = चक्कर = tontura",
   "hit my head = me golpeé la cabeza = đập đầu = 撞到头 = ضربت رأسي = सिर पर चोट लगी = bati a cabeça",
+  "peanut = maní, cacahuate = đậu phộng = 花生 = فول سوداني = मूंगफली = amendoim",
+  "five = cinco = năm = 五 = خمسة = पाँच = cinco",
 ].join("\n");
 
 export function translatePrompt(r: TranslateRequest): { system: string; user: string } {

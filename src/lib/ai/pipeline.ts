@@ -1,3 +1,4 @@
+import { allergenNote, lostAllergens } from "../allergens";
 import { confirmFromPatch } from "../interpret";
 import type { Answer, LangCode, Question } from "../schemas";
 import { hasStructured } from "./extraction";
@@ -39,7 +40,13 @@ export async function interpretFree(
     english = t.translation;
     back = t.backTranslation || text;
     lowTranslation = t.confidence === "low";
-    onTranslated?.(t.meta.fallbackReason ? null : english, t.confidence);
+    // The allergen table wins: if the patient named an allergen the translation lost, say so and distrust it.
+    const lost = t.meta.fallbackReason ? [] : lostAllergens(text, english);
+    if (lost.length) {
+      english = `${english} (${allergenNote(lost)})`;
+      lowTranslation = true;
+    }
+    onTranslated?.(t.meta.fallbackReason ? null : english, lost.length ? "low" : t.confidence);
   } else {
     onTranslated?.(text, "high");
   }

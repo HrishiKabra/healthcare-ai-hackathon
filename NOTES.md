@@ -61,6 +61,8 @@ Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `n
 - **Rule 10 (head strike while intoxicated)** was added for campus calls. Its wording ("do not put confusion down to intoxication alone; reassess mental status; consider ALS and a head CT") needs review by the TEMS medical director.
 - **The alcohol question** shows "We ask only for your safety. Please tell us the truth so we can help you." It deliberately does not promise "you will not get in trouble": the app cannot guarantee that.
 - **Portuguese is Brazilian Portuguese** (`pt-BR`, "você"), because Brazil is one of Tulane's top international origins. Unverified like the rest.
+- **Allergen table wins over the model** (`src/lib/allergens.ts`): common food allergens in all six languages. If the patient names one and the English translation loses it, the translation is marked low confidence with "Allergen check: the patient said "amendoim", which means peanut", and the chart records the table allergen. Added after live testing showed qwen3:1.7b translating Portuguese "amendoim" (peanut) as "almonds".
+- **Read-aloud speaks warnings too** ("Warning. Check blood sugar."), not only critical flags: end-to-end testing showed a hands-free EMT would never hear the blood-sugar warning.
 - **Handoff recipient** defaults to the ED; campus scenarios default to NOEMS. A NOEMS handoff lists red flags first.
 
 ## Progress
@@ -155,6 +157,16 @@ Final checks on the last commit: `npm run typecheck`, `npm test` (157 tests), `n
 
   Both models more than double red-flag recall over keyword matching with no false alarms. Misses: 1.7b missed the torn aorta (Arabic); 4b missed pregnancy with belly pain (Spanish) and the campus head strike while drunk (Vietnamese). **Medication class accuracy is worse than keyword matching for both models**: when a drug name is in the table the baseline is exact, while the models sometimes add a class or a "none" that the gold does not have. Next tuning step: trust the table first and use the model only for medicines described without a name.
 - Checks: 193 unit tests; in headless Chrome, both drill methods end to end with results and CSV export, a Portuguese drill with typed card lines in demo mode, all three campus scenarios with the right flag and a NOEMS handoff, read-aloud during a full scenario, zero external requests.
+
+### Full test pass (2026-10-25)
+- Static: typecheck, 197 unit tests, lint, build, mock eval, all clean.
+- Every route returns 200 (unknown routes 404), every page shows the prototype footer, and every API route answers good input and rejects bad input or non-JSON with 400.
+- Headless Chrome, demo mode, all non-localhost requests blocked (zero made):
+  - All 6 scenarios in three windows (EMT, patient, ER): exactly the expected red flag, every answer translated, nothing unconfirmed, read-aloud speaking each answer, handoff addressed correctly (ED or NOEMS) with the right interpreter box, and End call clearing all three windows and session storage.
+  - Every question with every widget, mouse and touch, at 1024x768. Every question screen in all 6 languages shows the right text with no sideways overflow, and Arabic renders right to left (132 screens).
+  - Both drill methods, the survey, the results table, and CSV export. A Portuguese drill works offline with typed card lines.
+  - Start page groups, campus scenario load, `/demo` with a campus scenario and the ER panel, confirm-back "No" then "Yes", a canned free-form question, `/eval` in the browser, and `/about`.
+- Live on qwen3:1.7b (the team's dev server): all three campus scenarios autoplay with the right red flag and no keyword fallback, in 43 to 60 seconds each. Translation mistakes seen live: "amendoim" (peanut) as "almonds" (now caught by the allergen table), "about five cans" as "about a bottle" (the flag still fired; the glossary now has "five"). qwen3:4b translated peanut correctly but once turned an answer into a question.
 
 ## Needs a human
 

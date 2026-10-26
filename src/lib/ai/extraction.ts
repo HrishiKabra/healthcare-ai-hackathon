@@ -1,4 +1,5 @@
 import { allergyFromQuickPick, structuredPatch, toDuration } from "../interpret";
+import { findAllergens, lookupAllergen } from "../allergens";
 import { ALLERGY_WORDS } from "../baseline";
 import { lookupMed, findMeds, normalizeMedication, normalizeText } from "../meds";
 import { getQuestion } from "../questions";
@@ -8,6 +9,8 @@ import type { ExtractOutput, ExtractRequest } from "./schemas";
 
 /** Allergy category from the med table when the substance is a known drug; the table wins. */
 export function normalizeAllergy(a: { raw: string; substance: string | null; category: AllergyCategory }): Allergy {
+  const food = lookupAllergen(a.substance) ?? lookupAllergen(a.raw);
+  if (food && (a.category === "food" || a.category === "other" || a.category === "unspecified")) return { raw: a.raw, substance: food.english, category: "food" };
   const entry = (a.substance && lookupMed(a.substance)) || findMeds(a.raw)[0]?.entry;
   if (entry?.allergyCategory) return { raw: a.raw, substance: entry.generic, category: entry.allergyCategory };
   if (entry) return { raw: a.raw, substance: entry.generic, category: a.category === "none" ? "none" : "other" };
@@ -53,8 +56,15 @@ export function extractionToPatch(q: Question, out: ExtractOutput, said?: string
 
   const allergyQuestion = f === "allergies";
   const volunteered = (a: ExtractOutput["allergies"][number]) => a.category !== "none" && a.category !== "unspecified" && (!said || mentionsAllergy(said));
+  // Food allergens the patient named in their own words (said[0] is the original), to overrule a mistranslated one.
+  const named = said ? findAllergens(said[0] ?? "") : [];
   for (const a of out.allergies) {
-    if (allergyQuestion || volunteered(a)) patch.push({ field: "allergies", value: normalizeAllergy(a), confidence: c });
+    if (!(allergyQuestion || volunteered(a))) continue;
+    let value = normalizeAllergy(a);
+    if (value.category === "food" && named.length && !named.some((m) => m.allergen.english === lookupAllergen(value.substance)?.english)) {
+      value = { ...value, substance: named[0].allergen.english };
+    }
+    patch.push({ field: "allergies", value, confidence: c });
   }
   for (const m of out.medications) {
     // On the allergy questions, a named drug is an allergy, not a medicine the patient takes.
